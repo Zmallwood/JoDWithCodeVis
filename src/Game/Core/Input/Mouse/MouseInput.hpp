@@ -17,6 +17,14 @@ class MouseInput {
     
     bool AnyButtonIsPressed() const;
     
+    auto GetLeftButton() {
+        return m_leftButton;
+    }
+    
+    auto GetRightButton() {
+        return m_rightButton;
+    }
+    
   private:
     std::shared_ptr<MouseButton> m_leftButton;
     std::shared_ptr<MouseButton> m_rightButton;

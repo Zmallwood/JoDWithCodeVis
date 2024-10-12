@@ -6,6 +6,8 @@
 #include "Game/Core/Graphics/Rendering/ImageRendering/ImageRenderer.hpp"
 #include "Game/Core/Graphics/Rendering/TextRendering/TextRenderer.hpp"
 #include "Game/Core/Cursor/Cursor.hpp"
+#include "Game/Core/Input/Mouse/MouseInput.hpp"
+#include "Game/Core/Input/Mouse/MouseButton.hpp"
 
 namespace JoD {
 GUIButton::GUIButton(std::string_view text, BoxF area,
@@ -25,6 +27,9 @@ void GUIButton::UpdateDerived() {
     if (m_area.Contains(mousePosition)) {
         m_activeBackImage = &m_backHoveredImageName;
         _<Cursor>().SetCursorStyle(CursorStyles::Hovering);
+        if (_<MouseInput>().GetLeftButton()->GetIsPressed()) {
+            m_action();
+        }
     }
     else {
         m_activeBackImage = &m_backImageName;

@@ -9,6 +9,10 @@ namespace JoD {
 IScene::IScene()
     : m_gui(std::make_shared<GUI>()) {}
 
+void IScene::OnEnter() {
+    OnEnterDerived();
+}
+
 void IScene::Update() {
     m_gui->Update();
     UpdateDerived();

@@ -2,8 +2,8 @@
  * Copyright 2024 Andreas Åkerberg
  */
 
-#pragma once
+#include "WorldArea.hpp"
 
 namespace JoD {
-Point2F GetMousePosition();
+WorldArea::WorldArea() {}
 }

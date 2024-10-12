@@ -5,5 +5,9 @@
 #pragma once
 
 namespace JoD {
-Point2F GetMousePosition();
+class GameProperties {
+  public:
+    
+  private:
+};
 }

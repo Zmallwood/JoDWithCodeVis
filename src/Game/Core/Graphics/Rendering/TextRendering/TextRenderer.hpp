@@ -25,7 +25,7 @@ class TextRenderer {
     
     void DrawString(int id,
                     std::string_view text,
-                    PointF position,
+                    Point2F position,
                     ColorF color = Colors::White,
                     bool centerAlign= false,
                     FontSizes fontSize= FontSizes::_20);

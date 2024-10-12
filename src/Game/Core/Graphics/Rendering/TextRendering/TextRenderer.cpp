@@ -110,7 +110,7 @@ int TextRenderer::NewString() {
     return id;
 }
 
-void TextRenderer::DrawString(int id, std::string_view text, PointF position,
+void TextRenderer::DrawString(int id, std::string_view text, Point2F position,
                               ColorF color, bool centerAlign,
                               FontSizes fontSize) {
     std::string uniqueNameID;

@@ -5,9 +5,9 @@
 #pragma once
 
 namespace JoD {
-class PointF {
+class Point2F {
   public:
-    PointF Translate(float dx, float dy) const;
+    Point2F Translate(float dx, float dy) const;
     
     float x{0.0f};
     float y{0.0f};

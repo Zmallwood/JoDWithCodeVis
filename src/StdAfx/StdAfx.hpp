@@ -24,7 +24,7 @@
 #include "Common/MathLib/ColorF.hpp"
 #include "Common/MathLib/Colors.hpp"
 #include "Common/MathLib/GLBoxF.hpp"
-#include "Common/MathLib/PointF.hpp"
+#include "Common/MathLib/Point2F.hpp"
 #include "Common/MathLib/Size.hpp"
 #include "Common/MathLib/SizeF.hpp"
 #include "Common/MathLib/Vertex2F.hpp"

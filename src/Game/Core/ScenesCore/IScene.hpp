@@ -11,11 +11,15 @@ class IScene {
   public:
     IScene();
     
+    void OnEnter();
+    
     void Update();
     
     void Render();
     
   protected:
+    virtual void OnEnterDerived() {}
+    
     virtual void UpdateDerived() {}
     
     virtual void RenderDerived() {}

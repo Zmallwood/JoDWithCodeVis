@@ -2,10 +2,10 @@
  * Copyright 2024 Andreas Åkerberg
  */
 
-#include "PointF.hpp"
+#include "Point2F.hpp"
 
 namespace JoD {
-PointF PointF::Translate(float dx, float dy) const {
+Point2F Point2F::Translate(float dx, float dy) const {
     return {x + dx, y + dy};
 }
 }

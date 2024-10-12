@@ -5,13 +5,13 @@
 #pragma once
 
 #include "ColorF.hpp"
-#include "PointF.hpp"
+#include "Point2F.hpp"
 
 namespace JoD {
 class Vertex2F {
   public:
-    PointF position;
+    Point2F position;
     ColorF color;
-    PointF uv;
+    Point2F uv;
 };
 }

@@ -6,7 +6,7 @@
 #include "CanvasUtilities.hpp"
 
 namespace JoD {
-PointF GetMousePosition() {
+Point2F GetMousePosition() {
     auto canvasSize = GetCanvasSize();
     int mousePositionPxX;
     int mousePositionPxY;

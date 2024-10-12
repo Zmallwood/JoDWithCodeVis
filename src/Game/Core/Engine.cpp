@@ -13,9 +13,12 @@
 #include "Graphics/Rendering/TextRendering/TextRenderer.hpp"
 
 namespace JoD {
-void Engine::Run() {
+Engine::Engine() {
     SDL_Init(SDL_INIT_EVERYTHING);
     _<Graphics>();
+}
+
+void Engine::Run() {
     while (m_running) {
         _<Cursor>().Reset();
         PollEvents();
@@ -75,7 +78,7 @@ void Engine::DrawImage(RID rid, std::string_view imageName, const BoxF &area,
         textureFillAmount, noPixelEffect);
 }
 
-int Engine::NewString() {
+RID Engine::NewString() {
     return _<TextRenderer>().NewString();
 }
 

@@ -9,6 +9,8 @@
 namespace JoD {
 class Engine {
   public:
+    Engine();
+    
     void Run();
     
     RID NewImage();
@@ -23,7 +25,7 @@ class Engine {
                    SizeF textureFillAmount = {1.0f, 1.0f},
                    bool noPixelEffect = false);
     
-    int NewString();
+    RID NewString();
     
     void DrawString(int id,
                     std::string_view text,

@@ -3,7 +3,6 @@
  */
 
 #include "MainMenuScene.hpp"
-#include "Game/Core/Graphics/Rendering/ImageRendering/ImageRenderer.hpp"
 #include "Game/Core/GUICore/GUI.hpp"
 #include "Game/Core/GUICore/GUIButton.hpp"
 #include "Game/Core/ScenesCore/SceneManager.hpp"
@@ -11,8 +10,8 @@
 
 namespace JoD {
 MainMenuScene::MainMenuScene() {
-    m_ridBackground = _<ImageRenderer>().NewImage();
-    m_ridLogo = _<ImageRenderer>().NewImage();
+    m_ridBackground = _<SceneManager>().NewImage();
+    m_ridLogo = _<SceneManager>().NewImage();
     
     GetGUI()->AddChildComponent(
         std::make_shared<GUIButton>(
@@ -34,11 +33,11 @@ void MainMenuScene::UpdateDerived() {}
 
 void MainMenuScene::RenderDerived() {
     auto areaBackground = BoxF{0.0f, 0.0f, 1.0f, 1.0f};
-    _<ImageRenderer>().DrawImage(
+    _<SceneManager>().DrawImage(
         m_ridBackground, "DefaultSceneBackground",
         areaBackground);
     
     auto areaLogo = BoxF {0.4, 0.15f, 0.2f, 0.1f};
-    _<ImageRenderer>().DrawImage(m_ridLogo, "JoDLogo", areaLogo);
+    _<SceneManager>().DrawImage(m_ridLogo, "JoDLogo", areaLogo);
 }
 }

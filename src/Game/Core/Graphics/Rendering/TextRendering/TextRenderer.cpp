@@ -98,7 +98,7 @@ void TextRenderer::RenderText(int id,
     SDL_FreeSurface(textOutlineSurface);
 }
 
-int TextRenderer::NewString() {
+RID TextRenderer::NewString() {
     static int s_idCounter = 0;
     auto id = s_idCounter++;
     auto uniqueName= "rendered_image" + std::to_string(id);
@@ -106,7 +106,7 @@ int TextRenderer::NewString() {
     m_uniqueNameIDs.insert({id, uniqueName});
     auto rid = _<ImageRenderer>().NewImage();
     m_rids.insert({id, rid});
-    return id;
+    return static_cast<RID>(id);
 }
 
 void TextRenderer::DrawString(int id, std::string_view text, Point2F position,

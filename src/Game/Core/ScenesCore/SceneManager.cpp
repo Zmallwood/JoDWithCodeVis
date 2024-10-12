@@ -3,19 +3,11 @@
  */
 
 #include "SceneManager.hpp"
-#include "Theme0/Scenes/IntroScene/IntroScene.hpp"
-#include "Theme0/Scenes/MainMenuScene/MainMenuScene.hpp"
-#include "Theme0/Scenes/MainScene/MainScene.hpp"
-#include "Theme0/Scenes/WorldGenerationScene/WorldGenerationScene.hpp"
+#include "Game/Core/Engine.hpp"
 
 namespace JoD {
-SceneManager::SceneManager() {
-    m_scenes.insert({Hash("IntroScene"), _<IntroScene>()});
-    m_scenes.insert({Hash("MainMenuScene"), _<MainMenuScene>()});
-    m_scenes.insert({Hash("WorldGenerationScene"), _<WorldGenerationScene>()});
-    m_scenes.insert({Hash("MainScene"), _<MainScene>()});
-    
-    GoToScene("IntroScene");
+void SceneManager::AddScene(std::string_view sceneName, IScene& scene) {
+    m_scenes.insert({Hash(sceneName), scene});
 }
 
 void SceneManager::UpdateCurrentScene() {
@@ -36,5 +28,43 @@ void SceneManager::GoToScene(std::string_view newSceneName) {
     if (m_scenes.contains(m_currentScene)) {
         m_scenes.at(m_currentScene).OnEnter();
     }
+}
+
+RID SceneManager::NewImage() {
+    return _<Engine>().NewImage();
+}
+
+void SceneManager::DrawImage(RID rid, int imageNameHash, const BoxF &area,
+                             ColorF color, bool repeatTexture,
+                             SizeF textureFillAmount,
+                             bool noPixelEffect) {
+    _<Engine>().DrawImage(
+        rid, imageNameHash, area, color, repeatTexture,
+        textureFillAmount, noPixelEffect);
+}
+
+void SceneManager::DrawImage(RID rid, std::string_view imageName,
+                             const BoxF &area,
+                             ColorF color, bool repeatTexture,
+                             SizeF textureFillAmount,
+                             bool noPixelEffect) {
+    _<Engine>().DrawImage(
+        rid, imageName, area, color,repeatTexture,
+        textureFillAmount, noPixelEffect);
+}
+
+RID SceneManager::NewString() {
+    return _<Engine>().NewString();
+}
+
+void SceneManager::DrawString(int id,
+                              std::string_view text,
+                              Point2F position,
+                              ColorF color,
+                              bool centerAlign,
+                              FontSizes fontSize) {
+    _<Engine>().DrawString(
+        id, text, position, color, centerAlign,
+        fontSize);
 }
 }

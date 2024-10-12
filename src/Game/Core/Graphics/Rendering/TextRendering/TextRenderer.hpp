@@ -13,7 +13,7 @@ class TextRenderer {
   public:
     TextRenderer();
     
-    int NewString();
+    RID NewString();
     
     void DrawString(int id,
                     std::string_view text,

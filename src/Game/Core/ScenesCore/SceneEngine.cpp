@@ -85,6 +85,10 @@ void SceneEngine::DrawString(int id,
         fontSize);
 }
 
+RID SceneEngine::NewTile() {
+    return _<Engine>().NewTile();
+}
+
 void SceneEngine::StopEngine() {
     _<Engine>().SetRunning(false);
 }

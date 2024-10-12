@@ -7,6 +7,11 @@
 namespace JoD {
 class GroundSurfacePainter {
   public:
+    void Initialize();
+    
     void Paint();
+    
+  private:
+    std::map<int, std::map<int, RID>> m_ridsTileLayers;
 };
 }

@@ -41,6 +41,8 @@ class SceneEngine {
                     bool centerAlign= false,
                     FontSizes fontSize= FontSizes::_20);
     
+    RID NewTile();
+    
     void StopEngine();
     
   private:

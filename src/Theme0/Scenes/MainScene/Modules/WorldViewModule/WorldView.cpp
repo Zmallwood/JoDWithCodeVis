@@ -5,11 +5,16 @@
 #include "WorldView.hpp"
 #include "Game/Core/Graphics/Rendering/GroundRendering/GroundRenderer.hpp"
 #include "SubPainters/GroundSurfacePainter.hpp"
+#include "Camera.hpp"
 
 namespace JoD {
-WorldView::WorldView() {}
+void WorldView::Initialize() {
+    _<GroundSurfacePainter>().Initialize();
+}
 
-void WorldView::Update() {}
+void WorldView::Update() {
+    _<Camera>().Update();
+}
 
 void WorldView::Render() {
     _<GroundRenderer>().StartBatchDrawing();
@@ -20,5 +25,15 @@ void WorldView::Render() {
     _<GroundRenderer>().StopBatchDrawing();
 }
 
-void WorldView::DoRenderLoop(std::function<void()> action) {}
+void WorldView::DoRenderLoop(std::function<void()> action) {
+    action();
+}
+
+Size WorldView::GetWorldAreaSize() {
+    return _<MainScene>().GetWorldAreaSize();
+}
+
+RID WorldView::NewTile() {
+    return _<MainScene>().NewTile();
+}
 }

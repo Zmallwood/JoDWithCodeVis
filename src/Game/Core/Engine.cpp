@@ -11,6 +11,7 @@
 #include "Cursor/Cursor.hpp"
 #include "Graphics/Rendering/ImageRendering/ImageRenderer.hpp"
 #include "Graphics/Rendering/TextRendering/TextRenderer.hpp"
+#include "Graphics/Rendering/GroundRendering/GroundRenderer.hpp"
 #include "Configuration/GameProperties.hpp"
 
 namespace JoD {
@@ -114,6 +115,10 @@ void Engine::DrawString(int id,
     _<TextRenderer>().DrawString(
         id, text, position, color, centerAlign,
         fontSize);
+}
+
+RID Engine::NewTile() {
+    return _<GroundRenderer>().NewTile();
 }
 
 }

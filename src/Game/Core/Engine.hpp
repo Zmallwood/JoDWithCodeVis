@@ -36,6 +36,8 @@ class Engine {
                     bool centerAlign= false,
                     FontSizes fontSize= FontSizes::_20);
     
+    RID NewTile();
+    
     Size GetWorldAreaSize();
     
     void SetRunning(bool value) {

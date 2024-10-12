@@ -5,26 +5,19 @@
 #pragma once
 
 namespace JoD {
-class GUI;
-
-class IScene {
+class GUIComponent {
   public:
-    IScene();
-    
     void Update();
     
     void Render();
     
-  protected:
     virtual void UpdateDerived() {}
     
     virtual void RenderDerived() {}
     
-    auto GetGUI() {
-        return m_gui;
-    }
+    void AddChildComponent(std::shared_ptr<GUIComponent> newComponent);
     
   private:
-    std::shared_ptr<GUI> m_gui;
+    std::vector<std::shared_ptr<GUIComponent>> m_childComponents;
 };
 }

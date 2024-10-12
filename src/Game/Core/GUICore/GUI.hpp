@@ -4,9 +4,10 @@
 
 #pragma once
 
+#include "GUIComponent.hpp"
+
 namespace JoD {
-class Game {
+class GUI : public GUIComponent {
   public:
-    void Start();
 };
 }

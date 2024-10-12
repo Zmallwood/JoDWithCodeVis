@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg
+ */
+
 #include "Engine.hpp"
 #include "Graphics/Graphics.hpp"
 #include "Input/Keyboard/KeyboardInput.hpp"

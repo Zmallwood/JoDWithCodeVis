@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg
+ */
+
 #include "IntroScene.hpp"
 #include "Game/Core/Graphics/Rendering/ImageRendering/ImageRenderer.hpp"
 #include "Game/Core/Input/Keyboard/KeyboardInput.hpp"

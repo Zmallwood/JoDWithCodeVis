@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg
+ */
+
 #include "ImageRenderer.hpp"
 #include "Game/Core/Assets/Images/ImageBank.hpp"
 #include "Game/Core/Graphics/Rendering/RenderingBase/ShaderProgram.hpp"

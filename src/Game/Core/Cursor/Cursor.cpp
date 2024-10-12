@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg
+ */
+
 #include "Cursor.hpp"
 #include "Game/Core/Graphics/Rendering/ImageRendering/ImageRenderer.hpp"
 

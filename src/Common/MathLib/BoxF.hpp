@@ -1,11 +1,18 @@
+/*
+ * Copyright 2024 Andreas Åkerberg
+ */
+
 #pragma once
 
 #include "GLBoxF.hpp"
+#include "PointF.hpp"
 
 namespace JoD {
 class BoxF {
   public:
     GLBoxF ToGLBoxF() const;
+    
+    PointF GetCenter() const;
     
     float x{0.0f};
     float y{0.0f};

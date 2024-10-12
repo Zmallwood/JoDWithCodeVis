@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg
+ */
+
 #include "Font.hpp"
 
 namespace JoD {

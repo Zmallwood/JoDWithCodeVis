@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg
+ */
+
 #include "ImageBank.hpp"
 #include "Common/FileUtilities.hpp"
 #include "Game/Core/Graphics/Graphics.hpp"

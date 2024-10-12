@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg
+ */
+
 #include "TextRenderer.hpp"
 #include "Common/CanvasUtilities.hpp"
 #include "Font.hpp"

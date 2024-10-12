@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg
+ */
+
 #include "SceneManager.hpp"
 #include "Theme0/Scenes/IntroScene/IntroScene.hpp"
 #include "Theme0/Scenes/MainMenuScene/MainMenuScene.hpp"

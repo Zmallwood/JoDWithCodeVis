@@ -4,9 +4,11 @@
 
 #include "Game.hpp"
 #include "Core/Engine.hpp"
+#include "Core/Configuration/GameProperties.hpp"
 
 namespace JoD {
 void Game::Start() {
+    _<GameProperties>().SetWorldAreaSize({140, 100});
     _<Engine>().Run();
 }
 }

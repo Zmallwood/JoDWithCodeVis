@@ -17,7 +17,7 @@ MainMenuScene::MainMenuScene() {
     GetGUI()->AddChildComponent(
         std::make_shared<GUIButton>(
             "New game", BoxF{0.45f, 0.3f, 0.1f, 0.05f}, [] {
-                _<SceneManager>().GoToScene("MainScene");
+                _<SceneManager>().GoToScene("WorldGenerationScene");
             }));
     
     GetGUI()->AddChildComponent(

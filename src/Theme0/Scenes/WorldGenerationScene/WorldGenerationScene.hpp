@@ -12,6 +12,8 @@ class WorldGenerationScene : public IScene {
     WorldGenerationScene();
     
   protected:
+    void OnEnterDerived() override;
+    
     void UpdateDerived() override;
     
     void RenderDerived() override;

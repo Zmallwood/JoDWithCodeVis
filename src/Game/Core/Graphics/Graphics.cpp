@@ -37,7 +37,7 @@ Graphics::Graphics() {
         printf(
             "Warning: Unable to disable VSync! SDL Error: %s\n",
             SDL_GetError());
-    glClearColor(0.0f, 0.5f, 1.0f, 1.0f);
+    glClearColor(0.0f, 0.65f, 1.0f, 1.0f);
     
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

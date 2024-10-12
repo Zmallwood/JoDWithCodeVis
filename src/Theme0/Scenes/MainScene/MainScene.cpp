@@ -3,9 +3,14 @@
  */
 
 #include "MainScene.hpp"
+#include "Modules/WorldViewModule/WorldView.hpp"
 
 namespace JoD {
-void MainScene::UpdateDerived() {}
+void MainScene::UpdateDerived() {
+    _<WorldView>().Update();
+}
 
-void MainScene::RenderDerived() {}
+void MainScene::RenderDerived() {
+    _<WorldView>().Render();
+}
 }

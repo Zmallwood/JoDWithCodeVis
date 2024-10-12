@@ -11,6 +11,8 @@ class Engine {
   public:
     Engine();
     
+    void InitializeScenes();
+    
     void Run();
     
     RID NewImage();

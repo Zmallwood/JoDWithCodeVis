@@ -8,6 +8,12 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/ext/matrix_projection.hpp>
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/gtx/closest_point.hpp>
 
 #include <algorithm>
 #include <filesystem>
@@ -28,6 +34,8 @@
 #include "Common/MathLib/Size.hpp"
 #include "Common/MathLib/SizeF.hpp"
 #include "Common/MathLib/Vertex2F.hpp"
+#include "Common/MathLib/Point3F.hpp"
+#include "Common/MathLib/Vertex3F.hpp"
 #include "Common/Aliases.hpp"
 #include "Common/FileUtilities.hpp"
 #include "Common/Hash.hpp"

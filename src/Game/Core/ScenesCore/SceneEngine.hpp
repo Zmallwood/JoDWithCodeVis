@@ -8,9 +8,9 @@
 #include "Game/Core/Graphics/Rendering/TextRendering/FontSizes.hpp"
 
 namespace JoD {
-class SceneManager {
+class SceneEngine {
   public:
-    void AddScene(std::string_view sceneName, IScene& scene);
+    void InitializeScenes();
     
     void UpdateCurrentScene();
     
@@ -39,7 +39,11 @@ class SceneManager {
                     bool centerAlign= false,
                     FontSizes fontSize= FontSizes::_20);
     
+    void StopEngine();
+    
   private:
+    void AddScene(std::string_view sceneName, IScene& scene);
+    
     std::map<int, IScene &> m_scenes;
     int m_currentScene{0};
 };

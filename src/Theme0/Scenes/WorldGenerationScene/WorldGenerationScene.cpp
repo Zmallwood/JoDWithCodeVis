@@ -4,14 +4,14 @@
 
 #include "WorldGenerationScene.hpp"
 #include "Modules/WorldGeneration/WorldGenerator.hpp"
-#include "Game/Core/ScenesCore/SceneManager.hpp"
+#include "Game/Core/ScenesCore/SceneEngine.hpp"
 
 namespace JoD {
 WorldGenerationScene::WorldGenerationScene() {}
 
 void WorldGenerationScene::OnEnterDerived() {
     _<WorldGenerator>().GenerateWorld();
-    _<SceneManager>().GoToScene("MainScene");
+    _<SceneEngine>().GoToScene("MainScene");
 }
 
 void WorldGenerationScene::UpdateDerived() {}

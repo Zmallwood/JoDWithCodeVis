@@ -3,12 +3,12 @@
  */
 
 #include "Cursor.hpp"
-#include "Game/Core/Graphics/Rendering/ImageRendering/ImageRenderer.hpp"
+#include "Game/Core/Engine.hpp"
 
 namespace JoD {
 Cursor::Cursor() {
     SDL_ShowCursor(0);
-    m_ridCursorImage = _<ImageRenderer>().NewImage();
+    m_ridCursorImage = _<Engine>().NewImage();
 }
 
 void Cursor::Render() const {
@@ -32,7 +32,7 @@ void Cursor::Render() const {
     default:
         imageName= "CursorNormal";
     }
-    _<ImageRenderer>().DrawImage(m_ridCursorImage, imageName, bounds);
+    _<Engine>().DrawImage(m_ridCursorImage, imageName, bounds);
 }
 
 void Cursor::Reset() {

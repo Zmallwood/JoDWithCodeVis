@@ -6,7 +6,7 @@
 #include "Graphics/Graphics.hpp"
 #include "Input/Keyboard/KeyboardInput.hpp"
 #include "Input/Mouse/MouseInput.hpp"
-#include "ScenesCore/SceneManager.hpp"
+#include "ScenesCore/SceneEngine.hpp"
 #include "FPSCounter/FPSCounter.hpp"
 #include "Cursor/Cursor.hpp"
 #include "Graphics/Rendering/ImageRendering/ImageRenderer.hpp"
@@ -18,14 +18,20 @@ Engine::Engine() {
     _<Graphics>();
 }
 
+void Engine::InitializeScenes() {
+    
+    _<SceneEngine>().InitializeScenes();
+    _<SceneEngine>().GoToScene("IntroScene");
+}
+
 void Engine::Run() {
     while (m_running) {
         _<Cursor>().Reset();
         PollEvents();
-        _<SceneManager>().UpdateCurrentScene();
+        _<SceneEngine>().UpdateCurrentScene();
         _<FPSCounter>().Update();
         _<Graphics>().ClearCanvas();
-        _<SceneManager>().RenderCurrentScene();
+        _<SceneEngine>().RenderCurrentScene();
         _<FPSCounter>().Render();
         _<Cursor>().Render();
         _<Graphics>().PresentCanvas();

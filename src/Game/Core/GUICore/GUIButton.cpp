@@ -3,11 +3,10 @@
  */
 
 #include "GUIButton.hpp"
-#include "Game/Core/Graphics/Rendering/ImageRendering/ImageRenderer.hpp"
-#include "Game/Core/Graphics/Rendering/TextRendering/TextRenderer.hpp"
 #include "Game/Core/Cursor/Cursor.hpp"
 #include "Game/Core/Input/Mouse/MouseInput.hpp"
 #include "Game/Core/Input/Mouse/MouseButton.hpp"
+#include "Game/Core/Engine.hpp"
 
 namespace JoD {
 GUIButton::GUIButton(std::string_view text, BoxF area,
@@ -17,8 +16,8 @@ GUIButton::GUIButton(std::string_view text, BoxF area,
     : m_text(text), m_action(action), m_area(area),
     m_backImageName(backImageName),
     m_backHoveredImageName(backHoveredImageName) {
-    m_ridButtonImage = _<ImageRenderer>().NewImage();
-    m_ridButtonText = _<TextRenderer>().NewString();
+    m_ridButtonImage = _<Engine>().NewImage();
+    m_ridButtonText = _<Engine>().NewString();
 }
 
 void GUIButton::UpdateDerived() {
@@ -40,10 +39,10 @@ void GUIButton::RenderDerived() {
     if (!m_activeBackImage)
         return;
     
-    _<ImageRenderer>().DrawImage(
+    _<Engine>().DrawImage(
         m_ridButtonImage, Hash(*m_activeBackImage),
         m_area);
-    _<TextRenderer>().DrawString(
+    _<Engine>().DrawString(
         m_ridButtonText, m_text, m_area.GetCenter(),
         Colors::White, true);
 }

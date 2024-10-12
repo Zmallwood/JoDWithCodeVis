@@ -3,11 +3,11 @@
  */
 
 #include "FPSCounter.hpp"
-#include "Game/Core/Graphics/Rendering/TextRendering/TextRenderer.hpp"
+#include "Game/Core/Engine.hpp"
 
 namespace JoD {
 FPSCounter::FPSCounter() {
-    m_ridFPSText = _<TextRenderer>().NewString();
+    m_ridFPSText = _<Engine>().NewString();
 }
 
 void FPSCounter::Update() {
@@ -21,7 +21,7 @@ void FPSCounter::Update() {
 }
 
 void FPSCounter::Render() {
-    _<TextRenderer>().DrawString(
+    _<Engine>().DrawString(
         m_ridFPSText,
         "FPS: " + std::to_string(m_fps), {0.95f, 0.03f});
 }

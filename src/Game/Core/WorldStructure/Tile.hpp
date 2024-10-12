@@ -7,13 +7,10 @@
 namespace JoD {
 class Tile {
   public:
+    void SetGround(std::string_view groundName);
     
     auto GetGround() {
         return m_ground;
-    }
-    
-    void SetGround(int value) {
-        m_ground = value;
     }
     
   private:

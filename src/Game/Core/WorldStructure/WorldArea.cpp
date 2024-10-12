@@ -18,4 +18,24 @@ WorldArea::WorldArea() {
         }
     }
 }
+
+Size WorldArea::GetSize() {
+    if (m_tiles.size() > 0) {
+        return {static_cast<int>(m_tiles.size()),
+                static_cast<int>(m_tiles.at(0).size())};
+    }
+    return {0, 0};
+}
+
+bool WorldArea::IsValidCoordinate(int x, int y) {
+    auto size = GetSize();
+    return x >= 0 && y >= 0 && x < size.width && y < size.height;
+}
+
+std::shared_ptr<Tile> WorldArea::GetTile(int x, int y) {
+    if (IsValidCoordinate(x, y)) {
+        return m_tiles.at(x).at(y);
+    }
+    return nullptr;
+}
 }

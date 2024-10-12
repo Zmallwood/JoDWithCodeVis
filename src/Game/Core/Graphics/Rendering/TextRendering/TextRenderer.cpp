@@ -3,7 +3,6 @@
  */
 
 #include "TextRenderer.hpp"
-#include "Common/CanvasUtilities.hpp"
 #include "Font.hpp"
 #include "Game/Core/Assets/Images/ImageBank.hpp"
 #include "Game/Core/Graphics/Rendering/ImageRendering/ImageRenderer.hpp"

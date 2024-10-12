@@ -9,6 +9,8 @@
 #include "ScenesCore/SceneManager.hpp"
 #include "FPSCounter/FPSCounter.hpp"
 #include "Cursor/Cursor.hpp"
+#include "Graphics/Rendering/ImageRendering/ImageRenderer.hpp"
+#include "Graphics/Rendering/TextRendering/TextRenderer.hpp"
 
 namespace JoD {
 void Engine::Run() {
@@ -50,4 +52,42 @@ void Engine::PollEvents() {
         }
     }
 }
+
+RID Engine::NewImage() {
+    return _<ImageRenderer>().NewImage();
+}
+
+void Engine::DrawImage(RID rid, int imageNameHash, const BoxF &area,
+                       ColorF color, bool repeatTexture,
+                       SizeF textureFillAmount,
+                       bool noPixelEffect) {
+    _<ImageRenderer>().DrawImage(
+        rid, imageNameHash, area, color, repeatTexture,
+        textureFillAmount, noPixelEffect);
+}
+
+void Engine::DrawImage(RID rid, std::string_view imageName, const BoxF &area,
+                       ColorF color, bool repeatTexture,
+                       SizeF textureFillAmount,
+                       bool noPixelEffect) {
+    _<ImageRenderer>().DrawImage(
+        rid, imageName, area, color,repeatTexture,
+        textureFillAmount, noPixelEffect);
+}
+
+int Engine::NewString() {
+    return _<TextRenderer>().NewString();
+}
+
+void Engine::DrawString(int id,
+                        std::string_view text,
+                        Point2F position,
+                        ColorF color,
+                        bool centerAlign,
+                        FontSizes fontSize) {
+    _<TextRenderer>().DrawString(
+        id, text, position, color, centerAlign,
+        fontSize);
+}
+
 }

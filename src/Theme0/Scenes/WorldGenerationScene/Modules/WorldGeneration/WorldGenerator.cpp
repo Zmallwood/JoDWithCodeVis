@@ -5,6 +5,7 @@
 #include "WorldGenerator.hpp"
 #include "Game/Core/WorldStructure/World.hpp"
 #include "Game/Core/WorldStructure/WorldArea.hpp"
+#include "Game/Core/WorldStructure/Tile.hpp"
 
 namespace JoD {
 void WorldGenerator::GenerateWorld() {
@@ -12,5 +13,16 @@ void WorldGenerator::GenerateWorld() {
     GenerateGrass(worldArea);
 }
 
-void WorldGenerator::GenerateGrass(std::shared_ptr<WorldArea> worldArea) {}
+void WorldGenerator::GenerateGrass(std::shared_ptr<WorldArea> worldArea) {
+    auto size = worldArea->GetSize();
+    
+    for (auto y = 0; y < size.height; y++) {
+        for (auto x = 0; x < size.width; x++) {
+            auto tile = worldArea->GetTile(x, y);
+            if (tile) {
+                tile->SetGround("GroundGrass");
+            }
+        }
+    }
+}
 }

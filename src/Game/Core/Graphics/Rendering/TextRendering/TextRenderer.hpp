@@ -13,14 +13,6 @@ class TextRenderer {
   public:
     TextRenderer();
     
-    void RenderText(int id,
-                    std::string_view text,
-                    ColorF color,
-                    bool centerAlign,
-                    FontSizes font_size,
-                    std::string &out_uniqueNameID,
-                    SizeF &out_size) const;
-    
     int NewString();
     
     void DrawString(int id,
@@ -33,6 +25,14 @@ class TextRenderer {
     SizeF MeasureString(std::string_view text, FontSizes font_size) const;
     
   private:
+    void RenderText(int id,
+                    std::string_view text,
+                    ColorF color,
+                    bool centerAlign,
+                    FontSizes font_size,
+                    std::string &out_uniqueNameID,
+                    SizeF &out_size) const;
+    
     const std::string k_relativeFontsPath = "Resources/Fonts/";
     const ColorF k_outlineColor {Colors::TransparentBlack};
     std::map<FontSizes, std::shared_ptr<Font>> m_fonts {};

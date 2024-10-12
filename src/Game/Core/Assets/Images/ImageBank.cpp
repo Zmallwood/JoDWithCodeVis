@@ -3,7 +3,6 @@
  */
 
 #include "ImageBank.hpp"
-#include "Common/FileUtilities.hpp"
 #include "Game/Core/Graphics/Graphics.hpp"
 
 namespace JoD {

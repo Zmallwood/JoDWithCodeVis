@@ -3,7 +3,6 @@
  */
 
 #include "MouseUtilities.hpp"
-#include "CanvasUtilities.hpp"
 
 namespace JoD {
 Point2F GetMousePosition() {

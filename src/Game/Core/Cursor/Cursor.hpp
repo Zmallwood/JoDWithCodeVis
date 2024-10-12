@@ -15,6 +15,8 @@ class Cursor {
     
     void Reset();
     
+    void HideThisFrame();
+    
     void SetCursorStyle(CursorStyles value) {
         m_cursorStyle = value;
     }
@@ -22,6 +24,8 @@ class Cursor {
   private:
     CursorStyles m_cursorStyle {CursorStyles::Normal};
     GLuint m_ridCursorImage{};
+    bool m_visibleThisFrame {true};
+    
     static constexpr float k_cursorSize {0.04f};
 };
 }

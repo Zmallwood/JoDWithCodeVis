@@ -60,6 +60,17 @@ void Engine::PollEvents() {
         case SDL_MOUSEBUTTONUP:
             _<MouseInput>().RegisterButtonReleased(event.button.button);
             break;
+        case SDL_MOUSEMOTION:
+            _<MouseInput>().RegisterMouseMoved(
+                {event.motion.xrel,
+                 event.motion.yrel});
+            break;
+        case SDL_TEXTINPUT:
+            _<KeyboardInput>().AppendTextInput(event.text.text);
+            break;
+        case SDL_MOUSEWHEEL:
+            _<MouseInput>().RegisterMouseWheelScrolled(event.wheel.y);
+            break;
         }
     }
 }

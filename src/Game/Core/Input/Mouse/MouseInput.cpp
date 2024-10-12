@@ -32,7 +32,21 @@ void MouseInput::RegisterButtonReleased(Uint8 button) {
     }
 }
 
+void MouseInput::RegisterMouseMoved(Point2 delta) {
+    m_motionDelta = delta;
+}
+
+void MouseInput::RegisterMouseWheelScrolled(int delta) {
+    m_mouseWheelDelta += delta;
+}
+
 bool MouseInput::AnyButtonIsPressed() const {
     return m_leftButton->GetIsPressed() || m_rightButton->GetIsPressed();
+}
+
+int MouseInput::GetMouseWheelDeltaPickResult() {
+    auto result = m_mouseWheelDelta;
+    m_mouseWheelDelta = 0;
+    return result;
 }
 }

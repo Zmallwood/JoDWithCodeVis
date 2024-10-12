@@ -11,9 +11,12 @@ class KeyboardInput {
     
     void RegisterKeyRelease(SDL_Keycode key);
     
+    void AppendTextInput(std::string_view newText);
+    
     bool AnyKeyIsPressed() const;
     
   private:
     std::set<SDL_Keycode> m_pressedKeys;
+    std::string m_textInput;
 };
 }

@@ -12,6 +12,9 @@ Cursor::Cursor() {
 }
 
 void Cursor::Render() const {
+    if (!m_visibleThisFrame)
+        return;
+    
     auto mousePosition= GetMousePosition();
     auto usedCursorSize= SizeF{k_cursorSize,
                                ConvertWidthToHeight(k_cursorSize)};
@@ -37,5 +40,10 @@ void Cursor::Render() const {
 
 void Cursor::Reset() {
     m_cursorStyle= CursorStyles::Normal;
+    m_visibleThisFrame = true;
+}
+
+void Cursor::HideThisFrame() {
+    m_visibleThisFrame = false;
 }
 }

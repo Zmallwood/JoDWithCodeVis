@@ -13,7 +13,12 @@ class Tile {
         return m_ground;
     }
     
+    auto GetElevation() {
+        return m_elevation;
+    }
+    
   private:
     int m_ground {0};
+    float m_elevation {0.0f};
 };
 }

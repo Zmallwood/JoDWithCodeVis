@@ -29,10 +29,18 @@ bool WorldArea::IsValidCoordinate(int x, int y) {
     return x >= 0 && y >= 0 && x < size.width && y < size.height;
 }
 
+bool WorldArea::IsValidCoordinate(Point2 coordinate) {
+    return IsValidCoordinate(coordinate.x, coordinate.y);
+}
+
 std::shared_ptr<Tile> WorldArea::GetTile(int x, int y) {
     if (IsValidCoordinate(x, y)) {
         return m_tiles.at(x).at(y);
     }
     return nullptr;
+}
+
+std::shared_ptr<Tile> WorldArea::GetTile(Point2 coordinate) {
+    return GetTile(coordinate.x, coordinate.y);
 }
 }

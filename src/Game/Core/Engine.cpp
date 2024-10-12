@@ -1,6 +1,7 @@
 #include "Engine.hpp"
 #include "Graphics/Graphics.hpp"
 #include "Input/Keyboard/KeyboardInput.hpp"
+#include "Input/Mouse/MouseInput.hpp"
 #include "ScenesCore/SceneManager.hpp"
 #include "FPSCounter/FPSCounter.hpp"
 #include "Cursor/Cursor.hpp"
@@ -35,6 +36,12 @@ void Engine::PollEvents() {
             break;
         case SDL_KEYUP:
             _<KeyboardInput>().RegisterKeyRelease(event.key.keysym.sym);
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            _<MouseInput>().RegisterButtonPressed(event.button.button);
+            break;
+        case SDL_MOUSEBUTTONUP:
+            _<MouseInput>().RegisterButtonReleased(event.button.button);
             break;
         }
     }

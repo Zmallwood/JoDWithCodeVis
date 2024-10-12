@@ -25,6 +25,7 @@
 #include <vector>
 #include <set>
 #include <functional>
+#include <array>
 
 #include "Common/MathLib/BoxF.hpp"
 #include "Common/MathLib/ColorF.hpp"
@@ -38,6 +39,7 @@
 #include "Common/MathLib/Vertex3F.hpp"
 #include "Common/MathLib/Point2.hpp"
 #include "Common/MathLib/Point3.hpp"
+#include "Common/MathLib/VertexTile.hpp"
 #include "Common/Aliases.hpp"
 #include "Common/FileUtilities.hpp"
 #include "Common/Hash.hpp"

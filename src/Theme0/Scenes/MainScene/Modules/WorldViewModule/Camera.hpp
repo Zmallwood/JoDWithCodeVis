@@ -15,16 +15,32 @@ class Camera {
     
     Point3F MoveCloserToCamera(Point3F originalPoint, float amount);
     
-    float m_horizontalAngle {0.0f};
-    float m_verticalAngle {45.f};
-    Point3F m_cameraPosition;
-    float m_cameraDistance {150.f};
+    Point3F& GetCameraPositionRef() {
+        return m_cameraPosition;
+    }
+    
+    float GetVerticalAngle() {
+        return m_verticalAngle;
+    }
+    
+    float GetCameraDistance() {
+        return m_cameraDistance;
+    }
+    
+    float GetHorizontalAngle() {
+        return m_horizontalAngle;
+    }
     
   private:
     void UpdateZooming();
     void CalculateCameraPosition();
     
     Point3F m_playerPosition3D;
+    float m_horizontalAngle {0.0f};
+    float m_verticalAngle {45.f};
+    Point3F m_cameraPosition;
+    float m_cameraDistance {150.f};
+    
     const float m_zoomSensitivity {0.15f};
     const float m_fov {33.0f};
 };

@@ -7,18 +7,70 @@
 namespace JoD {
 class Tile {
   public:
-    void SetGround(std::string_view groundName);
+    void SetGroundType(std::string_view groundTypeName);
     
-    auto GetGround() {
-        return m_ground;
+    void CalculateNormal(Point3F v0, Point3F v1, Point3F v2);
+    
+    auto GetGroundType() {
+        return m_groundType;
     }
     
     auto GetElevation() {
         return m_elevation;
     }
     
+    auto GetNormal() {
+        return m_normal;
+    }
+    
+    auto GetRID() {
+        return m_rid;
+    }
+    
+    void SetRID(RID value) {
+        m_rid = value;
+    }
+    
+    auto GetRedVariation() {
+        return m_redVariation;
+    }
+    
+    void SetRedVariation(float value) {
+        m_redVariation = value;
+    }
+    
+    auto GetGreenVariation() {
+        return m_greenVariation;
+    }
+    
+    void SetGreenVariation(float value) {
+        m_greenVariation = value;
+    }
+    
+    auto GetBlueVariation() {
+        return m_blueVariation;
+    }
+    
+    void SetBlueVariation(float value) {
+        m_blueVariation = value;
+    }
+    
+    void SetVertex0(Vertex3F vertex);
+    
+    void SetVertex1(Vertex3F vertex);
+    
+    void SetVertex2(Vertex3F vertex);
+    
+    void SetVertex3(Vertex3F vertex);
+    
   private:
-    int m_ground {0};
+    int m_groundType {0};
     float m_elevation {0.0f};
+    Point3F m_normal {0.0f, 0.0f, 0.0f};
+    RID m_rid {0};
+    float m_redVariation {0.0f};
+    float m_greenVariation {0.0f};
+    float m_blueVariation {0.0f};
+    std::array<Vertex3F, 4> m_geometry;
 };
 }

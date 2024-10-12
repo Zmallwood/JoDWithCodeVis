@@ -10,7 +10,7 @@
 #include "Game/Core/WorldStructure/World.hpp"
 #include "Game/Core/WorldStructure/WorldArea.hpp"
 #include "Game/Core/WorldStructure/Tile.hpp"
-#include "WorldViewConfig.hpp"
+#include "WorldViewConfiguration.hpp"
 
 namespace JoD {
 Camera::Camera() {
@@ -85,7 +85,7 @@ void Camera::CalculateCameraPosition() {
     
     if (worldArea) {
         auto playerTile = worldArea->GetTile(playerPosition.ToIntPoint());
-        auto elevAmount = WorldViewConfig::k_ElevAmount;
+        auto elevAmount = WorldViewConfiguration::k_elevAmount;
         auto tileCoord = playerPosition.ToIntPoint();
         auto tile = worldArea->GetTile(tileCoord);
         

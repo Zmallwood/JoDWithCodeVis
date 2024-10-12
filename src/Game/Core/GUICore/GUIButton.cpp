@@ -5,6 +5,7 @@
 #include "GUIButton.hpp"
 #include "Game/Core/Graphics/Rendering/ImageRendering/ImageRenderer.hpp"
 #include "Game/Core/Graphics/Rendering/TextRendering/TextRenderer.hpp"
+#include "Game/Core/Cursor/Cursor.hpp"
 
 namespace JoD {
 GUIButton::GUIButton(std::string_view text, BoxF area,
@@ -20,11 +21,22 @@ GUIButton::GUIButton(std::string_view text, BoxF area,
 
 void GUIButton::UpdateDerived() {
     auto mousePosition = GetMousePosition();
+    
+    if (m_area.Contains(mousePosition)) {
+        m_activeBackImage = &m_backHoveredImageName;
+        _<Cursor>().SetCursorStyle(CursorStyles::Hovering);
+    }
+    else {
+        m_activeBackImage = &m_backImageName;
+    }
 }
 
 void GUIButton::RenderDerived() {
+    if (!m_activeBackImage)
+        return;
+    
     _<ImageRenderer>().DrawImage(
-        m_ridButtonImage, Hash(m_backImageName),
+        m_ridButtonImage, Hash(*m_activeBackImage),
         m_area);
     _<TextRenderer>().DrawString(
         m_ridButtonText, m_text, m_area.GetCenter(),

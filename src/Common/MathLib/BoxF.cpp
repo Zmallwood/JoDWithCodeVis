@@ -12,4 +12,9 @@ GLBoxF BoxF::ToGLBoxF() const {
 PointF BoxF::GetCenter() const {
     return {x + width/2, y + height/2};
 }
+
+bool BoxF::Contains(PointF point) const {
+    return point.x >= x && point.y >= y && point.x < x + width &&
+           point.y < y + height;
+}
 }

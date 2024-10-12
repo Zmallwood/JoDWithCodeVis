@@ -4,7 +4,7 @@
 
 #include "ImageRenderer.hpp"
 #include "Game/Core/Assets/Images/ImageBank.hpp"
-#include "Game/Core/Graphics/Rendering/RenderingBase/ShaderProgram.hpp"
+#include "Game/Core/Graphics/Rendering/RenderingCore/ShaderProgram.hpp"
 #include "Shader/ShaderImagesFragment.hpp"
 #include "Shader/ShaderImagesVertex.hpp"
 

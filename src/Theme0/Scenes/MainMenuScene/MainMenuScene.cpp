@@ -7,6 +7,7 @@
 #include "Game/Core/GUICore/GUI.hpp"
 #include "Game/Core/GUICore/GUIButton.hpp"
 #include "Game/Core/ScenesCore/SceneManager.hpp"
+#include "Game/Core/Engine.hpp"
 
 namespace JoD {
 MainMenuScene::MainMenuScene() {
@@ -17,6 +18,15 @@ MainMenuScene::MainMenuScene() {
         std::make_shared<GUIButton>(
             "New game", BoxF{0.45f, 0.3f, 0.1f, 0.05f}, [] {
                 _<SceneManager>().GoToScene("MainScene");
+            }));
+    
+    GetGUI()->AddChildComponent(
+        std::make_shared<GUIButton>(
+            "Quit",
+            BoxF {0.45f, 0.4f,
+                  0.1f, 0.05f}, [] {
+                _<Engine>().
+                SetRunning(false);
             }));
 }
 

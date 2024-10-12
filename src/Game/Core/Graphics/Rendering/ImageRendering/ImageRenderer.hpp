@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "Game/Core/Graphics/Rendering/RenderingBase/RendererBase.hpp"
+#include "Game/Core/Graphics/Rendering/RenderingCore/RendererBase.hpp"
 
 namespace JoD {
 class ImageRenderer : public RendererBase {

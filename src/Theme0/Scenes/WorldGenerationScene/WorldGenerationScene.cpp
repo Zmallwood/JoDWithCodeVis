@@ -10,7 +10,7 @@ namespace JoD {
 WorldGenerationScene::WorldGenerationScene() {}
 
 void WorldGenerationScene::OnEnterDerived() {
-    _<WorldGenerator>().GenerateWorld();
+    _<WorldGenerator>().GenerateWorld(_<SceneEngine>().GetWorldAreaSize());
     _<SceneEngine>().GoToScene("MainScene");
 }
 

@@ -43,6 +43,10 @@ void SceneEngine::GoToScene(std::string_view newSceneName) {
     }
 }
 
+Size SceneEngine::GetWorldAreaSize() {
+    return _<Engine>().GetWorldAreaSize();
+}
+
 RID SceneEngine::NewImage() {
     return _<Engine>().NewImage();
 }

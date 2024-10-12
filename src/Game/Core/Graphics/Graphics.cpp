@@ -3,6 +3,7 @@
  */
 
 #include "Graphics.hpp"
+#include "GraphicsGL.hpp"
 
 namespace JoD {
 Graphics::Graphics() {
@@ -29,18 +30,7 @@ Graphics::Graphics() {
         return;
     }
     
-    glewExperimental = GL_TRUE;
-    auto glew_error = glewInit();
-    if (glew_error != GLEW_OK)
-        printf("Error initializing GLEW! %s\n", glewGetErrorString(glew_error));
-    if (SDL_GL_SetSwapInterval(0) < 0)
-        printf(
-            "Warning: Unable to disable VSync! SDL Error: %s\n",
-            SDL_GetError());
-    glClearColor(0.0f, 0.65f, 1.0f, 1.0f);
-    
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    _<GraphicsGL>();
 }
 
 void Graphics::ClearCanvas() {

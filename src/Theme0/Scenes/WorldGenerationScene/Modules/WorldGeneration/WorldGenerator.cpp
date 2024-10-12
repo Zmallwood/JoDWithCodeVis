@@ -8,7 +8,8 @@
 #include "Game/Core/WorldStructure/Tile.hpp"
 
 namespace JoD {
-void WorldGenerator::GenerateWorld() {
+void WorldGenerator::GenerateWorld(Size worldAreaSize) {
+    _<World>().EnsureCreated(worldAreaSize);
     auto worldArea = _<World>().GetCurrentWorldArea();
     GenerateGrass(worldArea);
 }

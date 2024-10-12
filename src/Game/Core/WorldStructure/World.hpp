@@ -9,7 +9,7 @@ class WorldArea;
 
 class World {
   public:
-    World();
+    void EnsureCreated(Size worldAreaSize);
     
     auto GetCurrentWorldArea() {
         return m_currentWorldArea;

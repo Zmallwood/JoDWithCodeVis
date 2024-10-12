@@ -9,7 +9,7 @@ class WorldArea;
 
 class WorldGenerator {
   public:
-    void GenerateWorld();
+    void GenerateWorld(Size worldAreaSize);
     
   private:
     void GenerateGrass(std::shared_ptr<WorldArea> WorldArea);

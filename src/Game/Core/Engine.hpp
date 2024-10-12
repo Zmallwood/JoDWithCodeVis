@@ -11,7 +11,7 @@ class Engine {
   public:
     Engine();
     
-    void InitializeScenes();
+    void Initialize();
     
     void Run();
     
@@ -35,6 +35,8 @@ class Engine {
                     ColorF color = Colors::White,
                     bool centerAlign= false,
                     FontSizes fontSize= FontSizes::_20);
+    
+    Size GetWorldAreaSize();
     
     void SetRunning(bool value) {
         m_running = value;

@@ -5,8 +5,8 @@
 #include "ImageRenderer.hpp"
 #include "Game/Core/Assets/Images/ImageBank.hpp"
 #include "Game/Core/Graphics/Rendering/RenderingCore/ShaderProgram.hpp"
-#include "Shader/ShaderImagesFragment.hpp"
-#include "Shader/ShaderImagesVertex.hpp"
+#include "ShaderImages/ShaderImagesFragment.hpp"
+#include "ShaderImages/ShaderImagesVertex.hpp"
 
 namespace JoD {
 ImageRenderer::ImageRenderer() {

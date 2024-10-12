@@ -11,6 +11,7 @@
 #include "Cursor/Cursor.hpp"
 #include "Graphics/Rendering/ImageRendering/ImageRenderer.hpp"
 #include "Graphics/Rendering/TextRendering/TextRenderer.hpp"
+#include "Configuration/GameProperties.hpp"
 
 namespace JoD {
 Engine::Engine() {
@@ -18,10 +19,11 @@ Engine::Engine() {
     _<Graphics>();
 }
 
-void Engine::InitializeScenes() {
+void Engine::Initialize() {
     
     _<SceneEngine>().InitializeScenes();
     _<SceneEngine>().GoToScene("IntroScene");
+    _<GameProperties>().SetWorldAreaSize({140, 100});
 }
 
 void Engine::Run() {
@@ -60,6 +62,10 @@ void Engine::PollEvents() {
             break;
         }
     }
+}
+
+Size Engine::GetWorldAreaSize() {
+    return _<GameProperties>().GetWorldAreaSize();
 }
 
 RID Engine::NewImage() {

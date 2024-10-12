@@ -9,7 +9,7 @@ class Tile;
 
 class WorldArea {
   public:
-    WorldArea();
+    WorldArea(Size size);
     
     Size GetSize();
     

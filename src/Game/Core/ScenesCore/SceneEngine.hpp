@@ -18,6 +18,8 @@ class SceneEngine {
     
     void GoToScene(std::string_view newSceneName);
     
+    Size GetWorldAreaSize();
+    
     RID NewImage();
     
     void DrawImage(RID rid, int imageNameHash, const BoxF &area,

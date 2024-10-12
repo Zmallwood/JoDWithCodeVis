@@ -5,9 +5,12 @@
 #include "GroundRenderer.hpp"
 #include "Game/Core/Graphics/Rendering/RenderingCore/BufferTypes.hpp"
 #include "Game/Core/Graphics/Rendering/RenderingCore/ShaderProgram.hpp"
-#include "Shader/ShaderGroundVertex.hpp"
-#include "Shader/ShaderGroundFragment.hpp"
+#include "ShaderGround/ShaderGroundVertex.hpp"
+#include "ShaderGround/ShaderGroundFragment.hpp"
 #include "Game/Core/Graphics/Rendering/CameraGL.hpp"
+#include "Game/Core/CoreGameObjects/Player.hpp"
+#include "Game/Core/Graphics//GraphicsGL.hpp"
+#include "Game/Core/Assets/Images/ImageBank.hpp"
 
 namespace JoD {
 GroundRenderer::GroundRenderer() {
@@ -148,13 +151,13 @@ void GroundRenderer::StartBatchDrawing() {
     glUniformMatrix4fv(m_locationModel, 1, GL_FALSE, glm::value_ptr(model));
     glUniform1f(m_locationAlpha, 1.0f);
     glm::vec3 view_pos(
-        Player::Get()->GetSpaceCoord().x, Player::Get()->GetSpaceCoord().y,
-        Player::Get()->GetSpaceCoord().z);
+        _<Player>().GetPosition3D().x, _<Player>().GetPosition3D().y,
+        _<Player>().GetPosition3D().z);
     glUniform3fv(m_locationViewPos, 1, glm::value_ptr(view_pos));
     glm::vec3 fog_color_gl(
-        GraphicsGl::Get()->GetFogColorGround().r,
-        GraphicsGl::Get()->GetFogColorGround().g,
-        GraphicsGl::Get()->GetFogColorGround().b);
+        _<GraphicsGL>().GetFogColorGround().r,
+        _<GraphicsGL>().GetFogColorGround().g,
+        _<GraphicsGL>().GetFogColorGround().b);
     glUniform3fv(m_locationFogColor, 1, glm::value_ptr(fog_color_gl));
     glUseProgram(GetShaderProgram()->GetProgramID());
     glEnable(GL_CULL_FACE);
@@ -162,7 +165,7 @@ void GroundRenderer::StartBatchDrawing() {
 }
 
 void GroundRenderer::StopBatchDrawing() {
-    p->is_batch_drawing_ = false;
+    m_isBatchDrawing = false;
     glUseProgram(0);
     glDisable(GL_CULL_FACE);
 }
@@ -174,36 +177,36 @@ void GroundRenderer::DrawImagePolygon(
         glDisable(GL_DEPTH_TEST);
     else
         glEnable(GL_DEPTH_TEST);
-    if (!p->is_batch_drawing_) {
+    if (!m_isBatchDrawing) {
         glUseProgram(GetShaderProgram()->GetProgramID());
         glUniformMatrix4fv(
-            p->location_projection_, 1, GL_FALSE,
+            m_locationProjection, 1, GL_FALSE,
             glm::value_ptr(_<CameraGL>().GetPerspectiveMatrix()));
         glUniformMatrix4fv(
-            p->location_view_, 1, GL_FALSE,
+            m_locationView, 1, GL_FALSE,
             glm::value_ptr(_<CameraGL>().GetViewMatrix()));
         glm::mat4 model(1.0);
         glUniformMatrix4fv(
-            p->location_model_, 1, GL_FALSE,
+            m_locationModel, 1, GL_FALSE,
             glm::value_ptr(model));
-        glUniform1f(p->location_alpha_, 1.0f);
+        glUniform1f(m_locationAlpha, 1.0f);
         glm::vec3 view_pos(
-            Player::Get()->GetSpaceCoord().x, Player::Get()->GetSpaceCoord().y,
-            Player::Get()->GetSpaceCoord().z);
-        glUniform3fv(p->location_view_pos_, 1, glm::value_ptr(view_pos));
+            _<Player>().GetPosition3D().x, _<Player>().GetPosition3D().y,
+            _<Player>().GetPosition3D().z);
+        glUniform3fv(m_locationViewPos, 1, glm::value_ptr(view_pos));
         glm::vec3 fog_color_gl(
-            GraphicsGl::Get()->GetFogColorGround().r,
-            GraphicsGl::Get()->GetFogColorGround().g,
-            GraphicsGl::Get()->GetFogColorGround().b);
-        glUniform3fv(p->location_fog_color_, 1, glm::value_ptr(fog_color_gl));
-        glUseProgram(GetShaderProgram()->GetProgramId());
+            _<GraphicsGL>().GetFogColorGround().r,
+            _<GraphicsGL>().GetFogColorGround().g,
+            _<GraphicsGL>().GetFogColorGround().b);
+        glUniform3fv(m_locationFogColor, 1, glm::value_ptr(fog_color_gl));
+        glUseProgram(GetShaderProgram()->GetProgramID());
     }
-    auto imageId = ImageBank::Get()->GetImage(imageNameHash);
+    auto imageId = _<ImageBank>().GetImage(imageNameHash);
     glBindTexture(GL_TEXTURE_2D, imageId);
     glBindVertexArray(vaoId);
     glDrawElements(GL_TRIANGLE_FAN, vertexCount, GL_UNSIGNED_INT, NULL);
     glBindVertexArray(0);
-    if (!p->is_batch_drawing_)
+    if (!m_isBatchDrawing)
         glUseProgram(0);
 }
 

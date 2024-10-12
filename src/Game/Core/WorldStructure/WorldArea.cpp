@@ -3,13 +3,10 @@
  */
 
 #include "WorldArea.hpp"
-#include "Game/Core/Configuration/GameProperties.hpp"
 #include "Tile.hpp"
 
 namespace JoD {
-WorldArea::WorldArea() {
-    auto size = _<GameProperties>().GetWorldAreaSize();
-    
+WorldArea::WorldArea(Size size) {
     for (auto x = 0; x < size.width; x++) {
         m_tiles.push_back(std::vector<std::shared_ptr<Tile>>());
         

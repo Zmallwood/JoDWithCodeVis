@@ -6,6 +6,8 @@
 #include "WorldArea.hpp"
 
 namespace JoD {
-World::World()
-    : m_currentWorldArea(std::make_shared<WorldArea>()) {}
+void World::EnsureCreated(Size worldAreaSize) {
+    if (!m_currentWorldArea)
+        m_currentWorldArea = std::make_shared<WorldArea>(worldAreaSize);
+}
 }

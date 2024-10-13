@@ -48,3 +48,4 @@
 #include "Common/Math/Trigonometry.hpp"
 #include "Common/SDLDeleter.hpp"
 #include "Common/Singleton.hpp"
+#include "Common/Timer.hpp"

@@ -25,8 +25,14 @@ class Player {
         return m_majorCoordinate;
     }
     
+    auto& GetMovementTimerRef() {
+        return m_movementTimer;
+    }
+    
   private:
     Point2F m_position {0.0f, 0.0f};
     Point3 m_majorCoordinate {0, 0, 0};
+    float m_movementSpeed {1.0f};
+    Timer m_movementTimer = Timer(m_movementSpeed);
 };
 }

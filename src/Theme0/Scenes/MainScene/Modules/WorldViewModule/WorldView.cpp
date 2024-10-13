@@ -19,16 +19,62 @@ void WorldView::Initialize() const {
 }
 
 void WorldView::Update() const {
-    _<Camera>().Update();
+    try {
+        _<Camera>().Update();
+    }
+    catch (const std::runtime_error& e) {
+        std::cout <<
+            "Exception of \"runtime error\" type occured in WorldView::Update():\n\""
+                  <<
+            e.what() << "\"\n";
+        throw;
+    }
+    catch (const std::invalid_argument& e) {
+        std::cout <<
+            "Exception of \"invalid argument\" type occured in WorldView::Update():\n\""
+                  <<
+            e.what() << "\"\n";
+        throw;
+    }
+    catch (const std::exception& e) {
+        std::cout <<
+            "Exception of unhandled type occured in WorldView::Update():\n\"" <<
+            e.what() <<
+            "\"\n";
+        throw;
+    }
 }
 
 void WorldView::Render() {
-    _<GroundRenderer>().StartBatchDrawing();
-    DoRenderLoop(
-        [] {
-            _<GroundSurfacePainter>().Paint();
-        });
-    _<GroundRenderer>().StopBatchDrawing();
+    try {
+        _<GroundRenderer>().StartBatchDrawing();
+        DoRenderLoop(
+            [] {
+                _<GroundSurfacePainter>().Paint();
+            });
+        _<GroundRenderer>().StopBatchDrawing();
+    }
+    catch (const std::runtime_error& e) {
+        std::cout <<
+            "Exception of \"runtime error\" type occured in WorldView::Render():\n\""
+                  <<
+            e.what() << "\"\n";
+        throw;
+    }
+    catch (const std::invalid_argument& e) {
+        std::cout <<
+            "Exception of \"invalid argument\" type occured in WorldView::Render():\n\""
+                  <<
+            e.what() << "\"\n";
+        throw;
+    }
+    catch (const std::exception& e) {
+        std::cout <<
+            "Exception of unhandled type occured in WorldView::Render():\n\"" <<
+            e.what() <<
+            "\"\n";
+        throw;
+    }
 }
 
 void WorldView::DoRenderLoop(std::function<void()> action) {

@@ -49,15 +49,21 @@ void Engine::Run() {
         }
     }
     catch (const std::runtime_error& e) {
-        std::cout << "Exception of \"runtime error\" type occured:\n\"" <<
+        std::cout <<
+            "Exception of \"runtime error\" type occured in Engine::Run():\n\""
+                  <<
             e.what() << "\"\n";
     }
     catch (const std::invalid_argument& e) {
-        std::cout << "Exception of \"invalid argument\" type occured:\n\"" <<
+        std::cout <<
+            "Exception of \"invalid argument\" type occured in Engine::Run():\n\""
+                  <<
             e.what() << "\"\n";
     }
     catch (const std::exception& e) {
-        std::cout << "Exception of unhandled type occured:\n\"" << e.what() <<
+        std::cout <<
+            "Exception of unhandled type occured in Engine::Run():\n\"" <<
+            e.what() <<
             "\"\n";
     }
 }

@@ -51,57 +51,83 @@ void Camera::UpdateZooming() {
 }
 
 void Camera::CalculateCameraPosition() {
-    auto& player = _<Player>();
-    auto& world = _<World>();
-    auto usedCameraDistance = m_cameraDistance;
-    auto usedVerticalAngle = m_verticalAngle;
-    auto playerPositionNoElevation = player.GetPosition3D();
-    auto dzUnrotated= CosDegrees(usedVerticalAngle) * usedCameraDistance;
-    auto hypotenuse = dzUnrotated;
-    auto dx = SinDegrees(m_horizontalAngle) * hypotenuse - 3.0f *
-              SinDegrees(m_horizontalAngle);
-    auto dz = CosDegrees(m_horizontalAngle) * hypotenuse - 3.0f *
-              CosDegrees(m_horizontalAngle);
-    auto dy = SinDegrees(usedVerticalAngle) * usedCameraDistance;
-    auto dxPlayer = -4.0f * SinDegrees(m_horizontalAngle);
-    auto dzPlayer= -4.0f * CosDegrees(m_horizontalAngle);
-    auto playerWorldAreaPosition = player.GetMajorCoordinate();
-    auto playerPosition = player.GetPosition();
-    auto worldArea = world.GetCurrentWorldArea();
-    if (worldArea) {
-        auto playerTile = worldArea->GetTile(playerPosition.ToIntPoint());
-        auto elevAmount = WorldViewConfiguration::k_elevAmount;
-        auto tileCoord = playerPosition.ToIntPoint();
-        auto tile = worldArea->GetTile(tileCoord);
-        auto elev00 = static_cast<float>(tile->GetElevation());
-        auto elev10 = elev00;
-        auto elev11 = elev00;
-        auto elev01 = elev00;
-        auto coord10 = tileCoord.Translate(1, 0);
-        auto coord11 = tileCoord.Translate(1, 1);
-        auto coord01 = tileCoord.Translate(0, 1);
-        if (worldArea->IsValidCoordinate(coord10))
-            elev10 = worldArea->GetTile(coord10)->GetElevation();
-        if (worldArea->IsValidCoordinate(coord11))
-            elev11 = worldArea->GetTile(coord11)->GetElevation();
-        if (worldArea->IsValidCoordinate(coord01))
-            elev01 = worldArea->GetTile(coord01)->GetElevation();
-        auto tileAvgElev = (elev00 + elev10 + elev01 + elev11) / 4.0f;
-        auto playerTileDx =
-            playerPosition.x - static_cast<int>(playerPosition.x) - 0.5f;
-        auto playerTileDy =
-            playerPosition.y - static_cast<int>(playerPosition.y) - 0.5f;
-        auto elevDx = ((elev10 - elev00) + (elev11 - elev01)) / 2.0f;
-        auto elevDy = ((elev01 - elev00) + (elev11 - elev10)) / 2.0f;
-        auto playerElev =
-            tileAvgElev + playerTileDx * elevDx + playerTileDy *
-            elevDy;
-        m_playerPosition3D = playerPositionNoElevation.Translate(
-            dxPlayer, playerElev * elevAmount, dzPlayer);
-        m_cameraPosition =
-            playerPositionNoElevation.Translate(
-                dx,
-                dy + playerElev * elevAmount, dz);
+    try {
+        auto& player = _<Player>();
+        auto& world = _<World>();
+        auto usedCameraDistance = m_cameraDistance;
+        auto usedVerticalAngle = m_verticalAngle;
+        auto playerPositionNoElevation = player.GetPosition3D();
+        auto dzUnrotated= CosDegrees(usedVerticalAngle) * usedCameraDistance;
+        auto hypotenuse = dzUnrotated;
+        auto dx = SinDegrees(m_horizontalAngle) * hypotenuse - 3.0f *
+                  SinDegrees(m_horizontalAngle);
+        auto dz = CosDegrees(m_horizontalAngle) * hypotenuse - 3.0f *
+                  CosDegrees(m_horizontalAngle);
+        auto dy = SinDegrees(usedVerticalAngle) * usedCameraDistance;
+        auto dxPlayer = -4.0f * SinDegrees(m_horizontalAngle);
+        auto dzPlayer= -4.0f * CosDegrees(m_horizontalAngle);
+        auto playerWorldAreaPosition = player.GetMajorCoordinate();
+        auto playerPosition = player.GetPosition();
+        auto worldArea = world.GetCurrentWorldArea();
+        if (worldArea) {
+            auto elevAmount = WorldViewConfiguration::k_elevAmount;
+            auto tileCoord = playerPosition.ToIntPoint();
+            float elev00 {0.0f};
+            if (worldArea->IsValidCoordinate(tileCoord)) {
+                auto tile = worldArea->GetTile(tileCoord);
+                elev00 = static_cast<float>(tile->GetElevation());
+            }
+            auto elev10 = elev00;
+            auto elev11 = elev00;
+            auto elev01 = elev00;
+            auto coord10 = tileCoord.Translate(1, 0);
+            auto coord11 = tileCoord.Translate(1, 1);
+            auto coord01 = tileCoord.Translate(0, 1);
+            if (worldArea->IsValidCoordinate(coord10))
+                elev10 = worldArea->GetTile(coord10)->GetElevation();
+            if (worldArea->IsValidCoordinate(coord11))
+                elev11 = worldArea->GetTile(coord11)->GetElevation();
+            if (worldArea->IsValidCoordinate(coord01))
+                elev01 = worldArea->GetTile(coord01)->GetElevation();
+            auto tileAvgElev = (elev00 + elev10 + elev01 + elev11) / 4.0f;
+            auto playerTileDx =
+                playerPosition.x - static_cast<int>(playerPosition.x) - 0.5f;
+            auto playerTileDy =
+                playerPosition.y - static_cast<int>(playerPosition.y) - 0.5f;
+            auto elevDx = ((elev10 - elev00) + (elev11 - elev01)) / 2.0f;
+            auto elevDy = ((elev01 - elev00) + (elev11 - elev10)) / 2.0f;
+            auto playerElev =
+                tileAvgElev + playerTileDx * elevDx + playerTileDy *
+                elevDy;
+            m_playerPosition3D = playerPositionNoElevation.Translate(
+                dxPlayer, playerElev * elevAmount, dzPlayer);
+            m_cameraPosition =
+                playerPositionNoElevation.Translate(
+                    dx,
+                    dy + playerElev * elevAmount, dz);
+        }
+    }
+    catch (const std::runtime_error& e) {
+        std::cout <<
+            "Exception of \"runtime error\" type occured in Camera::CalculateCameraPosition():\n\""
+                  <<
+            e.what() << "\"\n";
+        throw;
+    }
+    catch (const std::invalid_argument& e) {
+        std::cout <<
+            "Exception of \"invalid argument\" type occured in Camera::CalculateCameraPosition():\n\""
+                  <<
+            e.what() << "\"\n";
+        throw;
+    }
+    catch (const std::exception& e) {
+        std::cout <<
+            "Exception of unhandled type occured in Camera::CalculateCameraPosition():\n\""
+                  <<
+            e.what() <<
+            "\"\n";
+        throw;
     }
 }
 

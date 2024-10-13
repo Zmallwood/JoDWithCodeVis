@@ -23,6 +23,10 @@ GroundRenderer::GroundRenderer() {
 }
 
 RID GroundRenderer::AllocateNewImagePolygon(int numVertices) {
+    if (numVertices <= 2)
+        throw std::invalid_argument(
+                  CodeLocation() +
+                  "numVertices must be > 2 to form a valid polygon.");
     auto vaoID= GenNewVAOID();
     auto indexBuffID = GenNewBuffID(
         BufferTypes::Indices,

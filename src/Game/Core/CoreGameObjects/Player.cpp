@@ -3,6 +3,7 @@
  */
 
 #include "Player.hpp"
+#include "Theme0/Scenes/MainScene/Modules/WorldViewModule/WorldViewConfiguration.hpp"
 
 namespace JoD {
 void Player::MoveNorth() {
@@ -22,7 +23,7 @@ void Player::MoveWest() {
 }
 
 Point3F Player::GetPosition3D() const {
-    auto position3D= Point3F {m_position.x, 0.0f, m_position.y};
+    auto position3D= Point3F {m_position.x * WorldViewConfiguration::k_tileSize, 0.0f, m_position.y*WorldViewConfiguration::k_tileSize};
     return position3D;
 }
 }

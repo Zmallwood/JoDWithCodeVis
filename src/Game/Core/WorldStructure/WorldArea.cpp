@@ -33,7 +33,9 @@ bool WorldArea::IsValidCoordinate(Point2 coordinate) const {
 std::shared_ptr<Tile> WorldArea::GetTile(int x, int y) const {
     if (IsValidCoordinate(x, y))
         return m_tiles.at(x).at(y);
-    return nullptr;
+    throw std::invalid_argument(
+              CodeLocation() +
+              "x or y does not correspond to a valid tile coordinate.");
 }
 
 std::shared_ptr<Tile> WorldArea::GetTile(Point2 coordinate) const {

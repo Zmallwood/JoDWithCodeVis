@@ -19,6 +19,10 @@ void GUIComponent::Render() const {
 
 void GUIComponent::AddChildComponent(
     std::shared_ptr<GUIComponent> newComponent) {
+    if (nullptr == newComponent)
+        throw std::invalid_argument(
+                  CodeLocation() +
+                  "newComponent cannot be nullptr.");
     m_childComponents.push_back(newComponent);
 }
 }

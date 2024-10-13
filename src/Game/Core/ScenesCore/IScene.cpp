@@ -18,7 +18,7 @@ void IScene::Update() {
     UpdateDerived();
 }
 
-void IScene::Render() {
+void IScene::Render() const {
     RenderDerived();
     m_gui->Render();
 }

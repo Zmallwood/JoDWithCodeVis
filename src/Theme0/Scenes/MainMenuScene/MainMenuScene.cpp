@@ -29,7 +29,7 @@ MainMenuScene::MainMenuScene() {
 
 void MainMenuScene::UpdateDerived() {}
 
-void MainMenuScene::RenderDerived() {
+void MainMenuScene::RenderDerived() const {
     auto areaBackground = BoxF{0.0f, 0.0f, 1.0f, 1.0f};
     _<SceneEngine>().DrawImage(
         m_ridBackground, "DefaultSceneBackground",

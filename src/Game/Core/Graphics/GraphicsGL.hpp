@@ -9,11 +9,11 @@ class GraphicsGL {
   public:
     GraphicsGL();
     
-    auto GetFogColorGround() {
+    auto GetFogColorGround() const {
         return k_fogColorGround;
     }
     
-    auto GetFogColorObjects() {
+    auto GetFogColorObjects() const {
         return k_fogColorObjects;
     }
     

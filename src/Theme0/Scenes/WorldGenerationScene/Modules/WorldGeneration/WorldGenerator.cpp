@@ -12,7 +12,7 @@
 
 
 namespace JoD {
-void WorldGenerator::GenerateWorld(Size worldAreaSize) {
+void WorldGenerator::GenerateWorld(Size worldAreaSize) const {
     _<World>().EnsureCreated(worldAreaSize);
     auto worldArea = _<World>().GetCurrentWorldArea();
     CreateRenderingResources(worldArea);
@@ -21,7 +21,7 @@ void WorldGenerator::GenerateWorld(Size worldAreaSize) {
 }
 
 void WorldGenerator::CreateRenderingResources(
-    std::shared_ptr<WorldArea> worldArea) {
+    std::shared_ptr<WorldArea> worldArea) const {
     auto size = worldArea->GetSize();
     
     for (auto y = 0; y < size.height; y++) {
@@ -34,7 +34,7 @@ void WorldGenerator::CreateRenderingResources(
     }
 }
 
-void WorldGenerator::GenerateGrass(std::shared_ptr<WorldArea> worldArea) {
+void WorldGenerator::GenerateGrass(std::shared_ptr<WorldArea> worldArea) const {
     auto size = worldArea->GetSize();
     
     for (auto y = 0; y < size.height; y++) {
@@ -47,7 +47,8 @@ void WorldGenerator::GenerateGrass(std::shared_ptr<WorldArea> worldArea) {
     }
 }
 
-void WorldGenerator::CalculateNormals(std::shared_ptr<WorldArea> worldArea) {
+void WorldGenerator::CalculateNormals(
+    std::shared_ptr<WorldArea> worldArea) const {
     auto tileSize = WorldViewConfiguration::k_tileSize;
     auto elevAmount = WorldViewConfiguration::k_elevAmount;
     for (auto y = 0; y < worldArea->GetSize().height; y++){

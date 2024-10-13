@@ -16,7 +16,7 @@ void GroundSurfacePainter::Initialize() {
             m_ridsTileLayers[x][y] = _<WorldView>().AllocNewTile();
 }
 
-void GroundSurfacePainter::Paint() {
+void GroundSurfacePainter::Paint() const {
     auto tile = WorldView::s_currentTile;
     auto tileCoord= WorldView::s_currentTileCoordinate;
     

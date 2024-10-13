@@ -16,7 +16,7 @@ WorldArea::WorldArea(Size size) {
     }
 }
 
-Size WorldArea::GetSize() {
+Size WorldArea::GetSize() const {
     if (m_tiles.size() > 0) {
         return {static_cast<int>(m_tiles.size()),
                 static_cast<int>(m_tiles.at(0).size())};
@@ -24,23 +24,23 @@ Size WorldArea::GetSize() {
     return {0, 0};
 }
 
-bool WorldArea::IsValidCoordinate(int x, int y) {
+bool WorldArea::IsValidCoordinate(int x, int y) const {
     auto size = GetSize();
     return x >= 0 && y >= 0 && x < size.width && y < size.height;
 }
 
-bool WorldArea::IsValidCoordinate(Point2 coordinate) {
+bool WorldArea::IsValidCoordinate(Point2 coordinate) const {
     return IsValidCoordinate(coordinate.x, coordinate.y);
 }
 
-std::shared_ptr<Tile> WorldArea::GetTile(int x, int y) {
+std::shared_ptr<Tile> WorldArea::GetTile(int x, int y) const {
     if (IsValidCoordinate(x, y)) {
         return m_tiles.at(x).at(y);
     }
     return nullptr;
 }
 
-std::shared_ptr<Tile> WorldArea::GetTile(Point2 coordinate) {
+std::shared_ptr<Tile> WorldArea::GetTile(Point2 coordinate) const {
     return GetTile(coordinate.x, coordinate.y);
 }
 }

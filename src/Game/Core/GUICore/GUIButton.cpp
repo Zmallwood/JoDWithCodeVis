@@ -34,7 +34,7 @@ void GUIButton::UpdateDerived() {
     }
 }
 
-void GUIButton::RenderDerived() {
+void GUIButton::RenderDerived() const {
     if (!m_activeBackImage)
         return;
     

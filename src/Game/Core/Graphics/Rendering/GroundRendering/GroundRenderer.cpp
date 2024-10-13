@@ -210,7 +210,7 @@ void GroundRenderer::DrawImagePolygon(
         glUseProgram(0);
 }
 
-void GroundRenderer::Cleanup() {
+void GroundRenderer::Cleanup() const {
     CleanupBase();
 }
 }

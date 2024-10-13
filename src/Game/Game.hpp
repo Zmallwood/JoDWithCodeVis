@@ -7,6 +7,6 @@
 namespace JoD {
 class Game {
   public:
-    void Start();
+    void Start() const;
 };
 }

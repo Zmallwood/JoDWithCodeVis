@@ -19,17 +19,17 @@ class MouseInput {
     
     void RegisterMouseWheelScrolled(int delta);
     
-    bool AnyButtonIsPressed() const;
+    bool AnyMouseButtonIsPressed() const;
     
     int GetMouseWheelDeltaPickResult();
     
     Point2 GetMotionDeltaPickResult();
     
-    auto GetLeftButton() {
+    auto GetLeftButton() const {
         return m_leftButton;
     }
     
-    auto GetRightButton() {
+    auto GetRightButton() const {
         return m_rightButton;
     }
     

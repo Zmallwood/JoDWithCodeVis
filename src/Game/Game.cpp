@@ -6,7 +6,7 @@
 #include "Core/Engine.hpp"
 
 namespace JoD {
-void Game::Start() {
+void Game::Start() const {
     _<Engine>().Initialize();
     _<Engine>().Run();
 }

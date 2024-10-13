@@ -11,15 +11,15 @@ class Camera {
     
     void Update();
     
-    float GetZoomAmount();
+    float GetZoomAmount() const;
     
-    Point3F MoveCloserToCamera(Point3F originalPoint, float amount);
+    Point3F MoveCloserToCamera(Point3F originalPoint, float amount) const;
     
     Point3F& GetCameraPositionRef() {
         return m_cameraPosition;
     }
     
-    float GetVerticalAngle() {
+    float GetVerticalAngle() const {
         return m_verticalAngle;
     }
     
@@ -27,11 +27,11 @@ class Camera {
         return m_verticalAngle;
     }
     
-    float GetCameraDistance() {
+    float GetCameraDistance() const {
         return m_cameraDistance;
     }
     
-    float GetHorizontalAngle() {
+    float GetHorizontalAngle() const {
         return m_horizontalAngle;
     }
     

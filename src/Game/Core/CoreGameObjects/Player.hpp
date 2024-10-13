@@ -7,13 +7,13 @@
 namespace JoD {
 class Player {
   public:
-    Point3F GetPosition3D();
+    Point3F GetPosition3D() const;
     
-    auto GetPosition() {
+    auto GetPosition() const {
         return m_position;
     }
     
-    auto GetMajorCoordinate() {
+    auto GetMajorCoordinate() const {
         return m_majorCoordinate;
     }
     

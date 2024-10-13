@@ -12,15 +12,15 @@ class WorldArea;
 
 class WorldView {
   public:
-    void Initialize();
+    void Initialize() const;
     
-    void Update();
+    void Update() const;
     
     void Render();
     
-    Size GetWorldAreaSize();
+    Size GetWorldAreaSize() const;
     
-    RID AllocNewTile();
+    RID AllocNewTile() const;
     
   private:
     void DoRenderLoop(std::function<void()> action);

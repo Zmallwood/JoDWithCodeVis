@@ -12,7 +12,7 @@ class IntroScene : public IScene {
   protected:
     void UpdateDerived() override;
     
-    void RenderDerived() override;
+    void RenderDerived() const override;
     
   private:
     RID m_ridBackground{0};

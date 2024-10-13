@@ -11,19 +11,19 @@ class Tile {
     
     void CalculateNormal(Point3F v0, Point3F v1, Point3F v2);
     
-    auto GetGroundType() {
+    auto GetGroundType() const {
         return m_groundType;
     }
     
-    auto GetElevation() {
+    auto GetElevation() const {
         return m_elevation;
     }
     
-    auto GetNormal() {
+    auto GetNormal() const {
         return m_normal;
     }
     
-    auto GetRID() {
+    auto GetRID() const {
         return m_rid;
     }
     
@@ -31,7 +31,7 @@ class Tile {
         m_rid = value;
     }
     
-    auto GetRedVariation() {
+    auto GetRedVariation() const {
         return m_redVariation;
     }
     
@@ -39,7 +39,7 @@ class Tile {
         m_redVariation = value;
     }
     
-    auto GetGreenVariation() {
+    auto GetGreenVariation() const {
         return m_greenVariation;
     }
     
@@ -47,7 +47,7 @@ class Tile {
         m_greenVariation = value;
     }
     
-    auto GetBlueVariation() {
+    auto GetBlueVariation() const {
         return m_blueVariation;
     }
     

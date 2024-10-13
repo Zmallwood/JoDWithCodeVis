@@ -9,11 +9,11 @@ class GUIComponent {
   public:
     void Update();
     
-    void Render();
+    void Render() const;
     
     virtual void UpdateDerived() {}
     
-    virtual void RenderDerived() {}
+    virtual void RenderDerived() const {}
     
     void AddChildComponent(std::shared_ptr<GUIComponent> newComponent);
     

@@ -11,7 +11,7 @@ class FPSCounter {
     
     void Update();
     
-    void Render();
+    void Render() const;
     
   private:
     int m_fps {0};

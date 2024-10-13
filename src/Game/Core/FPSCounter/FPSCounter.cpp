@@ -20,7 +20,7 @@ void FPSCounter::Update() {
     m_framesCount++;
 }
 
-void FPSCounter::Render() {
+void FPSCounter::Render() const {
     _<Engine>().DrawString(
         m_ridFPSText,
         "FPS: " + std::to_string(m_fps), {0.95f, 0.03f});

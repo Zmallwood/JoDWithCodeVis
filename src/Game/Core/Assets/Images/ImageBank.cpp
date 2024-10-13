@@ -15,14 +15,14 @@ ImageBank::~ImageBank() {
         glDeleteTextures(1, &image.second);
 }
 
-GLuint ImageBank::GetImage(int imageNameHash) {
+GLuint ImageBank::GetImage(int imageNameHash) const {
     for (auto image : m_images)
         if (image.first == imageNameHash)
             return image.second;
     return -1;
 }
 
-GLuint ImageBank::GetImage(std::string_view imageName) {
+GLuint ImageBank::GetImage(std::string_view imageName) const {
     return GetImage(Hash(imageName));
 }
 
@@ -48,7 +48,7 @@ void ImageBank::LoadImages() {
     }
 }
 
-GLuint ImageBank::LoadSingleImage(std::string_view absoluteFilePath) {
+GLuint ImageBank::LoadSingleImage(std::string_view absoluteFilePath) const {
     GLuint textureID;
     auto surface = IMG_Load(absoluteFilePath.data());
     glEnable(GL_TEXTURE_2D);
@@ -68,7 +68,7 @@ GLuint ImageBank::LoadSingleImage(std::string_view absoluteFilePath) {
     return textureID;
 }
 
-Size ImageBank::GetImageDimensions(int imageNameHash) {
+Size ImageBank::GetImageDimensions(int imageNameHash) const {
     Size dim{0, 0};
     auto imageID = GetImage(imageNameHash);
     if (imageID != -1) {

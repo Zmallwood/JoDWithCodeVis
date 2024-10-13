@@ -51,7 +51,7 @@ void MouseRotation::Update() {
     UpdateRotationInProgress();
 }
 
-void MouseRotation::UpdateRotationInProgress() {
+void MouseRotation::UpdateRotationInProgress() const {
     if (m_currentRotationType!= RotationTypes::None ||
         _<Camera>().GetCameraDistance() == 2.0f) {
         auto canvasSize = GetCanvasSize();

@@ -12,36 +12,40 @@ class Engine {
   public:
     Engine();
     
-    void Initialize();
+    void Initialize() const;
     
     void Run();
     
-    RID AllocNewImage();
+    RID AllocNewImage() const;
     
     void DrawImage(RID rid, int imageNameHash, const BoxF &area,
                    ColorF color = Colors::White, bool repeatTexture = false,
                    SizeF textureFillAmount = {1.0f, 1.0f},
-                   bool noPixelEffect = false);
+                   bool noPixelEffect = false) const;
     
     void DrawImage(RID rid, std::string_view imageName, const BoxF &area,
                    ColorF color = Colors::White, bool repeatTexture = false,
                    SizeF textureFillAmount = {1.0f, 1.0f},
-                   bool noPixelEffect = false);
+                   bool noPixelEffect = false) const;
     
-    RID AllocNewString();
+    RID AllocNewString() const;
     
     void DrawString(int id,
                     std::string_view text,
                     Point2F position,
                     ColorF color = Colors::White,
                     bool centerAlign= false,
-                    FontSizes fontSize= FontSizes::_20);
+                    FontSizes fontSize= FontSizes::_20) const;
     
-    RID AllocNewTile();
+    RID AllocNewTile() const;
     
-    Size GetWorldAreaSize();
+    Size GetWorldAreaSize() const;
     
-    void SetCursorStyle(CursorStyles newStyle);
+    void SetCursorStyle(CursorStyles newStyle) const;
+    
+    bool AnyKeyIsPressed() const;
+    
+    bool AnyMouseButtonisPressed() const;
     
     void SetRunning(bool value) {
         m_running = value;

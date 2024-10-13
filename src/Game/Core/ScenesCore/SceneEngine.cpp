@@ -43,18 +43,18 @@ void SceneEngine::GoToScene(std::string_view newSceneName) {
     }
 }
 
-Size SceneEngine::GetWorldAreaSize() {
+Size SceneEngine::GetWorldAreaSize() const {
     return _<Engine>().GetWorldAreaSize();
 }
 
-RID SceneEngine::AllocNewImage() {
+RID SceneEngine::AllocNewImage() const {
     return _<Engine>().AllocNewImage();
 }
 
 void SceneEngine::DrawImage(RID rid, int imageNameHash, const BoxF &area,
                             ColorF color, bool repeatTexture,
                             SizeF textureFillAmount,
-                            bool noPixelEffect) {
+                            bool noPixelEffect) const {
     _<Engine>().DrawImage(
         rid, imageNameHash, area, color, repeatTexture,
         textureFillAmount, noPixelEffect);
@@ -64,13 +64,13 @@ void SceneEngine::DrawImage(RID rid, std::string_view imageName,
                             const BoxF &area,
                             ColorF color, bool repeatTexture,
                             SizeF textureFillAmount,
-                            bool noPixelEffect) {
+                            bool noPixelEffect) const {
     _<Engine>().DrawImage(
         rid, imageName, area, color,repeatTexture,
         textureFillAmount, noPixelEffect);
 }
 
-RID SceneEngine::AllocNewString() {
+RID SceneEngine::AllocNewString() const {
     return _<Engine>().AllocNewString();
 }
 
@@ -79,14 +79,22 @@ void SceneEngine::DrawString(int id,
                              Point2F position,
                              ColorF color,
                              bool centerAlign,
-                             FontSizes fontSize) {
+                             FontSizes fontSize) const {
     _<Engine>().DrawString(
         id, text, position, color, centerAlign,
         fontSize);
 }
 
-RID SceneEngine::AllocNewTile() {
+RID SceneEngine::AllocNewTile() const {
     return _<Engine>().AllocNewTile();
+}
+
+bool SceneEngine::AnyMouseButtonIsPressed() const {
+    return _<Engine>().AnyMouseButtonisPressed();
+}
+
+bool SceneEngine::AnyKeyIsPressed() const {
+    return _<Engine>().AnyKeyIsPressed();
 }
 
 void SceneEngine::StopEngine() {

@@ -3,7 +3,7 @@
  */
 
 namespace JoD {
-Point2 Point2::Translate(int dx, int dy) {
+Point2 Point2::Translate(int dx, int dy) const {
     return {x + dx, y + dy};
 }
 }

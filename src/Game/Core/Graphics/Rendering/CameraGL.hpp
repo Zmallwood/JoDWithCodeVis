@@ -7,11 +7,11 @@
 namespace JoD {
 class CameraGL {
   public:
-    auto GetPerspectiveMatrix() {
+    auto GetPerspectiveMatrix() const {
         return m_perspectiveMatrix;
     }
     
-    auto GetViewMatrix() {
+    auto GetViewMatrix() const {
         return m_viewMatrix;
     }
     

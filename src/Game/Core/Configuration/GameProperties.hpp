@@ -7,7 +7,7 @@
 namespace JoD {
 class GameProperties {
   public:
-    auto GetWorldAreaSize() {
+    auto GetWorldAreaSize() const {
         return m_worldAreaSize;
     }
     

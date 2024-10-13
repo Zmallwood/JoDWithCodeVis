@@ -40,7 +40,7 @@ void MouseInput::RegisterMouseWheelScrolled(int delta) {
     m_mouseWheelDelta += delta;
 }
 
-bool MouseInput::AnyButtonIsPressed() const {
+bool MouseInput::AnyMouseButtonIsPressed() const {
     return m_leftButton->GetIsPressed() || m_rightButton->GetIsPressed();
 }
 

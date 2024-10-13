@@ -49,7 +49,7 @@ void RendererBase::SetData(GLuint vboID, int numVertices, const void *data,
     }
 }
 
-GLuint RendererBase::GetUniformLocation(const std::string &variableName) {
+GLuint RendererBase::GetUniformLocation(const std::string &variableName) const {
     return glGetUniformLocation(
         m_shaderProgram->GetProgramID(),
         variableName.c_str());

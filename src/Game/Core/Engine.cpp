@@ -20,7 +20,7 @@ Engine::Engine() {
     _<Graphics>();
 }
 
-void Engine::Initialize() {
+void Engine::Initialize() const {
     
     _<SceneEngine>().InitializeScenes();
     _<SceneEngine>().GoToScene("IntroScene");
@@ -76,18 +76,18 @@ void Engine::PollEvents() {
     }
 }
 
-Size Engine::GetWorldAreaSize() {
+Size Engine::GetWorldAreaSize() const {
     return _<GameProperties>().GetWorldAreaSize();
 }
 
-RID Engine::AllocNewImage() {
+RID Engine::AllocNewImage() const {
     return _<ImageRenderer>().AllocNewImage();
 }
 
 void Engine::DrawImage(RID rid, int imageNameHash, const BoxF &area,
                        ColorF color, bool repeatTexture,
                        SizeF textureFillAmount,
-                       bool noPixelEffect) {
+                       bool noPixelEffect) const {
     _<ImageRenderer>().DrawImage(
         rid, imageNameHash, area, color, repeatTexture,
         textureFillAmount, noPixelEffect);
@@ -96,13 +96,13 @@ void Engine::DrawImage(RID rid, int imageNameHash, const BoxF &area,
 void Engine::DrawImage(RID rid, std::string_view imageName, const BoxF &area,
                        ColorF color, bool repeatTexture,
                        SizeF textureFillAmount,
-                       bool noPixelEffect) {
+                       bool noPixelEffect) const {
     _<ImageRenderer>().DrawImage(
         rid, imageName, area, color,repeatTexture,
         textureFillAmount, noPixelEffect);
 }
 
-RID Engine::AllocNewString() {
+RID Engine::AllocNewString() const {
     return _<TextRenderer>().AllocNewString();
 }
 
@@ -111,18 +111,25 @@ void Engine::DrawString(int id,
                         Point2F position,
                         ColorF color,
                         bool centerAlign,
-                        FontSizes fontSize) {
+                        FontSizes fontSize) const {
     _<TextRenderer>().DrawString(
         id, text, position, color, centerAlign,
         fontSize);
 }
 
-RID Engine::AllocNewTile() {
+RID Engine::AllocNewTile() const {
     return _<GroundRenderer>().AllocNewTile();
 }
 
-void Engine::SetCursorStyle(CursorStyles newStyle) {
+void Engine::SetCursorStyle(CursorStyles newStyle) const {
     _<Cursor>().SetCursorStyle(newStyle);
 }
 
+bool Engine::AnyMouseButtonisPressed() const {
+    return _<MouseInput>().AnyMouseButtonIsPressed();
+}
+
+bool Engine::AnyKeyIsPressed() const {
+    return _<KeyboardInput>().AnyKeyIsPressed();
+}
 }

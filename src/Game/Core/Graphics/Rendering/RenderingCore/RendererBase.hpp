@@ -23,7 +23,7 @@ class RendererBase {
     void SetData(GLuint vboID, int numVertices, const void *data,
                  BufferTypes buffType, int layoutLocation = -1) const;
     
-    GLuint GetUniformLocation(const std::string &variableName);
+    GLuint GetUniformLocation(const std::string &variableName) const;
     
     void UseVAOBegin(GLuint vaoID) const;
     

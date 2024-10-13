@@ -18,17 +18,18 @@ class ImageRenderer : public RendererBase {
     void DrawImage(RID rid, int imageNameHash, const BoxF &area,
                    ColorF color = Colors::White, bool repeatTexture = false,
                    SizeF textureFillAmount = {1.0f, 1.0f},
-                   bool noPixelEffect = false);
+                   bool noPixelEffect = false) const;
     
     void DrawImage(RID rid, std::string_view imageName, const BoxF &area,
                    ColorF color = Colors::White, bool repeatTexture = false,
                    SizeF textureFillAmount = {1.0f, 1.0f},
-                   bool noPixelEffect = false);
+                   bool noPixelEffect = false) const;
     
   private:
+    int m_locationNoPixelEffect{-1};
+    
     static constexpr int k_locationPosition{0};
     static constexpr int k_locationColor{1};
     static constexpr int k_locationUV{2};
-    int m_locationNoPixelEffect{-1};
 };
 }

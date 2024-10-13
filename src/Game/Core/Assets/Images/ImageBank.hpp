@@ -11,18 +11,18 @@ class ImageBank {
     
     ~ImageBank();
     
-    GLuint GetImage(int imageNameHash);
+    GLuint GetImage(int imageNameHash) const;
     
-    GLuint GetImage(std::string_view imageName);
+    GLuint GetImage(std::string_view imageName) const;
     
     void CreateBlankImage(std::string uniqueImageName);
     
-    Size GetImageDimensions(int imageNameHash);
+    Size GetImageDimensions(int imageNameHash) const;
     
   private:
     void LoadImages();
     
-    GLuint LoadSingleImage(std::string_view absoluteFilePath);
+    GLuint LoadSingleImage(std::string_view absoluteFilePath) const;
     
     const std::string k_relativeImagesPath{"Resources/Images/"};
     std::map<int, GLuint> m_images;

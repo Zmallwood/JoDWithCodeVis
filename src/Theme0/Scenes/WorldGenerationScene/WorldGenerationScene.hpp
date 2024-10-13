@@ -16,7 +16,7 @@ class WorldGenerationScene : public IScene {
     
     void UpdateDerived() override;
     
-    void RenderDerived() override;
+    void RenderDerived() const override;
     
   private:
     RID m_ridBackground {0};

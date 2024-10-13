@@ -33,11 +33,11 @@ Graphics::Graphics() {
     _<GraphicsGL>();
 }
 
-void Graphics::ClearCanvas() {
+void Graphics::ClearCanvas() const {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-void Graphics::PresentCanvas() {
+void Graphics::PresentCanvas() const {
     SDL_GL_SwapWindow(m_window.get());
 }
 }

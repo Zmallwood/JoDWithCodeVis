@@ -7,7 +7,7 @@
 namespace JoD {
 class Point3F {
   public:
-    Point3F Translate(float dx, float dy, float dz);
+    Point3F Translate(float dx, float dy, float dz) const;
     
     float x {0.0f};
     float y {0.0f};

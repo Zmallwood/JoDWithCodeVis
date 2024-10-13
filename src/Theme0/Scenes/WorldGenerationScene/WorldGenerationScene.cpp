@@ -16,5 +16,5 @@ void WorldGenerationScene::OnEnterDerived() {
 
 void WorldGenerationScene::UpdateDerived() {}
 
-void WorldGenerationScene::RenderDerived() {}
+void WorldGenerationScene::RenderDerived() const {}
 }

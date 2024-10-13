@@ -111,7 +111,7 @@ RID TextRenderer::AllocNewString() {
 
 void TextRenderer::DrawString(int id, std::string_view text, Point2F position,
                               ColorF color, bool centerAlign,
-                              FontSizes fontSize) {
+                              FontSizes fontSize) const {
     std::string uniqueNameID;
     SizeF size;
     RenderText(id, text, color, centerAlign, fontSize, uniqueNameID, size);

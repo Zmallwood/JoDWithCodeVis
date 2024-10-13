@@ -3,8 +3,6 @@
  */
 
 #include "IntroScene.hpp"
-#include "Game/Core/Input/Keyboard/KeyboardInput.hpp"
-#include "Game/Core/Input/Mouse/MouseInput.hpp"
 #include "Game/Core/ScenesCore/SceneEngine.hpp"
 
 namespace JoD {
@@ -14,13 +12,13 @@ IntroScene::IntroScene() {
 }
 
 void IntroScene::UpdateDerived() {
-    if (_<KeyboardInput>().AnyKeyIsPressed() ||
-        _<MouseInput>().AnyButtonIsPressed()) {
+    if (_<SceneEngine>().AnyKeyIsPressed() ||
+        _<SceneEngine>().AnyMouseButtonIsPressed()) {
         _<SceneEngine>().GoToScene("MainMenuScene");
     }
 }
 
-void IntroScene::RenderDerived() {
+void IntroScene::RenderDerived() const {
     auto areaBackground = BoxF{0.0f, 0.0f, 1.0f, 1.0f};
     _<SceneEngine>().DrawImage(
         m_ridBackground, "DefaultSceneBackground",

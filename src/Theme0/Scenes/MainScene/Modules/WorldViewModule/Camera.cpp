@@ -45,7 +45,7 @@ void Camera::Update() {
         _<Cursor>().HideThisFrame();
 }
 
-float Camera::GetZoomAmount() {
+float Camera::GetZoomAmount() const {
     return m_cameraDistance;
 }
 
@@ -57,7 +57,7 @@ void Camera::UpdateZooming() {
         m_cameraDistance+= distanceChange;
     }
     
-    m_cameraDistance= std::max(std::min(m_cameraDistance, 250.0f), 2.0f);
+    m_cameraDistance = std::max(std::min(m_cameraDistance, 250.0f), 2.0f);
 }
 
 void Camera::CalculateCameraPosition() {
@@ -121,17 +121,17 @@ void Camera::CalculateCameraPosition() {
             tileAvgElev + playerTileDx * elevDx + playerTileDy *
             elevDy;
         
-        m_playerPosition3D= playerPositionNoElevation.Translate(
+        m_playerPosition3D = playerPositionNoElevation.Translate(
             dxPlayer, playerElev * elevAmount, dzPlayer);
         
-        m_cameraPosition=
+        m_cameraPosition =
             playerPositionNoElevation.Translate(
                 dx,
                 dy + playerElev * elevAmount, dz);
     }
 }
 
-Point3F Camera::MoveCloserToCamera(Point3F original_point, float amount) {
+Point3F Camera::MoveCloserToCamera(Point3F original_point, float amount) const {
     auto cameraDx = (float)m_cameraPosition.x - original_point.x;
     auto cameraDz = (float)m_cameraPosition.z - original_point.z;
     auto radius = std::sqrt(cameraDx * cameraDx + cameraDz * cameraDz);

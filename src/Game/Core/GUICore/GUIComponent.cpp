@@ -13,7 +13,7 @@ void GUIComponent::Update() {
     UpdateDerived();
 }
 
-void GUIComponent::Render() {
+void GUIComponent::Render() const {
     RenderDerived();
     
     for (auto childComponent : m_childComponents) {

@@ -12,7 +12,7 @@ class MouseRotation {
     void Update();
     
   private:
-    void UpdateRotationInProgress();
+    void UpdateRotationInProgress() const;
     
     RotationTypes m_currentRotationType {RotationTypes::None};
     

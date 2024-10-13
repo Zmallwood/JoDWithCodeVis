@@ -9,9 +9,9 @@ class Graphics {
   public:
     Graphics();
     
-    void ClearCanvas();
+    void ClearCanvas() const;
     
-    void PresentCanvas();
+    void PresentCanvas() const;
     
     auto GetWindow() const {
         return m_window;

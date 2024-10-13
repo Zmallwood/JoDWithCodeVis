@@ -20,7 +20,7 @@ class TextRenderer {
                     Point2F position,
                     ColorF color = Colors::White,
                     bool centerAlign= false,
-                    FontSizes fontSize= FontSizes::_20);
+                    FontSizes fontSize= FontSizes::_20) const;
     
     SizeF MeasureString(std::string_view text, FontSizes font_size) const;
     

@@ -16,7 +16,7 @@ class GUIButton : public GUIComponent {
     
     void UpdateDerived() override;
     
-    void RenderDerived() override;
+    void RenderDerived() const override;
     
   private:
     std::string m_text;

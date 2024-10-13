@@ -15,16 +15,16 @@ class IScene {
     
     void Update();
     
-    void Render();
+    void Render() const;
     
   protected:
     virtual void OnEnterDerived() {}
     
     virtual void UpdateDerived() {}
     
-    virtual void RenderDerived() {}
+    virtual void RenderDerived() const {}
     
-    auto GetGUI() {
+    auto GetGUI() const {
         return m_gui;
     }
     

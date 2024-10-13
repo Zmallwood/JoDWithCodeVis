@@ -17,15 +17,15 @@ void MainScene::UpdateDerived() {
     _<WorldView>().Update();
 }
 
-void MainScene::RenderDerived() {
+void MainScene::RenderDerived() const {
     _<WorldView>().Render();
 }
 
-Size MainScene::GetWorldAreaSize() {
+Size MainScene::GetWorldAreaSize() const {
     return _<SceneEngine>().GetWorldAreaSize();
 }
 
-RID MainScene::AllocNewTile() {
+RID MainScene::AllocNewTile() const {
     return _<SceneEngine>().AllocNewTile();
 }
 }

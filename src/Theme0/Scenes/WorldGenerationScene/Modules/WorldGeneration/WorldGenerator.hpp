@@ -9,13 +9,13 @@ class WorldArea;
 
 class WorldGenerator {
   public:
-    void GenerateWorld(Size worldAreaSize);
+    void GenerateWorld(Size worldAreaSize) const;
     
   private:
-    void CreateRenderingResources(std::shared_ptr<WorldArea> worldArea);
+    void CreateRenderingResources(std::shared_ptr<WorldArea> worldArea) const;
     
-    void GenerateGrass(std::shared_ptr<WorldArea> WorldArea);
+    void GenerateGrass(std::shared_ptr<WorldArea> WorldArea) const;
     
-    void CalculateNormals(std::shared_ptr<WorldArea> worldArea);
+    void CalculateNormals(std::shared_ptr<WorldArea> worldArea) const;
 };
 }

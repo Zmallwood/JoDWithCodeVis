@@ -40,7 +40,8 @@ RID ImageRenderer::AllocNewImage() {
 
 void ImageRenderer::DrawImage(RID rid, int imageNameHash, const BoxF &area,
                               ColorF color, bool repeatTexture,
-                              SizeF textureFillAmount, bool noPixelEffect) {
+                              SizeF textureFillAmount,
+                              bool noPixelEffect) const {
     auto glBox = area.ToGLBoxF();
     Vertex2F verts[k_numberVerticesInRectangle];
     verts[0].position = {glBox.x, glBox.y - glBox.height};
@@ -94,7 +95,7 @@ void ImageRenderer::DrawImage(RID rid, int imageNameHash, const BoxF &area,
 void ImageRenderer::DrawImage(RID rid, std::string_view imageName,
                               const BoxF &area, ColorF color,
                               bool repeatTexture, SizeF textureFillAmount,
-                              bool noPixelEffect) {
+                              bool noPixelEffect) const {
     DrawImage(
         rid, Hash(imageName), area, color, repeatTexture, textureFillAmount,
         noPixelEffect);

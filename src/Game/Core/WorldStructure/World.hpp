@@ -11,7 +11,7 @@ class World {
   public:
     void EnsureCreated(Size worldAreaSize);
     
-    auto GetCurrentWorldArea() {
+    auto GetCurrentWorldArea() const {
         return m_currentWorldArea;
     }
     

@@ -14,11 +14,11 @@
 #include "Game/Core/Graphics/Rendering/CameraGL.hpp"
 
 namespace JoD {
-void WorldView::Initialize() {
+void WorldView::Initialize() const {
     _<GroundSurfacePainter>().Initialize();
 }
 
-void WorldView::Update() {
+void WorldView::Update() const {
     _<Camera>().Update();
 }
 
@@ -297,11 +297,11 @@ void WorldView::DoRenderLoop(std::function<void()> action) {
     }
 }
 
-Size WorldView::GetWorldAreaSize() {
+Size WorldView::GetWorldAreaSize() const {
     return _<MainScene>().GetWorldAreaSize();
 }
 
-RID WorldView::AllocNewTile() {
+RID WorldView::AllocNewTile() const {
     return _<MainScene>().AllocNewTile();
 }
 }

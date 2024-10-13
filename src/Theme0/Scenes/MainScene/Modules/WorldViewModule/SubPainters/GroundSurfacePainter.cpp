@@ -13,7 +13,7 @@ void GroundSurfacePainter::Initialize() {
     
     for (auto y = 0; y < worldAreaSize.height; y++)
         for (auto x = 0; x < worldAreaSize.width; x++)
-            m_ridsTileLayers[x][y] = _<WorldView>().NewTile();
+            m_ridsTileLayers[x][y] = _<WorldView>().AllocNewTile();
 }
 
 void GroundSurfacePainter::Paint() {

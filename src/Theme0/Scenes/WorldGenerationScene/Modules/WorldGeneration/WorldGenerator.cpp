@@ -27,7 +27,7 @@ void WorldGenerator::CreateRenderingResources(
         for (auto x = 0; x < size.width; x++) {
             auto tile = worldArea->GetTile(x, y);
             if (tile) {
-                tile->SetRID(_<GroundRenderer>().NewTile());
+                tile->SetRID(_<GroundRenderer>().AllocNewTile());
             }
         }
     }

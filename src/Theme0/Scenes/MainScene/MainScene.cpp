@@ -23,7 +23,7 @@ Size MainScene::GetWorldAreaSize() {
     return _<SceneEngine>().GetWorldAreaSize();
 }
 
-RID MainScene::NewTile() {
-    return _<SceneEngine>().NewTile();
+RID MainScene::AllocNewTile() {
+    return _<SceneEngine>().AllocNewTile();
 }
 }

@@ -23,7 +23,7 @@ GroundRenderer::GroundRenderer() {
     m_locationFogColor= GetUniformLocation("fogColor");
 }
 
-RID GroundRenderer::NewImagePolygon(int numVertices) {
+RID GroundRenderer::AllocNewImagePolygon(int numVertices) {
     auto vaoID= GenNewVAOID();
     auto indexBuffID = GenNewBuffID(
         BufferTypes::Indices,
@@ -49,8 +49,8 @@ RID GroundRenderer::NewImagePolygon(int numVertices) {
     return vaoID;
 }
 
-RID GroundRenderer::NewTile() {
-    return NewImagePolygon(4);
+RID GroundRenderer::AllocNewTile() {
+    return AllocNewImagePolygon(4);
 }
 
 void GroundRenderer::SetGeometryTile(

@@ -3,7 +3,6 @@
  */
 
 #include "GUIButton.hpp"
-#include "Game/Core/Cursor/Cursor.hpp"
 #include "Game/Core/Input/Mouse/MouseInput.hpp"
 #include "Game/Core/Input/Mouse/MouseButton.hpp"
 #include "Game/Core/Engine.hpp"
@@ -16,8 +15,8 @@ GUIButton::GUIButton(std::string_view text, BoxF area,
     : m_text(text), m_action(action), m_area(area),
     m_backImageName(backImageName),
     m_backHoveredImageName(backHoveredImageName) {
-    m_ridButtonImage = _<Engine>().NewImage();
-    m_ridButtonText = _<Engine>().NewString();
+    m_ridButtonImage = _<Engine>().AllocNewImage();
+    m_ridButtonText = _<Engine>().AllocNewString();
 }
 
 void GUIButton::UpdateDerived() {
@@ -25,7 +24,7 @@ void GUIButton::UpdateDerived() {
     
     if (m_area.Contains(mousePosition)) {
         m_activeBackImage = &m_backHoveredImageName;
-        _<Cursor>().SetCursorStyle(CursorStyles::Hovering);
+        _<Engine>().SetCursorStyle(CursorStyles::Hovering);
         if (_<MouseInput>().GetLeftButton()->GetIsPressed()) {
             m_action();
         }

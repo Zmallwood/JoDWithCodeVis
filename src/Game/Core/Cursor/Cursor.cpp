@@ -8,7 +8,7 @@
 namespace JoD {
 Cursor::Cursor() {
     SDL_ShowCursor(0);
-    m_ridCursorImage = _<Engine>().NewImage();
+    m_ridCursorImage = _<Engine>().AllocNewImage();
 }
 
 void Cursor::Render() const {

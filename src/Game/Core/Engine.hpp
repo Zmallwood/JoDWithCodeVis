@@ -5,6 +5,7 @@
 #pragma once
 
 #include "Graphics/Rendering/TextRendering/FontSizes.hpp"
+#include "Cursor/CursorStyles.hpp"
 
 namespace JoD {
 class Engine {
@@ -15,7 +16,7 @@ class Engine {
     
     void Run();
     
-    RID NewImage();
+    RID AllocNewImage();
     
     void DrawImage(RID rid, int imageNameHash, const BoxF &area,
                    ColorF color = Colors::White, bool repeatTexture = false,
@@ -27,7 +28,7 @@ class Engine {
                    SizeF textureFillAmount = {1.0f, 1.0f},
                    bool noPixelEffect = false);
     
-    RID NewString();
+    RID AllocNewString();
     
     void DrawString(int id,
                     std::string_view text,
@@ -36,9 +37,11 @@ class Engine {
                     bool centerAlign= false,
                     FontSizes fontSize= FontSizes::_20);
     
-    RID NewTile();
+    RID AllocNewTile();
     
     Size GetWorldAreaSize();
+    
+    void SetCursorStyle(CursorStyles newStyle);
     
     void SetRunning(bool value) {
         m_running = value;

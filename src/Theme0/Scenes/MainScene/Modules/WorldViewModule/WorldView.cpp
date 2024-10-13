@@ -251,7 +251,7 @@ Size WorldView::GetWorldAreaSize() {
     return _<MainScene>().GetWorldAreaSize();
 }
 
-RID WorldView::NewTile() {
-    return _<MainScene>().NewTile();
+RID WorldView::AllocNewTile() {
+    return _<MainScene>().AllocNewTile();
 }
 }

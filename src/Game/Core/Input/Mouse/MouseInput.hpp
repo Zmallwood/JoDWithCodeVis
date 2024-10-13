@@ -23,6 +23,8 @@ class MouseInput {
     
     int GetMouseWheelDeltaPickResult();
     
+    Point2 GetMotionDeltaPickResult();
+    
     auto GetLeftButton() {
         return m_leftButton;
     }

@@ -23,11 +23,19 @@ class Camera {
         return m_verticalAngle;
     }
     
+    float& GetVerticalAngleRef() {
+        return m_verticalAngle;
+    }
+    
     float GetCameraDistance() {
         return m_cameraDistance;
     }
     
     float GetHorizontalAngle() {
+        return m_horizontalAngle;
+    }
+    
+    float& GetHorizontalAngleRef() {
         return m_horizontalAngle;
     }
     

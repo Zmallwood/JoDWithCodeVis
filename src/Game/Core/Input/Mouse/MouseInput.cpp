@@ -47,6 +47,14 @@ bool MouseInput::AnyButtonIsPressed() const {
 int MouseInput::GetMouseWheelDeltaPickResult() {
     auto result = m_mouseWheelDelta;
     m_mouseWheelDelta = 0;
+    
+    return result;
+}
+
+Point2 MouseInput::GetMotionDeltaPickResult() {
+    auto result = m_motionDelta;
+    m_motionDelta = {0, 0};
+    
     return result;
 }
 }

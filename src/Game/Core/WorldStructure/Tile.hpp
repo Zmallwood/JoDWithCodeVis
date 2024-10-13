@@ -19,6 +19,10 @@ class Tile {
         return m_elevation;
     }
     
+    auto &GetElevationRef() {
+        return m_elevation;
+    }
+    
     auto GetNormal() const {
         return m_normal;
     }

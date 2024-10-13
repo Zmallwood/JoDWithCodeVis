@@ -19,6 +19,7 @@ void WorldGenerator::GenerateWorld(Size worldAreaSize) const {
     
     CreateRenderingResources(worldArea);
     GenerateGrass(worldArea);
+    GenerateElevation(worldArea);
     CalculateNormals(worldArea);
 }
 
@@ -44,6 +45,33 @@ void WorldGenerator::GenerateGrass(std::shared_ptr<WorldArea> worldArea) const {
             auto tile = worldArea->GetTile(x, y);
             if (tile) {
                 tile->SetGroundType("GroundGrass");
+            }
+        }
+    }
+}
+
+void WorldGenerator::GenerateElevation(
+    std::shared_ptr<WorldArea> worldArea) const {
+    auto size = worldArea->GetSize();
+    auto numHills = 200;
+    
+    for (auto i = 0; i < numHills; i++) {
+        auto xCenter = rand() % size.width;
+        auto yCenter = rand() % size.height;
+        auto r = 5 + rand() % 16;
+        
+        for (auto y = yCenter - r; y <= yCenter + r; y++) {
+            for (auto x = xCenter - r; x <= xCenter +r ; x++) {
+                if (false == worldArea->IsValidCoordinate(x,y))
+                    continue;
+                
+                auto dx = x - xCenter;
+                auto dy = y - yCenter;
+                
+                if (dx*dx + dy*dy <= r*r) {
+                    auto tile = worldArea->GetTile(x,y);
+                    tile->GetElevationRef() += 1.0f;
+                }
             }
         }
     }

@@ -14,7 +14,9 @@ class WorldGenerator {
   private:
     void CreateRenderingResources(std::shared_ptr<WorldArea> worldArea) const;
     
-    void GenerateGrass(std::shared_ptr<WorldArea> WorldArea) const;
+    void GenerateGrass(std::shared_ptr<WorldArea> worldArea) const;
+    
+    void GenerateElevation(std::shared_ptr<WorldArea> worldArea) const;
     
     void CalculateNormals(std::shared_ptr<WorldArea> worldArea) const;
 };

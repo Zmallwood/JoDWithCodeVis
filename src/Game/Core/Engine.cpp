@@ -22,6 +22,7 @@ Engine::Engine() {
 
 void Engine::Initialize() const {
     
+    srand(time(nullptr));
     _<SceneEngine>().InitializeScenes();
     _<SceneEngine>().GoToScene("IntroScene");
     _<GameProperties>().SetWorldAreaSize({140, 100});

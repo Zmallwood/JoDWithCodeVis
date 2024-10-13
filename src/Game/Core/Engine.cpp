@@ -100,8 +100,8 @@ Size Engine::GetWorldAreaSize() const {
     return _<GameProperties>().GetWorldAreaSize();
 }
 
-RID Engine::AllocNewImage() const {
-    return _<ImageRenderer>().AllocNewImage();
+RID Engine::AllocateNewImage() const {
+    return _<ImageRenderer>().AllocateNewImage();
 }
 
 void Engine::DrawImage(RID rid, int imageNameHash, const BoxF &area,
@@ -122,8 +122,8 @@ void Engine::DrawImage(RID rid, std::string_view imageName, const BoxF &area,
         textureFillAmount, noPixelEffect);
 }
 
-RID Engine::AllocNewString() const {
-    return _<TextRenderer>().AllocNewString();
+RID Engine::AllocateNewString() const {
+    return _<TextRenderer>().AllocateNewString();
 }
 
 void Engine::DrawString(int id,
@@ -137,8 +137,8 @@ void Engine::DrawString(int id,
         fontSize);
 }
 
-RID Engine::AllocNewTile() const {
-    return _<GroundRenderer>().AllocNewTile();
+RID Engine::AllocateNewTile() const {
+    return _<GroundRenderer>().AllocateNewTile();
 }
 
 void Engine::SetCursorStyle(CursorStyles newStyle) const {

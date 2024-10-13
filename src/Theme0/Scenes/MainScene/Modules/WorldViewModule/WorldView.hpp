@@ -20,7 +20,7 @@ class WorldView {
     
     Size GetWorldAreaSize() const;
     
-    RID AllocNewTile() const;
+    RID AllocateNewTile() const;
     
   private:
     void DoRenderLoop(std::function<void()> action);

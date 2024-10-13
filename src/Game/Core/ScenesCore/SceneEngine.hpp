@@ -19,7 +19,7 @@ class SceneEngine {
     
     Size GetWorldAreaSize() const;
     
-    RID AllocNewImage() const;
+    RID AllocateNewImage() const;
     
     void DrawImage(RID rid, int imageNameHash, const BoxF &area,
                    ColorF color = Colors::White, bool repeatTexture = false,
@@ -31,7 +31,7 @@ class SceneEngine {
                    SizeF textureFillAmount = {1.0f, 1.0f},
                    bool noPixelEffect = false) const;
     
-    RID AllocNewString() const;
+    RID AllocateNewString() const;
     
     void DrawString(int id,
                     std::string_view text,
@@ -40,7 +40,7 @@ class SceneEngine {
                     bool centerAlign= false,
                     FontSizes fontSize= FontSizes::_20) const;
     
-    RID AllocNewTile() const;
+    RID AllocateNewTile() const;
     
     bool AnyMouseButtonIsPressed() const;
     

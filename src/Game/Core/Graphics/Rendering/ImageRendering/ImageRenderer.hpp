@@ -13,7 +13,7 @@ class ImageRenderer : public RendererBase {
     
     ~ImageRenderer();
     
-    RID AllocNewImage();
+    RID AllocateNewImage();
     
     void DrawImage(RID rid, int imageNameHash, const BoxF &area,
                    ColorF color = Colors::White, bool repeatTexture = false,

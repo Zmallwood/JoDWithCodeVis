@@ -4,6 +4,7 @@
 
 #include "ImageBank.hpp"
 #include "Game/Core/Graphics/Graphics.hpp"
+#include <stdexcept>
 
 namespace JoD {
 ImageBank::ImageBank() {
@@ -29,9 +30,18 @@ GLuint ImageBank::GetImage(std::string_view imageName) const {
 }
 
 void ImageBank::CreateBlankImage(std::string uniqueImageName) {
+    if (uniqueImageName == "")
+        throw std::invalid_argument(
+                  CodeLocation() +
+                  "uniqueImageName should not be an empty string.");
+    auto uniqueImageNameHash = Hash(uniqueImageName);
+    if (m_images.contains(uniqueImageNameHash))
+        throw std::runtime_error(
+                  CodeLocation() +
+                  "An image with the name uniqueImageName already exists.");
     GLuint texture_id;
     glGenTextures(1, &texture_id);
-    m_images.insert({Hash(uniqueImageName), texture_id});
+    m_images.insert({uniqueImageNameHash, texture_id});
 }
 
 void ImageBank::LoadImages() {
@@ -53,6 +63,10 @@ void ImageBank::LoadImages() {
 GLuint ImageBank::LoadSingleImage(std::string_view absoluteFilePath) const {
     GLuint textureID;
     auto surface = IMG_Load(absoluteFilePath.data());
+    if (nullptr == surface)
+        throw std::runtime_error(
+                  CodeLocation() +
+                  "An image at the path absoluteFilePath could not be loaded.");
     glEnable(GL_TEXTURE_2D);
     glGenTextures(1, &textureID);
     glBindTexture(GL_TEXTURE_2D, textureID);

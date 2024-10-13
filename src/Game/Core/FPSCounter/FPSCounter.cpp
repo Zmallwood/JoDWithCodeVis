@@ -7,7 +7,7 @@
 
 namespace JoD {
 FPSCounter::FPSCounter() {
-    m_ridFPSText = _<Engine>().AllocNewString();
+    m_ridFPSText = _<Engine>().AllocateNewString();
 }
 
 void FPSCounter::Update() {

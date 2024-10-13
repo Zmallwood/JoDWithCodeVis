@@ -89,13 +89,13 @@ void TextRenderer::RenderText(int id,
     SDL_FreeSurface(textOutlineSurface);
 }
 
-RID TextRenderer::AllocNewString() {
+RID TextRenderer::AllocateNewString() {
     static int s_idCounter = 0;
     auto id = s_idCounter++;
     auto uniqueName= "rendered_image" + std::to_string(id);
     _<Engine>().CreateBlankImage(uniqueName);
     m_uniqueNameIDs.insert({id, uniqueName});
-    auto rid = _<Engine>().AllocNewImage();
+    auto rid = _<Engine>().AllocateNewImage();
     m_rids.insert({id, rid});
     return static_cast<RID>(id);
 }

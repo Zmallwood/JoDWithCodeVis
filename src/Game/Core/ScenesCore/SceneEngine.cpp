@@ -45,8 +45,8 @@ Size SceneEngine::GetWorldAreaSize() const {
     return _<Engine>().GetWorldAreaSize();
 }
 
-RID SceneEngine::AllocNewImage() const {
-    return _<Engine>().AllocNewImage();
+RID SceneEngine::AllocateNewImage() const {
+    return _<Engine>().AllocateNewImage();
 }
 
 void SceneEngine::DrawImage(RID rid, int imageNameHash, const BoxF &area,
@@ -68,8 +68,8 @@ void SceneEngine::DrawImage(RID rid, std::string_view imageName,
         textureFillAmount, noPixelEffect);
 }
 
-RID SceneEngine::AllocNewString() const {
-    return _<Engine>().AllocNewString();
+RID SceneEngine::AllocateNewString() const {
+    return _<Engine>().AllocateNewString();
 }
 
 void SceneEngine::DrawString(int id,
@@ -83,8 +83,8 @@ void SceneEngine::DrawString(int id,
         fontSize);
 }
 
-RID SceneEngine::AllocNewTile() const {
-    return _<Engine>().AllocNewTile();
+RID SceneEngine::AllocateNewTile() const {
+    return _<Engine>().AllocateNewTile();
 }
 
 bool SceneEngine::AnyMouseButtonIsPressed() const {

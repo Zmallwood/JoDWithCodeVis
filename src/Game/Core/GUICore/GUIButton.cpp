@@ -15,8 +15,8 @@ GUIButton::GUIButton(std::string_view text, BoxF area,
     : m_text(text), m_action(action), m_area(area),
     m_backImageName(backImageName),
     m_backHoveredImageName(backHoveredImageName) {
-    m_ridButtonImage = _<Engine>().AllocNewImage();
-    m_ridButtonText = _<Engine>().AllocNewString();
+    m_ridButtonImage = _<Engine>().AllocateNewImage();
+    m_ridButtonText = _<Engine>().AllocateNewString();
 }
 
 void GUIButton::UpdateDerived() {

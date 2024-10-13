@@ -18,7 +18,7 @@ ImageRenderer::~ImageRenderer() {
     CleanupBase();
 }
 
-RID ImageRenderer::AllocNewImage() {
+RID ImageRenderer::AllocateNewImage() {
     auto rid = GenNewVAOID();
     UseVAOBegin(rid);
     auto indexBuffID = GenNewBuffID(BufferTypes::Indices, rid);

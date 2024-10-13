@@ -10,7 +10,7 @@ class MainScene : public IScene {
   public:
     Size GetWorldAreaSize() const;
     
-    RID AllocNewTile() const;
+    RID AllocateNewTile() const;
     
   protected:
     void OnEnterDerived() override;

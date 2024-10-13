@@ -259,7 +259,7 @@ Size WorldView::GetWorldAreaSize() const {
     return _<MainScene>().GetWorldAreaSize();
 }
 
-RID WorldView::AllocNewTile() const {
-    return _<MainScene>().AllocNewTile();
+RID WorldView::AllocateNewTile() const {
+    return _<MainScene>().AllocateNewTile();
 }
 }

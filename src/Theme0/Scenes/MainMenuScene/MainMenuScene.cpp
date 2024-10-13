@@ -9,8 +9,8 @@
 
 namespace JoD {
 MainMenuScene::MainMenuScene() {
-    m_ridBackground = _<SceneEngine>().AllocNewImage();
-    m_ridLogo = _<SceneEngine>().AllocNewImage();
+    m_ridBackground = _<SceneEngine>().AllocateNewImage();
+    m_ridLogo = _<SceneEngine>().AllocateNewImage();
     GetGUI()->AddChildComponent(
         std::make_shared<GUIButton>(
             "New game", BoxF{0.45f, 0.3f, 0.1f, 0.05f}, [] {

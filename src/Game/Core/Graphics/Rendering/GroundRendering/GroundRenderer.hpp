@@ -11,7 +11,7 @@ class GroundRenderer : public RendererBase {
   public:
     GroundRenderer();
     
-    RID AllocNewTile();
+    RID AllocateNewTile();
     
     void SetGeometryTile(
         RID vaoId, Vertex3F &v0, Vertex3F &v1, Vertex3F &v2, Vertex3F &v3,
@@ -40,7 +40,7 @@ class GroundRenderer : public RendererBase {
     void DrawImagePolygon(int imageNameHash, RID vaoId, int vertexCount,
                           bool depthTestOffint = false) const;
     
-    RID AllocNewImagePolygon(int numVertices);
+    RID AllocateNewImagePolygon(int numVertices);
     
     void SetGeometryImagePolygon(RID vaoId,
                                  std::vector<Vertex3F> &vertices) const;

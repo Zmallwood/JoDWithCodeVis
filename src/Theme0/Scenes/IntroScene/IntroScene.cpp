@@ -7,8 +7,8 @@
 
 namespace JoD {
 IntroScene::IntroScene() {
-    m_ridBackground = _<SceneEngine>().AllocNewImage();
-    m_ridLogo = _<SceneEngine>().AllocNewImage();
+    m_ridBackground = _<SceneEngine>().AllocateNewImage();
+    m_ridLogo = _<SceneEngine>().AllocateNewImage();
 }
 
 void IntroScene::UpdateDerived() {

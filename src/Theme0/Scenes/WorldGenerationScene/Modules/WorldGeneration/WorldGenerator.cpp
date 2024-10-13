@@ -33,7 +33,6 @@ void WorldGenerator::CreateRenderingResources(
     }
 }
 
-
 void WorldGenerator::GenerateGrass(std::shared_ptr<WorldArea> worldArea) {
     auto size = worldArea->GetSize();
     

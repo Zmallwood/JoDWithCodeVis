@@ -20,4 +20,8 @@ void KeyboardInput::AppendTextInput(std::string_view newText) {
 bool KeyboardInput::AnyKeyIsPressed() const {
     return m_pressedKeys.size() > 0;
 }
+
+bool KeyboardInput::KeyIsPressed(SDL_Keycode key) const {
+    return m_pressedKeys.contains(key);
+}
 }

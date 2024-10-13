@@ -6,6 +6,7 @@
 #include "Modules/WorldViewModule/WorldView.hpp"
 #include "Game/Core/ScenesCore/SceneEngine.hpp"
 #include "Modules/MouseRotationModule/MouseRotation.hpp"
+#include "Modules/KeyboardMovement.hpp"
 
 namespace JoD {
 void MainScene::OnEnterDerived() {
@@ -14,6 +15,7 @@ void MainScene::OnEnterDerived() {
 
 void MainScene::UpdateDerived() {
     _<MouseRotation>().Update();
+    _<KeyboardMovement>().Update();
     _<WorldView>().Update();
 }
 

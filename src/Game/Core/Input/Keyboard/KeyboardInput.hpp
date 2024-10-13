@@ -15,6 +15,8 @@ class KeyboardInput {
     
     bool AnyKeyIsPressed() const;
     
+    bool KeyIsPressed(SDL_Keycode key) const;
+    
   private:
     std::set<SDL_Keycode> m_pressedKeys;
     std::string m_textInput;

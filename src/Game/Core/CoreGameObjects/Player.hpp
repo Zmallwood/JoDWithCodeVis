@@ -7,6 +7,14 @@
 namespace JoD {
 class Player {
   public:
+    void MoveNorth();
+    
+    void MoveEast();
+    
+    void MoveSouth();
+    
+    void MoveWest();
+    
     Point3F GetPosition3D() const;
     
     auto GetPosition() const {

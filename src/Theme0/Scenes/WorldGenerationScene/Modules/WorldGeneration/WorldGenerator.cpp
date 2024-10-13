@@ -10,6 +10,7 @@
 #include \
     "Theme0/Scenes/MainScene/Modules/WorldViewModule/WorldViewConfiguration.hpp"
 
+
 namespace JoD {
 void WorldGenerator::GenerateWorld(Size worldAreaSize) {
     _<World>().EnsureCreated(worldAreaSize);

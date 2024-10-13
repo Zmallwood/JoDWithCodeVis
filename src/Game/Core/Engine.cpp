@@ -28,6 +28,11 @@ void Engine::Initialize() const {
     _<GameProperties>().SetWorldAreaSize({140, 100});
 }
 
+void Engine::ResetInputState() const {
+    _<KeyboardInput>().Reset();
+    _<MouseInput>().Reset();
+}
+
 void Engine::Run() {
     while (m_running) {
         _<Cursor>().Reset();

@@ -4,7 +4,6 @@
 
 #include "TextRenderer.hpp"
 #include "Font.hpp"
-#include "Game/Core/Graphics/Rendering/ImageRendering/ImageRenderer.hpp"
 #include "Game/Core/Engine.hpp"
 
 namespace JoD {
@@ -104,7 +103,7 @@ RID TextRenderer::AllocNewString() {
     auto uniqueName= "rendered_image" + std::to_string(id);
     _<Engine>().CreateBlankImage(uniqueName);
     m_uniqueNameIDs.insert({id, uniqueName});
-    auto rid = _<ImageRenderer>().AllocNewImage();
+    auto rid = _<Engine>().AllocNewImage();
     m_rids.insert({id, rid});
     return static_cast<RID>(id);
 }
@@ -137,7 +136,7 @@ void TextRenderer::DrawString(int id, std::string_view text, Point2F position,
     rectangle.width *= scale;
     rectangle.height *= scale;
     auto rid = m_rids.at(id);
-    _<ImageRenderer>().DrawImage(
+    _<Engine>().DrawImage(
         rid, uniqueNameID, rectangle,
         Colors::White, true);
 }

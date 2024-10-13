@@ -25,7 +25,7 @@ void GUIButton::UpdateDerived() {
     if (m_area.Contains(mousePosition)) {
         m_activeBackImage = &m_backHoveredImageName;
         _<Engine>().SetCursorStyle(CursorStyles::Hovering);
-        if (_<MouseInput>().GetLeftButton()->GetIsPressed()) {
+        if (_<MouseInput>().GetLeftButton()->HasBeenFiredPickResult()) {
             m_action();
         }
     }

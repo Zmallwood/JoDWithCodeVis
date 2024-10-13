@@ -10,6 +10,13 @@ MouseInput::MouseInput()
     : m_leftButton(std::make_shared<MouseButton>()),
     m_rightButton(std::make_shared<MouseButton>()) {}
 
+void MouseInput::Reset() {
+    m_mouseWheelDelta = 0;
+    m_motionDelta = {0, 0};
+    m_leftButton->Reset();
+    m_rightButton->Reset();
+}
+
 void MouseInput::RegisterButtonPressed(Uint8 button) {
     switch (button) {
     case SDL_BUTTON_LEFT:

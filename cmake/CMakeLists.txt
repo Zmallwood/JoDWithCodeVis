@@ -9,5 +9,5 @@ add_executable(JourneyOfDreams
 )
 target_include_directories(JourneyOfDreams PRIVATE ../src)
 
-target_precompile_headers(JourneyOfDreams PRIVATE ../src/StdAfx/StdAfx.hpp)
+target_precompile_headers(JourneyOfDreams PRIVATE ../src/Precompiled/Precompiled.hpp)
 target_link_libraries(JourneyOfDreams SDL2 SDL2_image SDL2_ttf GL GLEW)

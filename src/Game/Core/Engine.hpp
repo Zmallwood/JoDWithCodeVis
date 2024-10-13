@@ -4,15 +4,14 @@
 
 #pragma once
 
-#include "Graphics/Rendering/TextRendering/FontSizes.hpp"
-#include "Cursor/CursorStyles.hpp"
-
 namespace JoD {
 class Engine {
   public:
     Engine();
     
     void Initialize() const;
+    
+    void ResetInputState() const;
     
     void Run();
     

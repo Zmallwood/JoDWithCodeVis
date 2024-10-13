@@ -4,8 +4,6 @@
 
 #pragma once
 
-#include "BufferTypes.hpp"
-
 namespace JoD {
 class ShaderProgram;
 

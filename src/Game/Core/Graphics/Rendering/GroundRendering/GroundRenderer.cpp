@@ -3,7 +3,6 @@
  */
 
 #include "GroundRenderer.hpp"
-#include "Game/Core/Graphics/Rendering/RenderingCore/BufferTypes.hpp"
 #include "Game/Core/Graphics/Rendering/RenderingCore/ShaderProgram.hpp"
 #include "ShaderGround/ShaderGroundVertex.hpp"
 #include "ShaderGround/ShaderGroundFragment.hpp"

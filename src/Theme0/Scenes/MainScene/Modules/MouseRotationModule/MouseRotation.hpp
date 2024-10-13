@@ -4,8 +4,6 @@
 
 #pragma once
 
-#include "RotationTypes.hpp"
-
 namespace JoD {
 class MouseRotation {
   public:

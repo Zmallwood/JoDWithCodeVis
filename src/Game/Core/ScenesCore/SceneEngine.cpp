@@ -39,6 +39,7 @@ void SceneEngine::GoToScene(std::string_view newSceneName) {
     m_currentScene = Hash(newSceneName);
     
     if (m_scenes.contains(m_currentScene)) {
+        _<Engine>().ResetInputState();
         m_scenes.at(m_currentScene).OnEnter();
     }
 }

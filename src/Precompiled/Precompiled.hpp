@@ -49,3 +49,7 @@
 #include "Common/SDLDeleter.hpp"
 #include "Common/Singleton.hpp"
 #include "Common/Timer.hpp"
+#include "Common/EnumTypes/FontSizes.hpp"
+#include "Common/EnumTypes/CursorStyles.hpp"
+#include "Common/EnumTypes/RotationTypes.hpp"
+#include "Common/EnumTypes/BufferTypes.hpp"

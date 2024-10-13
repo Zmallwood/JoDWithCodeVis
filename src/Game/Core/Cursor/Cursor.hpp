@@ -4,8 +4,6 @@
 
 #pragma once
 
-#include "CursorStyles.hpp"
-
 namespace JoD {
 class Cursor {
   public:

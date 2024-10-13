@@ -4,8 +4,6 @@
 
 #pragma once
 
-#include "FontSizes.hpp"
-
 namespace JoD {
 class Font;
 

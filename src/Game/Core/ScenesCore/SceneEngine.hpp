@@ -5,7 +5,6 @@
 #pragma once
 
 #include "IScene.hpp"
-#include "Game/Core/Graphics/Rendering/TextRendering/FontSizes.hpp"
 
 namespace JoD {
 class SceneEngine {

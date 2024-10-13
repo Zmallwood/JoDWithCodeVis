@@ -11,6 +11,8 @@ class MouseInput {
   public:
     MouseInput();
     
+    void Reset();
+    
     void RegisterButtonPressed(Uint8 button);
     
     void RegisterButtonReleased(Uint8 button);

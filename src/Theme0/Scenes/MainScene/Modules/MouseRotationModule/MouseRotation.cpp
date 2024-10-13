@@ -3,7 +3,6 @@
  */
 
 #include "MouseRotation.hpp"
-#include "Theme0/Scenes/MainScene/Modules/MouseRotationModule/RotationTypes.hpp"
 #include "Theme0/Scenes/MainScene/Modules/WorldViewModule/Camera.hpp"
 #include "Game/Core/Input/Mouse/MouseInput.hpp"
 

@@ -14,7 +14,6 @@ Cursor::Cursor() {
 void Cursor::Render() const {
     if (!m_visibleThisFrame)
         return;
-    
     auto mousePosition= GetMousePosition();
     auto usedCursorSize= SizeF{k_cursorSize,
                                ConvertWidthToHeight(k_cursorSize)};

@@ -15,22 +15,18 @@ Graphics::Graphics() {
             SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN |
             SDL_WINDOW_FULLSCREEN_DESKTOP),
         SDLDeleter());
-    
     if (m_window == nullptr) {
         std::cout << "Window could not be created! SDL Error: "
                   << std::string(SDL_GetError()) << std::endl;
         return;
     }
-    
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
-    
     if (SDL_GL_CreateContext(m_window.get()) == nullptr) {
         std::cout << "OpenGL context could not be created! SDL Error: "
                   << std::string(SDL_GetError()) << std::endl;
         return;
     }
-    
     _<GraphicsGL>();
 }
 

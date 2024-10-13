@@ -11,13 +11,11 @@ namespace JoD {
 MainMenuScene::MainMenuScene() {
     m_ridBackground = _<SceneEngine>().AllocNewImage();
     m_ridLogo = _<SceneEngine>().AllocNewImage();
-    
     GetGUI()->AddChildComponent(
         std::make_shared<GUIButton>(
             "New game", BoxF{0.45f, 0.3f, 0.1f, 0.05f}, [] {
                 _<SceneEngine>().GoToScene("WorldGenerationScene");
             }));
-    
     GetGUI()->AddChildComponent(
         std::make_shared<GUIButton>(
             "Quit",
@@ -34,7 +32,6 @@ void MainMenuScene::RenderDerived() const {
     _<SceneEngine>().DrawImage(
         m_ridBackground, "DefaultSceneBackground",
         areaBackground);
-    
     auto areaLogo = BoxF {0.4, 0.15f, 0.2f, 0.1f};
     _<SceneEngine>().DrawImage(m_ridLogo, "JoDLogo", areaLogo);
 }

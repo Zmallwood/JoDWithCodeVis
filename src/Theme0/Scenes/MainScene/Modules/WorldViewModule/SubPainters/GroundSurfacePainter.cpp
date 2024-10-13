@@ -10,7 +10,6 @@
 namespace JoD {
 void GroundSurfacePainter::Initialize() {
     auto worldAreaSize = _<WorldView>().GetWorldAreaSize();
-    
     for (auto y = 0; y < worldAreaSize.height; y++)
         for (auto x = 0; x < worldAreaSize.width; x++)
             m_ridsTileLayers[x][y] = _<WorldView>().AllocNewTile();
@@ -19,20 +18,16 @@ void GroundSurfacePainter::Initialize() {
 void GroundSurfacePainter::Paint() const {
     auto tile = WorldView::s_currentTile;
     auto tileCoord= WorldView::s_currentTileCoordinate;
-    
     auto v0 = WorldView::s_currentVertexTile.v0;
     auto v1 = WorldView::s_currentVertexTile.v1;
     auto v2 = WorldView::s_currentVertexTile.v2;
     auto v3 = WorldView::s_currentVertexTile.v3;
-    
     auto normal00 = WorldView::s_currentVertexTile.v0.normal;
     auto normal10 = WorldView::s_currentVertexTile.v1.normal;
     auto normal11 = WorldView::s_currentVertexTile.v2.normal;
     auto normal01 = WorldView::s_currentVertexTile.v3.normal;
-    
     auto groundType= tile->GetGroundType();
     auto tile_variation = (tileCoord.x * tileCoord.y) % 3;
-    
     if (groundType == Hash("GroundWater")) {
         auto waterAnimIndex =
             ((SDL_GetTicks() * 2 + tileCoord.x * tileCoord.y * 6) % 2700) /
@@ -55,17 +50,12 @@ void GroundSurfacePainter::Paint() const {
         else
             groundType = Hash("GroundRiver");
     }
-    else if (groundType == Hash("GroundGrass")) {
+    else if (groundType == Hash("GroundGrass"))
         groundType = Hash("GroundGrass_" + std::to_string(tile_variation));
-    }
-    else if (groundType == Hash("GroundRock")) {
+    else if (groundType == Hash("GroundRock"))
         groundType = Hash("GroundRock_" + std::to_string(tile_variation));
-    }
-    
     groundType = Hash("GroundGrass");
-    
     _<GroundRenderer>().DrawTile(groundType, tile->GetRID());
-    
 //    auto groundLayerType = tile->GetGroundLayerType();
 //
 //    if (groundLayerType) {

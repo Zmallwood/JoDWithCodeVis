@@ -4,7 +4,6 @@
 
 #include "Tile.hpp"
 
-
 namespace JoD {
 void Tile::SetGroundType(std::string_view groundTypeName) {
     m_groundType = Hash(groundTypeName);

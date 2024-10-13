@@ -6,19 +6,15 @@
 
 namespace JoD {
 void GUIComponent::Update() {
-    for (auto childComponent : m_childComponents) {
+    for (auto childComponent : m_childComponents)
         childComponent->Update();
-    }
-    
     UpdateDerived();
 }
 
 void GUIComponent::Render() const {
     RenderDerived();
-    
-    for (auto childComponent : m_childComponents) {
+    for (auto childComponent : m_childComponents)
         childComponent->Render();
-    }
 }
 
 void GUIComponent::AddChildComponent(

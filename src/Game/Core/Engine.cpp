@@ -13,6 +13,7 @@
 #include "Graphics/Rendering/TextRendering/TextRenderer.hpp"
 #include "Graphics/Rendering/GroundRendering/GroundRenderer.hpp"
 #include "Configuration/GameProperties.hpp"
+#include <stdexcept>
 
 namespace JoD {
 Engine::Engine() {
@@ -21,7 +22,6 @@ Engine::Engine() {
 }
 
 void Engine::Initialize() const {
-    
     srand(time(nullptr));
     _<SceneEngine>().InitializeScenes();
     _<SceneEngine>().GoToScene("IntroScene");
@@ -34,22 +34,36 @@ void Engine::ResetInputState() const {
 }
 
 void Engine::Run() {
-    while (m_running) {
-        _<Cursor>().Reset();
-        PollEvents();
-        _<SceneEngine>().UpdateCurrentScene();
-        _<FPSCounter>().Update();
-        _<Graphics>().ClearCanvas();
-        _<SceneEngine>().RenderCurrentScene();
-        _<FPSCounter>().Render();
-        _<Cursor>().Render();
-        _<Graphics>().PresentCanvas();
+    try {
+        Initialize();
+        while (m_running) {
+            _<Cursor>().Reset();
+            PollEvents();
+            _<SceneEngine>().UpdateCurrentScene();
+            _<FPSCounter>().Update();
+            _<Graphics>().ClearCanvas();
+            _<SceneEngine>().RenderCurrentScene();
+            _<FPSCounter>().Render();
+            _<Cursor>().Render();
+            _<Graphics>().PresentCanvas();
+        }
+    }
+    catch (const std::runtime_error& e) {
+        std::cout << "Exception of \"runtime error\" type occured:\n\"" <<
+            e.what() << "\"\n";
+    }
+    catch (const std::invalid_argument& e) {
+        std::cout << "Exception of \"invalid argument\" type occured:\n\"" <<
+            e.what() << "\"\n";
+    }
+    catch (const std::exception& e) {
+        std::cout << "Exception of unhandled type occured:\n\"" << e.what() <<
+            "\"\n";
     }
 }
 
 void Engine::PollEvents() {
     SDL_Event event;
-    
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
         case SDL_QUIT:

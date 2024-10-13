@@ -59,5 +59,3 @@ inline const GLchar *shaderGroundFragment=
     }
 )";
 }
-
-

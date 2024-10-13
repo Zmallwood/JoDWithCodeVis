@@ -28,4 +28,3 @@ inline const GLchar *shaderGroundVertex =
     }
 )";
 }
-

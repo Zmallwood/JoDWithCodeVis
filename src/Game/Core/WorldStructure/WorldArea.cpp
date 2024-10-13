@@ -9,18 +9,15 @@ namespace JoD {
 WorldArea::WorldArea(Size size) {
     for (auto x = 0; x < size.width; x++) {
         m_tiles.push_back(std::vector<std::shared_ptr<Tile>>());
-        
-        for (auto y = 0; y < size.height; y++) {
+        for (auto y = 0; y < size.height; y++)
             m_tiles.at(x).push_back(std::make_shared<Tile>());
-        }
     }
 }
 
 Size WorldArea::GetSize() const {
-    if (m_tiles.size() > 0) {
+    if (m_tiles.size() > 0)
         return {static_cast<int>(m_tiles.size()),
                 static_cast<int>(m_tiles.at(0).size())};
-    }
     return {0, 0};
 }
 
@@ -34,9 +31,8 @@ bool WorldArea::IsValidCoordinate(Point2 coordinate) const {
 }
 
 std::shared_ptr<Tile> WorldArea::GetTile(int x, int y) const {
-    if (IsValidCoordinate(x, y)) {
+    if (IsValidCoordinate(x, y))
         return m_tiles.at(x).at(y);
-    }
     return nullptr;
 }
 

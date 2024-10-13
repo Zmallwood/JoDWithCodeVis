@@ -31,10 +31,11 @@ class TextRenderer {
                     std::string &out_uniqueNameID,
                     SizeF &out_size) const;
     
-    const std::string k_relativeFontsPath = "Resources/Fonts/";
-    const ColorF k_outlineColor {Colors::TransparentBlack};
     std::map<FontSizes, std::shared_ptr<Font>> m_fonts {};
     std::map<int, std::string> m_uniqueNameIDs {};
     std::map<int, RID> m_rids {};
+    
+    const std::string k_relativeFontsPath = "Resources/Fonts/";
+    const ColorF k_outlineColor {Colors::TransparentBlack};
 };
 }

@@ -24,7 +24,8 @@ class ImageBank {
     
     GLuint LoadSingleImage(std::string_view absoluteFilePath) const;
     
-    const std::string k_relativeImagesPath{"Resources/Images/"};
     std::map<int, GLuint> m_images;
+    
+    const std::string k_relativeImagesPath{"Resources/Images/"};
 };
 }

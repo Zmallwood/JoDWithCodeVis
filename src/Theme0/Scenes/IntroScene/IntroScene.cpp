@@ -23,7 +23,6 @@ void IntroScene::RenderDerived() const {
     _<SceneEngine>().DrawImage(
         m_ridBackground, "DefaultSceneBackground",
         areaBackground);
-    
     auto areaLogo = BoxF {0.3, 0.2f, 0.4f, 0.2f};
     _<SceneEngine>().DrawImage(m_ridLogo, "JoDLogo", areaLogo);
 }

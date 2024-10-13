@@ -13,7 +13,6 @@ GLuint RendererBase::GenNewVAOID() {
     GLuint vaoID;
     glGenVertexArrays(1, &vaoID);
     m_vaoIDs.push_back(vaoID);
-    
     return vaoID;
 }
 
@@ -21,7 +20,6 @@ GLuint RendererBase::GenNewBuffID(BufferTypes buffType, GLuint vaoID) {
     GLuint buffID;
     glGenBuffers(1, &buffID);
     m_vboIDs[buffType][vaoID] = buffID;
-    
     return buffID;
 }
 
@@ -37,16 +35,14 @@ void RendererBase::SetIndicesData(GLuint indicesVBOID, int numVertices,
 
 void RendererBase::SetData(GLuint vboID, int numVertices, const void *data,
                            BufferTypes buffType, int layoutLocation) const {
-    if (buffType == BufferTypes::BoneIDs) {
+    if (buffType == BufferTypes::BoneIDs)
         SetArrayBufferDataInt(
             vboID, numVertices, data,
             k_numFloatsPerEntry.at(buffType), layoutLocation);
-    }
-    else {
+    else
         SetArrayBufferData(
             vboID, numVertices, data,
             k_numFloatsPerEntry.at(buffType), layoutLocation);
-    }
 }
 
 GLuint RendererBase::GetUniformLocation(const std::string &variableName) const {
@@ -74,16 +70,14 @@ void RendererBase::UpdateIndicesData(GLuint indicesVBOID,
 
 void RendererBase::UpdateData(GLuint vboID, std::vector<float> &data,
                               BufferTypes buffType, int layoutLocation) const {
-    if (buffType == BufferTypes::BoneIDs) {
+    if (buffType == BufferTypes::BoneIDs)
         UpdateArrayBufferDataInt(
             vboID, data, k_numFloatsPerEntry.at(buffType),
             layoutLocation);
-    }
-    else {
+    else
         UpdateArrayBufferData(
             vboID, data, k_numFloatsPerEntry.at(buffType),
             layoutLocation);
-    }
 }
 
 void RendererBase::UseVAOEnd() const {
@@ -92,16 +86,11 @@ void RendererBase::UseVAOEnd() const {
 }
 
 void RendererBase::CleanupBase() const {
-    for (auto &buffType : m_vboIDs) {
-        for (auto &bufferEntry : buffType.second) {
+    for (auto &buffType : m_vboIDs)
+        for (auto &bufferEntry : buffType.second)
             glDeleteBuffers(1, &bufferEntry.second);
-        }
-    }
-    
-    for (auto vaoID : m_vaoIDs) {
+    for (auto vaoID : m_vaoIDs)
         glDeleteVertexArrays(1, &vaoID);
-    }
-    
     m_shaderProgram->Cleanup();
 }
 
@@ -112,7 +101,6 @@ void RendererBase::SetArrayBufferData(GLuint vboID, int numVertices,
     glBufferData(
         GL_ARRAY_BUFFER, numVertices * numFloatsPerEntry * sizeof(float),
         data, GL_DYNAMIC_DRAW);
-    
     if (layoutLocation >= 0) {
         glVertexAttribPointer(
             layoutLocation, numFloatsPerEntry, GL_FLOAT, GL_FALSE,
@@ -129,7 +117,6 @@ void RendererBase::SetArrayBufferDataInt(GLuint vboID, int numvertices,
     glBufferData(
         GL_ARRAY_BUFFER, numvertices * numFloatsPerEntry * sizeof(int),
         data, GL_DYNAMIC_DRAW);
-    
     if (layoutLocation >= 0) {
         glEnableVertexAttribArray(3);
         glVertexAttribIPointer(

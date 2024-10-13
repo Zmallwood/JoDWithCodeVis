@@ -14,31 +14,26 @@ bool ShaderProgram::Create(const GLchar *vertexShaderSource,
     {
         auto vertexShaderRes =
             CompileShader(vertexShaderSource, &vertexShader, GL_VERTEX_SHADER);
-        
         if (vertexShaderRes != GL_TRUE) {
             std::cout << "Unable to compile vertex shader.\n";
             success = false;
         }
     }
-    
     if (success) {
         glAttachShader(m_programID, vertexShader);
         auto fragmentShaderRes = CompileShader(
             fragmentShaderSource,
             &fragmentShader, GL_FRAGMENT_SHADER);
-        
         if (fragmentShaderRes != GL_TRUE) {
             std::cout << "Unable to compile fragment shader.\n";
             success = false;
         }
     }
-    
     if (success) {
         glAttachShader(m_programID, fragmentShader);
         glLinkProgram(m_programID);
         GLint programSuccess = GL_TRUE;
         glGetProgramiv(m_programID, GL_LINK_STATUS, &programSuccess);
-        
         if (programSuccess != GL_TRUE) {
             std::cout << "Error linking shader program.\n";
             success = false;
@@ -46,7 +41,6 @@ bool ShaderProgram::Create(const GLchar *vertexShaderSource,
     }
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
-    
     return success;
 }
 
@@ -61,9 +55,6 @@ GLuint ShaderProgram::CompileShader(const GLchar *shaderSource, GLuint *shader,
     glCompileShader(*shader);
     GLint shader_compiled = GL_FALSE;
     glGetShaderiv(*shader, GL_COMPILE_STATUS, &shader_compiled);
-    
     return shader_compiled;
 }
-
-GLuint m_programID = 0;
 }

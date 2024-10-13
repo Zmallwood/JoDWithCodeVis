@@ -21,13 +21,11 @@ GUIButton::GUIButton(std::string_view text, BoxF area,
 
 void GUIButton::UpdateDerived() {
     auto mousePosition = GetMousePosition();
-    
     if (m_area.Contains(mousePosition)) {
         m_activeBackImage = &m_backHoveredImageName;
         _<Engine>().SetCursorStyle(CursorStyles::Hovering);
-        if (_<MouseInput>().GetLeftButton()->HasBeenFiredPickResult()) {
+        if (_<MouseInput>().GetLeftButton()->HasBeenFiredPickResult())
             m_action();
-        }
     }
     else {
         m_activeBackImage = &m_backImageName;
@@ -37,7 +35,6 @@ void GUIButton::UpdateDerived() {
 void GUIButton::RenderDerived() const {
     if (!m_activeBackImage)
         return;
-    
     _<Engine>().DrawImage(
         m_ridButtonImage, Hash(*m_activeBackImage),
         m_area);

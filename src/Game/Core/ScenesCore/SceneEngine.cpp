@@ -24,20 +24,17 @@ void SceneEngine::InitializeScenes() {
 }
 
 void SceneEngine::UpdateCurrentScene() {
-    if (m_scenes.contains(m_currentScene)) {
+    if (m_scenes.contains(m_currentScene))
         m_scenes.at(m_currentScene).Update();
-    }
 }
 
 void SceneEngine::RenderCurrentScene() {
-    if (m_scenes.contains(m_currentScene)) {
+    if (m_scenes.contains(m_currentScene))
         m_scenes.at(m_currentScene).Render();
-    }
 }
 
 void SceneEngine::GoToScene(std::string_view newSceneName) {
     m_currentScene = Hash(newSceneName);
-    
     if (m_scenes.contains(m_currentScene)) {
         _<Engine>().ResetInputState();
         m_scenes.at(m_currentScene).OnEnter();

@@ -19,7 +19,9 @@ GLuint ImageBank::GetImage(int imageNameHash) const {
     for (auto image : m_images)
         if (image.first == imageNameHash)
             return image.second;
-    return -1;
+    throw std::invalid_argument(
+              CodeLocation() +
+              "imageNameHash is not a valid hash code an existing image.");
 }
 
 GLuint ImageBank::GetImage(std::string_view imageName) const {

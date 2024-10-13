@@ -63,6 +63,7 @@ class RendererBase {
     std::vector<GLuint> m_vaoIDs;
     std::map<BufferTypes, std::map<GLuint, GLuint>> m_vboIDs;
     std::shared_ptr<ShaderProgram> m_shaderProgram;
+    
     inline static const auto k_numFloatsPerEntry = std::map<BufferTypes, int>{
         {BufferTypes::Indices, 1},     {BufferTypes::Positions2D, 2},
         {BufferTypes::Positions3D, 3}, {BufferTypes::Colors, 4},

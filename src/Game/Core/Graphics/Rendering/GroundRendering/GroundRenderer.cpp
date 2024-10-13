@@ -117,20 +117,20 @@ const {
         normals.push_back(vertex_normal.y);
         normals.push_back(vertex_normal.z);
     }
-    auto index_buffer_id = GetBuffID(BufferTypes::Indices, vaoId);
-    auto position_buffer_id = GetBuffID(BufferTypes::Positions3D, vaoId);
-    auto color_buffer_id = GetBuffID(BufferTypes::Colors, vaoId);
-    auto uv_buffer_id = GetBuffID(BufferTypes::UVs, vaoId);
-    auto normal_buffer_id = GetBuffID(BufferTypes::Normals, vaoId);
+    auto indexBufferID = GetBuffID(BufferTypes::Indices, vaoId);
+    auto positionBufferID = GetBuffID(BufferTypes::Positions3D, vaoId);
+    auto colorBufferID = GetBuffID(BufferTypes::Colors, vaoId);
+    auto uvBufferID = GetBuffID(BufferTypes::UVs, vaoId);
+    auto normalBufferID = GetBuffID(BufferTypes::Normals, vaoId);
     glBindVertexArray(vaoId);
-    UpdateIndicesData(index_buffer_id, indices);
+    UpdateIndicesData(indexBufferID, indices);
     UpdateData(
-        position_buffer_id, positions, BufferTypes::Positions3D,
+        positionBufferID, positions, BufferTypes::Positions3D,
         k_LocationPosition);
-    UpdateData(color_buffer_id, colors, BufferTypes::Colors, k_LocationColor);
-    UpdateData(uv_buffer_id, uvs, BufferTypes::UVs, k_LocationUv);
+    UpdateData(colorBufferID, colors, BufferTypes::Colors, k_LocationColor);
+    UpdateData(uvBufferID, uvs, BufferTypes::UVs, k_LocationUv);
     UpdateData(
-        normal_buffer_id, normals, BufferTypes::Normals,
+        normalBufferID, normals, BufferTypes::Normals,
         k_LocationNormal);
     glBindVertexArray(0);
     if (!m_isBatchDrawing)
@@ -149,15 +149,15 @@ void GroundRenderer::StartBatchDrawing() {
     glm::mat4 model(1.0);
     glUniformMatrix4fv(m_locationModel, 1, GL_FALSE, glm::value_ptr(model));
     glUniform1f(m_locationAlpha, 1.0f);
-    glm::vec3 view_pos(
+    glm::vec3 viewPos(
         _<Player>().GetPosition3D().x, _<Player>().GetPosition3D().y,
         _<Player>().GetPosition3D().z);
-    glUniform3fv(m_locationViewPos, 1, glm::value_ptr(view_pos));
-    glm::vec3 fog_color_gl(
+    glUniform3fv(m_locationViewPos, 1, glm::value_ptr(viewPos));
+    glm::vec3 fogColorGL(
         _<GraphicsGL>().GetFogColorGround().r,
         _<GraphicsGL>().GetFogColorGround().g,
         _<GraphicsGL>().GetFogColorGround().b);
-    glUniform3fv(m_locationFogColor, 1, glm::value_ptr(fog_color_gl));
+    glUniform3fv(m_locationFogColor, 1, glm::value_ptr(fogColorGL));
     glUseProgram(GetShaderProgram()->GetProgramID());
     glEnable(GL_CULL_FACE);
     glCullFace(GL_FRONT);
@@ -189,19 +189,19 @@ void GroundRenderer::DrawImagePolygon(
             m_locationModel, 1, GL_FALSE,
             glm::value_ptr(model));
         glUniform1f(m_locationAlpha, 1.0f);
-        glm::vec3 view_pos(
+        glm::vec3 viewPos(
             _<Player>().GetPosition3D().x, _<Player>().GetPosition3D().y,
             _<Player>().GetPosition3D().z);
-        glUniform3fv(m_locationViewPos, 1, glm::value_ptr(view_pos));
-        glm::vec3 fog_color_gl(
+        glUniform3fv(m_locationViewPos, 1, glm::value_ptr(viewPos));
+        glm::vec3 fogColorGL(
             _<GraphicsGL>().GetFogColorGround().r,
             _<GraphicsGL>().GetFogColorGround().g,
             _<GraphicsGL>().GetFogColorGround().b);
-        glUniform3fv(m_locationFogColor, 1, glm::value_ptr(fog_color_gl));
+        glUniform3fv(m_locationFogColor, 1, glm::value_ptr(fogColorGL));
         glUseProgram(GetShaderProgram()->GetProgramID());
     }
-    auto imageId = _<Engine>().GetImage(imageNameHash);
-    glBindTexture(GL_TEXTURE_2D, imageId);
+    auto imageID = _<Engine>().GetImage(imageNameHash);
+    glBindTexture(GL_TEXTURE_2D, imageID);
     glBindVertexArray(vaoId);
     glDrawElements(GL_TRIANGLE_FAN, vertexCount, GL_UNSIGNED_INT, NULL);
     glBindVertexArray(0);

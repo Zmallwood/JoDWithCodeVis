@@ -21,7 +21,7 @@ class Cursor {
     
   private:
     CursorStyles m_cursorStyle {CursorStyles::Normal};
-    GLuint m_ridCursorImage{};
+    GLuint m_ridCursorImage{0};
     bool m_visibleThisFrame {true};
     
     static constexpr float k_cursorSize {0.04f};

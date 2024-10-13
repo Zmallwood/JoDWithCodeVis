@@ -25,20 +25,16 @@ void TextRenderer::RenderText(int id,
                               std::string &out_uniqueNameID,
                               SizeF &out_size) const {
     auto font = m_fonts.at(fontSize)->GetFont();
-    
     if (!font)
         return;
-    
     auto sdlColor= color.ToSDLColor();
     auto outlineSDLColor= k_outlineColor.ToSDLColor();
     auto textOutlineSurface=
         TTF_RenderText_Blended(
             m_fonts.at(fontSize)->GetOutlineFont().get(),
             text.data(), outlineSDLColor);
-    
     if (!textOutlineSurface)
         return;
-    
     auto textSurface= TTF_RenderText_Blended(
         font.get(), text.data(),
         sdlColor);
@@ -57,26 +53,22 @@ void TextRenderer::RenderText(int id,
         SDL_SWSURFACE, w, h, 32, 0x000000FF,
         0x0000FF00, 0x00FF0000, 0xFF000000);
     auto canvasSize= GetCanvasSize();
-    
     SDL_Rect textSourceRectangle;
     SDL_Rect textOutlineSourceRectangle;
     SDL_Rect textDestinationRectangle;
     SDL_Rect textOutlineDestinationRectangle;
-    
     textSourceRectangle= SDL_Rect{0, 0, textSurface? textSurface->w : 0,
                                   textSurface? textSurface->h : 0};
     textOutlineSourceRectangle=
         SDL_Rect{0, 0, textOutlineSurface? textOutlineSurface->w : 0,
                  textOutlineSurface? textOutlineSurface->h : 0};
     textDestinationRectangle= textSourceRectangle;
-    
     textDestinationRectangle.x += Font::k_fontOutlineWidth;
     textDestinationRectangle.w -= 2 * Font::k_fontOutlineWidth;
     textDestinationRectangle.y += Font::k_fontOutlineWidth;
     textDestinationRectangle.h -= 2 * Font::k_fontOutlineWidth;
     textOutlineDestinationRectangle= textOutlineSourceRectangle;
     textOutlineDestinationRectangle.y = 1;
-    
     SDL_BlitSurface(
         textOutlineSurface, &textOutlineSourceRectangle, image,
         &textOutlineDestinationRectangle);
@@ -124,12 +116,10 @@ void TextRenderer::DrawString(int id, std::string_view text, Point2F position,
         &textH);
     // rect.h *= AspectRatio(_<GraphicsView>()->Window());
     rectangle.y -= static_cast<float>(textH) / canvasSize.height / 2.0f;
-    
     if (centerAlign)
         rectangle.x -= static_cast<float>(textW) /
                        static_cast<float>(canvasSize.height) / 2.0f /
                        GetAspectRatio();
-    
     auto scale {1.0f};
     rectangle.x += rectangle.width / 2.0f - rectangle.width / 2.0f * scale;
     rectangle.y += rectangle.height / 2.0f - rectangle.height / 2.0f * scale;

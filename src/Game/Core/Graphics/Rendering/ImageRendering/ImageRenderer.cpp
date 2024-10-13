@@ -34,7 +34,6 @@ RID ImageRenderer::AllocNewImage() {
         BufferTypes::Colors);
     SetData(uvBuffID, k_numberVerticesInRectangle, nullptr, BufferTypes::UVs);
     UseVAOEnd();
-    
     return rid;
 }
 
@@ -54,16 +53,13 @@ void ImageRenderer::DrawImage(RID rid, int imageNameHash, const BoxF &area,
     verts[3].uv = {1.0f / textureFillAmount.width,
                    1.0f / textureFillAmount.height};
     glDisable(GL_DEPTH_TEST);
-    
     auto imageID = _<Engine>().GetImage(imageNameHash);
-    
     glBindTexture(GL_TEXTURE_2D, imageID);
     auto indices = std::vector<int>(k_numberVerticesInRectangle);
     std::iota(std::begin(indices), std::end(indices), 0);
     std::vector<float> positions;
     std::vector<float> colors;
     std::vector<float> uvs;
-    
     for (auto &vert : verts) {
         positions.push_back(vert.position.x);
         positions.push_back(vert.position.y);

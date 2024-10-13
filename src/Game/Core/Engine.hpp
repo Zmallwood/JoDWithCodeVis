@@ -9,8 +9,6 @@ class Engine {
   public:
     Engine();
     
-    void Initialize() const;
-    
     void ResetInputState() const;
     
     void Run();
@@ -57,6 +55,8 @@ class Engine {
     }
     
   private:
+    void Initialize() const;
+    
     void PollEvents();
     
     bool m_running{true};

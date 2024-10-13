@@ -7,7 +7,6 @@
 
 namespace JoD {
 void Game::Start() const {
-    _<Engine>().Initialize();
     _<Engine>().Run();
 }
 }

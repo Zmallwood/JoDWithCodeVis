@@ -17,71 +17,83 @@ void GroundSurfacePainter::Initialize() {
 }
 
 void GroundSurfacePainter::Paint() {
-    auto tile = WorldView::current_tile_;
-    auto tile_coord = WorldView::current_tile_coordinate_;
-    auto v0 = WorldView::current_vertex_tile_.v0;
-    auto v1 = WorldView::current_vertex_tile_.v1;
-    auto v2 = WorldView::current_vertex_tile_.v2;
-    auto v3 = WorldView::current_vertex_tile_.v3;
-    auto normal00 = WorldView::current_vertex_tile_.v0.normal;
-    auto normal10 = WorldView::current_vertex_tile_.v1.normal;
-    auto normal11 = WorldView::current_vertex_tile_.v2.normal;
-    auto normal01 = WorldView::current_vertex_tile_.v3.normal;
-    auto ground_type = tile->GetGroundType();
-    auto tile_variation = (tile_coord.x * tile_coord.y) % 3;
-    if (ground_type == Hash("GroundWater")) {
-        auto water_anim_index =
-            ((SDL_GetTicks() * 2 + tile_coord.x * tile_coord.y * 6) % 2700) /
+    auto tile = WorldView::s_currentTile;
+    auto tileCoord= WorldView::s_currentTileCoordinate;
+    
+    auto v0 = WorldView::s_currentVertexTile.v0;
+    auto v1 = WorldView::s_currentVertexTile.v1;
+    auto v2 = WorldView::s_currentVertexTile.v2;
+    auto v3 = WorldView::s_currentVertexTile.v3;
+    
+    auto normal00 = WorldView::s_currentVertexTile.v0.normal;
+    auto normal10 = WorldView::s_currentVertexTile.v1.normal;
+    auto normal11 = WorldView::s_currentVertexTile.v2.normal;
+    auto normal01 = WorldView::s_currentVertexTile.v3.normal;
+    
+    auto groundType= tile->GetGroundType();
+    auto tile_variation = (tileCoord.x * tileCoord.y) % 3;
+    
+    if (groundType == Hash("GroundWater")) {
+        auto waterAnimIndex =
+            ((SDL_GetTicks() * 2 + tileCoord.x * tileCoord.y * 6) % 2700) /
             900;
-        if (water_anim_index > 0)
-            ground_type = Hash(
+        if (waterAnimIndex > 0)
+            groundType = Hash(
                 "GroundWater_" +
-                std::to_string(water_anim_index));
+                std::to_string(waterAnimIndex));
         else
-            ground_type = Hash("GroundWater");
+            groundType = Hash("GroundWater");
     }
-    else if (ground_type == Hash("GroundRiver")) {
-        auto river_anim_index =
-            ((SDL_GetTicks() * 3 + tile_coord.x * tile_coord.y * 6) % 2700) /
+    else if (groundType == Hash("GroundRiver")) {
+        auto riverAnimIndex =
+            ((SDL_GetTicks() * 3 + tileCoord.x * tileCoord.y * 6) % 2700) /
             900;
-        if (river_anim_index > 0)
-            ground_type = Hash(
+        if (riverAnimIndex> 0)
+            groundType = Hash(
                 "GroundRiver_" +
-                std::to_string(river_anim_index));
+                std::to_string(riverAnimIndex));
         else
-            ground_type = Hash("GroundRiver");
+            groundType = Hash("GroundRiver");
     }
-    else if (ground_type == Hash("GroundGrass")) {
-        ground_type = Hash("GroundGrass_" + std::to_string(tile_variation));
+    else if (groundType == Hash("GroundGrass")) {
+        groundType = Hash("GroundGrass_" + std::to_string(tile_variation));
     }
-    else if (ground_type == Hash("GroundRock")) {
-        ground_type = Hash("GroundRock_" + std::to_string(tile_variation));
+    else if (groundType == Hash("GroundRock")) {
+        groundType = Hash("GroundRock_" + std::to_string(tile_variation));
     }
-    ground_type = Hash("GroundGrass");
-    _<GroundRenderer>().DrawTile(ground_type, tile->GetRID());
-//    auto ground_layer_type = tile->GetGroundLayerType();
-//    if (ground_layer_type) {
+    
+    groundType = Hash("GroundGrass");
+    
+    _<GroundRenderer>().DrawTile(groundType, tile->GetRID());
+    
+//    auto groundLayerType = tile->GetGroundLayerType();
+//
+//    if (groundLayerType) {
 //        v0.position.y += 0.03f;
 //        v1.position.y += 0.03f;
 //        v2.position.y += 0.03f;
 //        v3.position.y += 0.03f;
 //        _<GroundRenderer>().UpdateDrawTile(
-//            ground_layer_type,
+//            groundLayerType,
 //            p->rendids_tile_layers_[tile_coord.x][tile_coord.y], v0, v1, v2,
 //            v3, normal00, normal10, normal11, normal01);
 //    }
-//    auto hovered_tile = TileHovering::Get()->hovered_tile_;
-//    if (hovered_tile.x == tile_coord.x && hovered_tile.y == tile_coord.y) {
+//
+//    auto hoveredType = TileHovering::Get()->hovered_tile_;
+//
+//    if (hoveredType.x == tileCoord.x && hoveredType.y == tileCoord.y) {
 //        v0.position.y += 0.03f;
 //        v1.position.y += 0.03f;
 //        v2.position.y += 0.03f;
 //        v3.position.y += 0.03f;
 //        RendererTiles::Get()->UpdateDrawTile(
 //            Hash("TileHovered"),
-//            p->rendids_tile_layers_[tile_coord.x][tile_coord.y], v0, v1,
+//            m_ridsTileLayers[tileCoord.x][tileCoord.y], v0, v1,
 //            v2, v3, normal00, normal10, normal11, normal01);
 //    }
+//
 //    auto mob = tile->GetMob().get();
+//
 //    if (MobTargeting::Get()->GetTargetedMob() == mob && nullptr != mob) {
 //        v0.position.y += 0.03f;
 //        v1.position.y += 0.03f;
@@ -89,7 +101,7 @@ void GroundSurfacePainter::Paint() {
 //        v3.position.y += 0.03f;
 //        RendererTiles::Get()->UpdateDrawTile(
 //            Hash("TileTargetedMob"),
-//            p->rendids_tile_layers_[tile_coord.x][tile_coord.y], v0,
+//            m_ridsTileLayers[tileCoord.x][tileCoord.y], v0,
 //            v1, v2, v3, normal00, normal10, normal11, normal01);
 //    }
 }

@@ -4,7 +4,6 @@
 
 #include "Camera.hpp"
 #include "Game/Core/Graphics/Rendering/CameraGL.hpp"
-#include "Game/Core/Cursor/Cursor.hpp"
 #include "Game/Core/Input/Mouse/MouseInput.hpp"
 #include "Game/Core/CoreGameObjects/Player.hpp"
 #include "Game/Core/WorldStructure/World.hpp"
@@ -40,9 +39,6 @@ void Camera::Update() {
     
     _<CameraGL>().SetPerspectiveMatrix(newPerspectiveMatrix);
     _<CameraGL>().SetViewMatrix(newViewMatrix);
-    
-    if (m_cameraDistance == 2.0f)
-        _<Cursor>().HideThisFrame();
 }
 
 float Camera::GetZoomAmount() const {

@@ -4,8 +4,8 @@
 
 #include "TextRenderer.hpp"
 #include "Font.hpp"
-#include "Game/Core/Assets/Images/ImageBank.hpp"
 #include "Game/Core/Graphics/Rendering/ImageRendering/ImageRenderer.hpp"
+#include "Game/Core/Engine.hpp"
 
 namespace JoD {
 TextRenderer::TextRenderer() {
@@ -45,7 +45,7 @@ void TextRenderer::RenderText(int id,
         sdlColor);
     glEnable(GL_TEXTURE_2D);
     auto uniqueNameID= m_uniqueNameIDs.at(id);
-    auto imageID= _<ImageBank>().GetImage(uniqueNameID.c_str());
+    auto imageID= _<Engine>().GetImage(uniqueNameID.c_str());
     glBindTexture(GL_TEXTURE_2D, imageID);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -102,7 +102,7 @@ RID TextRenderer::AllocNewString() {
     static int s_idCounter = 0;
     auto id = s_idCounter++;
     auto uniqueName= "rendered_image" + std::to_string(id);
-    _<ImageBank>().CreateBlankImage(uniqueName);
+    _<Engine>().CreateBlankImage(uniqueName);
     m_uniqueNameIDs.insert({id, uniqueName});
     auto rid = _<ImageRenderer>().AllocNewImage();
     m_rids.insert({id, rid});

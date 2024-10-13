@@ -4,6 +4,7 @@
 
 #include "Graphics.hpp"
 #include "GraphicsGL.hpp"
+#include "Game/Core/Assets/Images/ImageBank.hpp"
 
 namespace JoD {
 Graphics::Graphics() {
@@ -39,5 +40,17 @@ void Graphics::ClearCanvas() const {
 
 void Graphics::PresentCanvas() const {
     SDL_GL_SwapWindow(m_window.get());
+}
+
+GLuint Graphics::GetImage(int imageNameHash) const {
+    return _<ImageBank>().GetImage(imageNameHash);
+}
+
+GLuint Graphics::GetImage(std::string_view imageName) const {
+    return _<ImageBank>().GetImage(imageName);
+}
+
+void Graphics::CreateBlankImage(std::string uniqueImageName) const {
+    _<ImageBank>().CreateBlankImage(uniqueImageName);
 }
 }

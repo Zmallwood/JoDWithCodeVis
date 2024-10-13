@@ -133,4 +133,16 @@ bool Engine::AnyMouseButtonisPressed() const {
 bool Engine::AnyKeyIsPressed() const {
     return _<KeyboardInput>().AnyKeyIsPressed();
 }
+
+GLuint Engine::GetImage(int imageNameHash) const {
+    return _<Graphics>().GetImage(imageNameHash);
+}
+
+GLuint Engine::GetImage(std::string_view imageName) const {
+    return _<Graphics>().GetImage(imageName);
+}
+
+void Engine::CreateBlankImage(std::string uniqueImageName) const {
+    _<Graphics>().CreateBlankImage(uniqueImageName);
+}
 }

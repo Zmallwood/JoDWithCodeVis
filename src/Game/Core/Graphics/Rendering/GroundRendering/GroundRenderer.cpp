@@ -10,7 +10,7 @@
 #include "Game/Core/Graphics/Rendering/CameraGL.hpp"
 #include "Game/Core/CoreGameObjects/Player.hpp"
 #include "Game/Core/Graphics//GraphicsGL.hpp"
-#include "Game/Core/Assets/Images/ImageBank.hpp"
+#include "Game/Core/Engine.hpp"
 
 namespace JoD {
 GroundRenderer::GroundRenderer() {
@@ -201,7 +201,7 @@ void GroundRenderer::DrawImagePolygon(
         glUniform3fv(m_locationFogColor, 1, glm::value_ptr(fog_color_gl));
         glUseProgram(GetShaderProgram()->GetProgramID());
     }
-    auto imageId = _<ImageBank>().GetImage(imageNameHash);
+    auto imageId = _<Engine>().GetImage(imageNameHash);
     glBindTexture(GL_TEXTURE_2D, imageId);
     glBindVertexArray(vaoId);
     glDrawElements(GL_TRIANGLE_FAN, vertexCount, GL_UNSIGNED_INT, NULL);

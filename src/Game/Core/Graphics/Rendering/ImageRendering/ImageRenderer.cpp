@@ -3,10 +3,10 @@
  */
 
 #include "ImageRenderer.hpp"
-#include "Game/Core/Assets/Images/ImageBank.hpp"
 #include "Game/Core/Graphics/Rendering/RenderingCore/ShaderProgram.hpp"
 #include "ShaderImages/ShaderImagesFragment.hpp"
 #include "ShaderImages/ShaderImagesVertex.hpp"
+#include "Game/Core/Engine.hpp"
 
 namespace JoD {
 ImageRenderer::ImageRenderer() {
@@ -55,7 +55,7 @@ void ImageRenderer::DrawImage(RID rid, int imageNameHash, const BoxF &area,
                    1.0f / textureFillAmount.height};
     glDisable(GL_DEPTH_TEST);
     
-    auto imageID = _<ImageBank>().GetImage(imageNameHash);
+    auto imageID = _<Engine>().GetImage(imageNameHash);
     
     glBindTexture(GL_TEXTURE_2D, imageID);
     auto indices = std::vector<int>(k_numberVerticesInRectangle);

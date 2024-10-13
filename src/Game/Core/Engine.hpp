@@ -47,6 +47,12 @@ class Engine {
     
     bool AnyMouseButtonisPressed() const;
     
+    GLuint GetImage(int imageNameHash) const;
+    
+    GLuint GetImage(std::string_view imageName) const;
+    
+    void CreateBlankImage(std::string uniqueImageName) const;
+    
     void SetRunning(bool value) {
         m_running = value;
     }

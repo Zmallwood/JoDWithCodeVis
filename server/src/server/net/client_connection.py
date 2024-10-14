@@ -1,11 +1,13 @@
 import socket
+from pydantic import BaseModel, ConfigDict
 from server.net.message_data_handling.message_data_processer import MessageDataProcesser
 
-class ClientConnection:
-    def __init__(self, conn : socket.socket, addr : socket.AddressInfo) -> None:
+class ClientConnection (BaseModel):
 
-        self.conn = conn
-        self.addr = addr
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
+    conn : socket.socket
+    addr : tuple
 
     def process(self) -> None:
 

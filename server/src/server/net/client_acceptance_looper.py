@@ -6,5 +6,5 @@ class ClientAcceptanceLooper:
 
         while True:
             conn, addr = sock.accept()
-            client_connection = ClientConnection(conn, addr)
+            client_connection = ClientConnection(conn = conn, addr = addr)
             client_connection.process()

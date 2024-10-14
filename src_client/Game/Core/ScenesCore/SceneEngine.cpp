@@ -6,6 +6,7 @@
 #include "Game/Core/Engine.hpp"
 #include "Theme0/Scenes/IntroScene/IntroScene.hpp"
 #include "Theme0/Scenes/MainMenuScene/MainMenuScene.hpp"
+#include "Theme0/Scenes/LoginScene/LoginScene.hpp"
 #include "Theme0/Scenes/WorldGenerationScene/WorldGenerationScene.hpp"
 #include "Theme0/Scenes/MainScene/MainScene.hpp"
 
@@ -17,6 +18,7 @@ void SceneEngine::AddScene(std::string_view sceneName, IScene& scene) {
 void SceneEngine::InitializeScenes() {
     AddScene("IntroScene", _<IntroScene>());
     AddScene("MainMenuScene", _<MainMenuScene>());
+    AddScene("LoginScene", _<LoginScene>());
     AddScene(
         "WorldGenerationScene",
         _<WorldGenerationScene>());

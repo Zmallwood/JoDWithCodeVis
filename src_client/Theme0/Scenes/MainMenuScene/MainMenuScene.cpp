@@ -16,7 +16,9 @@ MainMenuScene::MainMenuScene() {
             "Login",
             BoxF{0.45f, 0.3f,
                  0.1f, 0.05f},
-            [] {}));
+            [] {
+                _<SceneEngine>().GoToScene("LoginScene");
+            }));
     GetGUI()->AddChildComponent(
         std::make_shared<GUIButton>(
             "Singleplayer sandbox", BoxF{0.45f, 0.37f, 0.1f, 0.05f}, [] {

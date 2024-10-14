@@ -7,9 +7,9 @@
 #include "Game/Core/ScenesCore/IScene.hpp"
 
 namespace JoD {
-class MainMenuScene : public IScene {
+class LoginScene : public IScene {
   public:
-    MainMenuScene();
+    LoginScene();
     
   protected:
     void UpdateDerived() override;

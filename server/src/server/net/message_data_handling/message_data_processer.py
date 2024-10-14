@@ -1,6 +1,5 @@
 import socket
 from server.actions.login_attempter import LoginAttempter
-from server.user_game_instance.user_game_instance import UserGameInstance
 
 class MessageDataProcesser:
 
@@ -21,7 +20,5 @@ class MessageDataProcesser:
                 if login_attempter.attempt_login(user_name, password_hash):
                     conn.send(b"LoginSuccessful<END>")
 
-                    user_game_instance = UserGameInstance()
-                    user_game_instance.start()
                 else:
                     conn.send(b"LoginFailed<END>")

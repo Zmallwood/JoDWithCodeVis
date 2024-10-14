@@ -1,6 +1,7 @@
 import socket
 from pydantic import BaseModel, ConfigDict
 from server.net.message_data_handling.message_data_processer import MessageDataProcesser
+from server.user_game_instance.user_game_instance import UserGameInstance
 
 class ClientConnection (BaseModel):
 
@@ -15,6 +16,8 @@ class ClientConnection (BaseModel):
 
             print(f"Connected by {self.addr}")
 
+            user_game_instance = UserGameInstance()
+
             while True:
                 try:
                     data = self.conn.recv(1024)
@@ -26,6 +29,8 @@ class ClientConnection (BaseModel):
                     message_data_processer.process_data(self.conn, data)
 
                     self.conn.send(b"Tessst from scoket")
+                    
+                    user_game_instance.process()
 
                 except ConnectionResetError:
                     print("Connection reset by peer.")

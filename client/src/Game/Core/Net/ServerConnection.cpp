@@ -30,15 +30,15 @@ bool ServerConnection::LoginUser(std::string_view userName, int passwordHash) {
     send(m_clientSocket, message.c_str(), message.length(), 0);
     char buffer[1024] = {0};
     recv(m_clientSocket, buffer, sizeof(buffer), 0);
-  auto s = std::string(buffer);
-  std::string end = "<END>";
-  auto start_position_to_erase = s.find(end);
-s.erase(start_position_to_erase, end.length());
+    auto s = std::string(buffer);
+    std::string end = "<END>";
+    auto start_position_to_erase = s.find(end);
+    s.erase(start_position_to_erase, end.length());
     std::cout << "Received: " << s<< std::endl;
-  if (s == "LoginSuccessful")
-    return true;
-  else
-   return false;
+    if (s == "LoginSuccessful")
+        return true;
+    else
+        return false;
 }
 
 ServerConnection::~ServerConnection() {

@@ -7,7 +7,9 @@ from server.net.client_acceptance_looper import ClientAcceptanceLooper
 
 class ServerSocket:
     def start(self) -> None:
+
         print(f"Starting server on host: {HOST} and port: {PORT}")
+
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
             
             sock.bind((HOST, PORT))

@@ -1,2 +1,2 @@
-python src_server/Main.py
+python src_server/main.py
 

@@ -1,6 +1,8 @@
 import socket
+from server.server import Server
 
-print("Running JoD Server")
+server = Server()
+server.run()
 
 HOST = "127.0.0.1"  # Standard loopback interface address (localhost)
 PORT = 65432  # Port to listen on (non-privileged ports are > 1023)

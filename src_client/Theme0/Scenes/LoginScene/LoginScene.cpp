@@ -18,7 +18,7 @@ LoginScene::LoginScene() {
                 auto loginSuccessful = _<LoginAttempter>().AttemptLogin();
                 
                 if (loginSuccessful)
-                    _<SceneEngine>().GoToScene("MainScene");
+                    _<SceneEngine>().GoToScene("WorldGenerationScene");
             }));
     GetGUI()->AddChildComponent(
         std::make_shared<GUIButton>(

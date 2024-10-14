@@ -27,6 +27,8 @@
 #include <functional>
 #include <array>
 #include <source_location>
+#include <sys/socket.h>
+#include <netinet/in.h>
 
 #include "Common/MathLib/BoxF.hpp"
 #include "Common/MathLib/ColorF.hpp"

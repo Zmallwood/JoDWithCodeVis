@@ -6,6 +6,7 @@
 #include "Game/Core/ScenesCore/SceneEngine.hpp"
 #include "Game/Core/GUICore/GUI.hpp"
 #include "Game/Core/GUICore/GUIButton.hpp"
+#include "Modules/LoginAttempter.hpp"
 
 namespace JoD {
 LoginScene::LoginScene() {
@@ -13,7 +14,12 @@ LoginScene::LoginScene() {
     m_ridLogo = _<SceneEngine>().AllocateNewImage();
     GetGUI()->AddChildComponent(
         std::make_shared<GUIButton>(
-            "Login", BoxF{0.52f, 0.57f, 0.07f, 0.05f}, [] {}));
+            "Login", BoxF{0.52f, 0.57f, 0.07f, 0.05f}, [] {
+                auto loginSuccessful = _<LoginAttempter>().AttemptLogin();
+                
+                if (loginSuccessful)
+                    _<SceneEngine>().GoToScene("MainScene");
+            }));
     GetGUI()->AddChildComponent(
         std::make_shared<GUIButton>(
             "Back", BoxF{0.42f, 0.57f, 0.07f, 0.05f}, [] {

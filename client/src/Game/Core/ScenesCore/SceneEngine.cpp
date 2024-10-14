@@ -1,7 +1,3 @@
-/*
- * Copyright 2024 Andreas Åkerberg
- */
-
 #include "SceneEngine.hpp"
 #include "Game/Core/Engine.hpp"
 #include "Theme0/Scenes/IntroScene/IntroScene.hpp"

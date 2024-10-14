@@ -1,7 +1,3 @@
-/*
- * Copyright 2024 Andreas Åkerberg
- */
-
 #include "WorldView.hpp"
 #include "Game/Core/Graphics/Rendering/GroundRendering/GroundRenderer.hpp"
 #include "SubPainters/GroundSurfacePainter.hpp"

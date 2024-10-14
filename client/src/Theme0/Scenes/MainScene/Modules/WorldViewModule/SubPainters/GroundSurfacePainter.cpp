@@ -1,7 +1,3 @@
-/*
- * Copyright 2024 Andreas Åkerberg
- */
-
 #include "GroundSurfacePainter.hpp"
 #include "Theme0/Scenes/MainScene/Modules/WorldViewModule/WorldView.hpp"
 #include "Game/Core/WorldStructure/Tile.hpp"

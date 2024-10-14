@@ -1,7 +1,3 @@
-/*
- * Copyright 2024 Andreas Åkerberg
- */
-
 #include "TextRenderer.hpp"
 #include "Font.hpp"
 #include "Game/Core/Engine.hpp"

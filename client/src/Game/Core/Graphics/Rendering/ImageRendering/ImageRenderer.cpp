@@ -1,7 +1,3 @@
-/*
- * Copyright 2024 Andreas Åkerberg
- */
-
 #include "ImageRenderer.hpp"
 #include "Game/Core/Graphics/Rendering/RenderingCore/ShaderProgram.hpp"
 #include "ShaderImages/ShaderImagesFragment.hpp"

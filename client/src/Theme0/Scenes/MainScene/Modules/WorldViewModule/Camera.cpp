@@ -1,7 +1,3 @@
-/*
- * Copyright 2024 Andreas Åkerberg
- */
-
 #include "Camera.hpp"
 #include "Game/Core/Graphics/Rendering/CameraGL.hpp"
 #include "Game/Core/Input/Mouse/MouseInput.hpp"

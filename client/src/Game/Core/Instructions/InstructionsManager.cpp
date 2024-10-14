@@ -1,7 +1,3 @@
-/*
- * Copyright 2024 Andreas Åkerberg
- */
-
 #include "InstructionsManager.hpp"
 #include "Game/Core/Graphics/Rendering/ImageRendering/ImageRenderer.hpp"
 
@@ -13,10 +9,24 @@ InstructionsManager::InstructionsManager() {
     }
 }
 
+void InstructionsManager::Clear() {
+    m_imageDrawInstructions.clear();
+    s_ridCounter = 0;
+}
+
 void InstructionsManager::AddImageDrawInstruction(int imageNameHash,
                                                   BoxF area) {
     m_imageDrawInstructions.push_back({imageNameHash, area});
 }
 
-void InstructionsManager::PerformInstructions() {}
+void InstructionsManager::PerformInstructions() {
+    for (auto entry : m_imageDrawInstructions) {
+        
+        auto rid = m_ridsPreAllocatedImages[s_ridCounter];
+        
+        _<ImageRenderer>().DrawImage(rid, entry.imageNameHash, entry.area);
+        
+        s_ridCounter++;
+    }
+}
 }

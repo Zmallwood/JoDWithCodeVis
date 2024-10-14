@@ -1,7 +1,3 @@
-/*
- * Copyright 2024 Andreas Åkerberg
- */
-
 #pragma once
 
 #include "Theme0/Scenes/MainScene/MainScene.hpp"

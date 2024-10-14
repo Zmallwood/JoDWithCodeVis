@@ -1,7 +1,3 @@
-/*
- * Copyright 2024 Andreas Åkerberg
- */
-
 #include "MainScene.hpp"
 #include "Modules/WorldViewModule/WorldView.hpp"
 #include "Game/Core/ScenesCore/SceneEngine.hpp"

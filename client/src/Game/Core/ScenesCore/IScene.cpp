@@ -1,7 +1,3 @@
-/*
- * Copyright 2024 Andreas Åkerberg
- */
-
 #include "IScene.hpp"
 #include "Game/Core/GUICore/GUI.hpp"
 

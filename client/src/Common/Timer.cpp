@@ -1,7 +1,3 @@
-/*
- * Copyright 2024 Andreas Åkerberg
- */
-
 #include "Timer.hpp"
 #include "Common/Aliases.hpp"
 

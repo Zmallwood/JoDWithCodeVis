@@ -1,7 +1,3 @@
-/*
- * Copyright 2024 Andreas Åkerberg
- */
-
 #include "GUIButton.hpp"
 #include "Game/Core/Input/Mouse/MouseInput.hpp"
 #include "Game/Core/Input/Mouse/MouseButton.hpp"

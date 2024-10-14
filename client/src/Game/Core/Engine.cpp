@@ -1,7 +1,3 @@
-/*
- * Copyright 2024 Andreas Åkerberg
- */
-
 #include "Engine.hpp"
 #include "Graphics/Graphics.hpp"
 #include "Input/Keyboard/KeyboardInput.hpp"
@@ -48,6 +44,7 @@ void Engine::Run() {
             _<SceneEngine>().RenderCurrentScene();
             _<FPSCounter>().Render();
             _<Cursor>().Render();
+            _<ServerConnection>().Update();
             _<InstructionsManager>().PerformInstructions();
             _<Graphics>().PresentCanvas();
         }

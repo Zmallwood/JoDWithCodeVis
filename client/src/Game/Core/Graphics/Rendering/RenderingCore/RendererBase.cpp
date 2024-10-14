@@ -1,7 +1,3 @@
-/*
- * Copyright 2024 Andreas Åkerberg
- */
-
 #include "RendererBase.hpp"
 #include "ShaderProgram.hpp"
 

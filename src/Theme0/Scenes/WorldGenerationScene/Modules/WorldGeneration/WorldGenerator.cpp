@@ -17,6 +17,7 @@ void WorldGenerator::GenerateWorld(Size worldAreaSize) const {
     auto worldArea = _<World>().GetCurrentWorldArea();
     CreateRenderingResources(worldArea);
     GenerateGrass(worldArea);
+    GenerateLakes(worldArea);
     GenerateElevation(worldArea);
     CalculateNormals(worldArea);
 }
@@ -44,6 +45,32 @@ void WorldGenerator::GenerateGrass(std::shared_ptr<WorldArea> worldArea) const {
     }
 }
 
+void WorldGenerator::GenerateLakes(
+    std::shared_ptr<WorldArea> worldArea) const {
+    auto size = worldArea->GetSize();
+    auto numLakes = 30;
+    
+    for (auto i = 0; i < numLakes; i++) {
+        auto xCenter = rand() % size.width;
+        auto yCenter = rand() % size.height;
+        auto r = 3 + rand() % 12;
+        
+        for (auto y = yCenter - r; y <= yCenter + r; y++) {
+            for (auto x = xCenter -r; x <= xCenter +r; x++) {
+                if (false == worldArea->IsValidCoordinate(x,y))
+                    continue;
+                auto dx = x - xCenter;
+                auto dy = y - yCenter;
+                
+                if (dx*dx + dy*dy <= r*r) {
+                    auto tile = worldArea->GetTile(x, y);
+                    tile->SetGroundType("GroundWater");
+                }
+            }
+        }
+    }
+}
+
 void WorldGenerator::GenerateElevation(
     std::shared_ptr<WorldArea> worldArea) const {
     auto size = worldArea->GetSize();
@@ -51,16 +78,41 @@ void WorldGenerator::GenerateElevation(
     for (auto i = 0; i < numHills; i++) {
         auto xCenter = rand() % size.width;
         auto yCenter = rand() % size.height;
-        auto r = 5 + rand() % 16;
-        for (auto y = yCenter - r; y <= yCenter + r; y++) {
-            for (auto x = xCenter - r; x <= xCenter +r ; x++) {
-                if (false == worldArea->IsValidCoordinate(x,y))
-                    continue;
-                auto dx = x - xCenter;
-                auto dy = y - yCenter;
-                if (dx*dx + dy*dy <= r*r) {
+        auto rMax = 5 + rand() % 16;
+        for (auto r = rMax; r >= 0; r--) {
+            for (auto y = yCenter - r; y <= yCenter + r; y++) {
+                for (auto x = xCenter - r; x <= xCenter +r ; x++) {
+                    if (false == worldArea->IsValidCoordinate(x,y))
+                        continue;
                     auto tile = worldArea->GetTile(x,y);
-                    tile->GetElevationRef() += 1.0f;
+                    if (tile->GetGroundType() == Hash("GroundWater"))
+                        continue;
+                    auto xW= x - 1;
+                    auto yW = y;
+                    if (worldArea->IsValidCoordinate(xW, yW))
+                        if (worldArea->GetTile(
+                                xW,
+                                yW)->GetGroundType() == Hash("GroundWater"))
+                            continue;
+                    auto xN = x;
+                    auto yN = y - 1;
+                    if (worldArea->IsValidCoordinate(xN, yN))
+                        if (worldArea->GetTile(
+                                xN,
+                                yN)->GetGroundType() == Hash("GroundWater"))
+                            continue;
+                    auto xNW = x - 1;
+                    auto yNW = y - 1;
+                    if (worldArea->IsValidCoordinate(xNW, yNW))
+                        if (worldArea->GetTile(
+                                xNW,
+                                yNW)->GetGroundType() == Hash("GroundWater"))
+                            continue;
+                    auto dx = x - xCenter;
+                    auto dy = y - yCenter;
+                    if (dx*dx + dy*dy <= r*r) {
+                        tile->GetElevationRef() += 0.3f;
+                    }
                 }
             }
         }

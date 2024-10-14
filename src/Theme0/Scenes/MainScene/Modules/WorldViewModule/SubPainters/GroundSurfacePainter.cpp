@@ -32,12 +32,9 @@ void GroundSurfacePainter::Paint() const {
         auto waterAnimIndex =
             ((SDL_GetTicks() * 2 + tileCoord.x * tileCoord.y * 6) % 2700) /
             900;
-        if (waterAnimIndex > 0)
-            groundType = Hash(
-                "GroundWater_" +
-                std::to_string(waterAnimIndex));
-        else
-            groundType = Hash("GroundWater");
+        groundType = Hash(
+            "GroundWater_" +
+            std::to_string(waterAnimIndex));
     }
     else if (groundType == Hash("GroundRiver")) {
         auto riverAnimIndex =
@@ -50,11 +47,10 @@ void GroundSurfacePainter::Paint() const {
         else
             groundType = Hash("GroundRiver");
     }
-    else if (groundType == Hash("GroundGrass"))
-        groundType = Hash("GroundGrass_" + std::to_string(tile_variation));
+//    else if (groundType == Hash("GroundGrass"))
+//        groundType = Hash("GroundGrass_" + std::to_string(tile_variation));
     else if (groundType == Hash("GroundRock"))
         groundType = Hash("GroundRock_" + std::to_string(tile_variation));
-    groundType = Hash("GroundGrass");
     _<GroundRenderer>().DrawTile(groundType, tile->GetRID());
 //    auto groundLayerType = tile->GetGroundLayerType();
 //

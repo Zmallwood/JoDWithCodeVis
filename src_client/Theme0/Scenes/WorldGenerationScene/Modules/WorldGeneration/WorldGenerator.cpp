@@ -117,7 +117,7 @@ void WorldGenerator::GenerateElevation(
             }
         }
     }
-} 
+}
 
 void WorldGenerator::CalculateNormals(
     std::shared_ptr<WorldArea> worldArea) const {

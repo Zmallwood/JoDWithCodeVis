@@ -18,10 +18,6 @@ void ServerConnection::EnsureConnected() {
     connect(
         m_clientSocket, (struct sockaddr*)&serverAddress,
         sizeof(serverAddress));
-    
-    // sending data
-    const char* message = "Hello, server!<END>";
-    send(m_clientSocket, message, strlen(message), 0);
 }
 
 bool ServerConnection::LoginUser(std::string_view userName, int passwordHash) {

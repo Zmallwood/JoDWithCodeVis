@@ -13,12 +13,15 @@
 #include "Graphics/Rendering/TextRendering/TextRenderer.hpp"
 #include "Graphics/Rendering/GroundRendering/GroundRenderer.hpp"
 #include "Configuration/GameProperties.hpp"
-#include <stdexcept>
+#include "Game/Core/Instructions/InstructionsManager.hpp"
+#include "Game/Core/Net/ServerConnection.hpp"
 
 namespace JoD {
 Engine::Engine() {
     SDL_Init(SDL_INIT_EVERYTHING);
     _<Graphics>();
+    _<ServerConnection>().EnsureConnected();
+    _<InstructionsManager>();
 }
 
 void Engine::Initialize() const {
@@ -45,6 +48,7 @@ void Engine::Run() {
             _<SceneEngine>().RenderCurrentScene();
             _<FPSCounter>().Render();
             _<Cursor>().Render();
+            _<InstructionsManager>().PerformInstructions();
             _<Graphics>().PresentCanvas();
         }
     }

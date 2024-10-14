@@ -7,7 +7,6 @@
 
 namespace JoD {
 bool LoginAttempter::AttemptLogin() {
-    _<ServerConnection>().EnsureConnected();
     auto loginSuccessful = _<ServerConnection>().LoginUser(
         "adde",
         Hash("badde"));

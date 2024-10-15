@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg.
+ */
+
 #include "InstructionsManager.hpp"
 #include "game/core/graphics/rendering/image_rendering/ImageRenderer.hpp"
 

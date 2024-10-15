@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg.
+ */
+
 #include "LoginScene.hpp"
 #include "game/core/scenes_core/SceneEngine.hpp"
 #include "game/core/gui_core/GUI.hpp"

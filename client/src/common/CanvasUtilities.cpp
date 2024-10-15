@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg.
+ */
+
 #include "CanvasUtilities.hpp"
 #include "game/core/graphics/Graphics.hpp"
 

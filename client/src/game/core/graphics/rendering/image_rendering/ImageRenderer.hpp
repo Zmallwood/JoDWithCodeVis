@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg.
+ */
+
 #pragma once
 
 #include "game/core/graphics/rendering/rendering_core/RendererBase.hpp"

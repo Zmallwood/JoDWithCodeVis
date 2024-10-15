@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg.
+ */
+
 #include "MainMenuScene.hpp"
 #include "game/core/gui_core/GUI.hpp"
 #include "game/core/gui_core/GUIButton.hpp"

@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg.
+ */
+
 #include "ServerConnection.hpp"
 #include "game/core/instructions/InstructionsManager.hpp"
 

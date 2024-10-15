@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg.
+ */
+
 #include "WorldGenerationScene.hpp"
 #include "modules/world_generation/WorldGenerator.hpp"
 #include "game/core/scenes_core/SceneEngine.hpp"

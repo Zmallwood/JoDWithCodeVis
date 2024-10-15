@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg.
+ */
+
 #include "GroundRenderer.hpp"
 #include "game/core/graphics/rendering/rendering_core/ShaderProgram.hpp"
 #include "shader_ground/ShaderGroundVertex.hpp"

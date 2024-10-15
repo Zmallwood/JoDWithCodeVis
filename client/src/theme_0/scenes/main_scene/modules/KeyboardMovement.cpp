@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg.
+ */
+
 #include "KeyboardMovement.hpp"
 #include "game/core/input/keyboard/KeyboardInput.hpp"
 #include "game/core/core_game_objects/Player.hpp"

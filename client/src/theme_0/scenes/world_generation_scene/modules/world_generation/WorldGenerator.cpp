@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg.
+ */
+
 #include "WorldGenerator.hpp"
 #include "game/core/world_structure/World.hpp"
 #include "game/core/world_structure/WorldArea.hpp"

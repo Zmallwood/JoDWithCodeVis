@@ -1,3 +1,7 @@
+/*
+ * Copyright 2024 Andreas Åkerberg.
+ */
+
 #include "Player.hpp"
 #include \
     "theme_0/scenes/main_scene/modules/world_view_module/WorldViewConfiguration.hpp"

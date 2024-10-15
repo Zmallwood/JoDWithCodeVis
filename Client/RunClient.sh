@@ -1,4 +1,4 @@
 #!/bin/sh
 cd cmake/bin;
-./JourneyOfDreams;
+./Darktale;
 cd ..

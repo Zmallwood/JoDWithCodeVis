@@ -14,10 +14,10 @@ class SceneEngine(BaseModel):
         super().__init__()
         
         self.scenes["IntroScene"] = IntroScene()
-        self.scenes["MainMenuScene"] = IntroScene()
-        self.scenes["LoginScene"] = IntroScene()
-        self.scenes["WorldGenerationScene"] = IntroScene()
-        self.scenes["MainScene"] = IntroScene()
+        self.scenes["MainMenuScene"] = MainMenuScene()
+        self.scenes["LoginScene"] = LoginScene()
+        self.scenes["WorldGenerationScene"] = WorldGenerationScene()
+        self.scenes["MainScene"] = MainScene()
 
         self.current_scene = "IntroScene"
    

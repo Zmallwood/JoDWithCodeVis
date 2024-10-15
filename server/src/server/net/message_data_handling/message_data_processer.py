@@ -1,3 +1,5 @@
+# Copyright 2024 Andreas Åkerberg
+
 import socket
 from server.actions.login_attempter import LoginAttempter
 from server.user_game_instance.user_game_instance import UserGameInstance

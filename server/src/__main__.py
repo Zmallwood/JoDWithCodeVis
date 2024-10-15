@@ -1,3 +1,5 @@
+# Copyright 2024 Andreas Åkerberg
+
 from server.server import Server
 
 if __name__ == "__main__":

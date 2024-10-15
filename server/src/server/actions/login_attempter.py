@@ -1,3 +1,4 @@
+# Copyright 2024 Andreas Åkerberg
 
 class LoginAttempter:
     def attempt_login(self, user_name : str, password_hash : int) -> bool:

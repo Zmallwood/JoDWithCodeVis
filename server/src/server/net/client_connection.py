@@ -1,3 +1,5 @@
+# Copyright 2024 Andreas Åkerberg
+
 import socket
 from pydantic import BaseModel, ConfigDict
 from server.net.message_data_handling.message_data_processer import MessageDataProcesser

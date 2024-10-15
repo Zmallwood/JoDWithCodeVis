@@ -1,3 +1,5 @@
+# Copyright 2024 Andreas Åkerberg
+
 import socket
 from server.configuration.server_properties import (
     HOST,

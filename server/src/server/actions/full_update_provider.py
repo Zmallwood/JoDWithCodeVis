@@ -1,3 +1,5 @@
+# Copyright 2024 Andreas Åkerberg
+
 from server.user_game_instance.user_game_instance import UserGameInstance
 import socket
 

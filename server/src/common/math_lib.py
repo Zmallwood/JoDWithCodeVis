@@ -1,3 +1,5 @@
+# Copyright 2024 Andreas Åkerberg
+
 from pydantic import BaseModel
 
 class PointF(BaseModel):

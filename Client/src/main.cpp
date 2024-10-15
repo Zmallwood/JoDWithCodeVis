@@ -3,7 +3,7 @@
  */
 
 #include "game/Game.hpp"
-
+ 
 /*
  * \brief Entry point for the game client.
  */

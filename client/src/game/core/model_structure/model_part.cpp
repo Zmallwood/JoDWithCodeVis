@@ -1,8 +1,8 @@
 /*
  * Copyright 2024 Andreas Åkerberg
  */
-#include "ModelPart.hpp"
-#include "ModelPartTimeline.hpp"
+#include "model_part.hpp"
+#include "model_part_timeline.hpp"
 
 namespace JoD {
 ModelPart::ModelPart()

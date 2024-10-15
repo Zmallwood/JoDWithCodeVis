@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "MouseUtilities.hpp"
+#include "mouse_utilities.hpp"
 
 namespace JoD {
 Point2F GetMousePosition() {

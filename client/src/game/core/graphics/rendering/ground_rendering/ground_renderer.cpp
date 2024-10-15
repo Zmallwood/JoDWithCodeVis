@@ -1,14 +1,14 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "GroundRenderer.hpp"
-#include "game/core/graphics/rendering/rendering_core/ShaderProgram.hpp"
-#include "shader_ground/ShaderGroundVertex.hpp"
-#include "shader_ground/ShaderGroundFragment.hpp"
-#include "game/core/graphics/rendering/CameraGL.hpp"
-#include "game/core/core_game_objects/Player.hpp"
-#include "game/core/graphics/GraphicsGL.hpp"
-#include "game/core/Engine.hpp"
+#include "ground_renderer.hpp"
+#include "game/core/graphics/rendering/rendering_core/shader_program.hpp"
+#include "shader_ground/shader_ground_vertex.hpp"
+#include "shader_ground/shader_ground_fragment.hpp"
+#include "game/core/graphics/rendering/camera_gl.hpp"
+#include "game/core/core_game_objects/player.hpp"
+#include "game/core/graphics/graphics_gl.hpp"
+#include "game/core/engine.hpp"
 
 namespace JoD {
 GroundRenderer::GroundRenderer() {

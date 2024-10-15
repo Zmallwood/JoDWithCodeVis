@@ -9,5 +9,5 @@ add_executable(Darktale
 )
 target_include_directories(Darktale PRIVATE ../src)
 
-target_precompile_headers(Darktale PRIVATE ../src/precompiled/Precompiled.hpp)
+target_precompile_headers(Darktale PRIVATE ../src/precompiled/precompiled.hpp)
 target_link_libraries(Darktale SDL2 SDL2_image SDL2_ttf GL GLEW assimp)

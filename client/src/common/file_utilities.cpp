@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "FileUtilities.hpp"
+#include "file_utilities.hpp"
 
 namespace JoD {
 std::string GetFileExtension(std::string_view absPath) {

@@ -1,11 +1,11 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "LoginScene.hpp"
-#include "game/core/scenes_core/SceneEngine.hpp"
-#include "game/core/gui_core/GUI.hpp"
-#include "game/core/gui_core/GUIButton.hpp"
-#include "modules/LoginAttempter.hpp"
+#include "login_scene.hpp"
+#include "game/core/scenes_core/scene_engine.hpp"
+#include "game/core/gui_core/gui.hpp"
+#include "game/core/gui_core/gui_button.hpp"
+#include "modules/login_attempter.hpp"
 
 namespace JoD {
 LoginScene::LoginScene() {

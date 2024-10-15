@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "Font.hpp"
+#include "font.hpp"
 
 namespace JoD {
 Font::Font(std::string_view fontFileName, int fontSize) {

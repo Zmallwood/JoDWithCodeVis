@@ -2,7 +2,7 @@
  * Copyright 2024 Andreas Åkerberg.
  */
 
-#include "game/Game.hpp"
+#include "game/game.hpp"
 
 /*
  * \brief Entry point for the game client.

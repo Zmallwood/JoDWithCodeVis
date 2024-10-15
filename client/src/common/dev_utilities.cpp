@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "DevUtiltiies.hpp"
+#include "dev_utilities.hpp"
 
 namespace JoD {
 std::string CodeLocation(

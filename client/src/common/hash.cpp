@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "Hash.hpp"
+#include "hash.hpp"
 
 namespace JoD {
 int Hash(std::string_view text) {

@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg
  */
-#include "Point2F.hpp"
+#include "point2_f.hpp"
 
 namespace JoD {
 Point2F Point2F::Translate(float dx, float dy) const {

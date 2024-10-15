@@ -1,8 +1,8 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "ImageBank.hpp"
-#include "game/core/graphics/Graphics.hpp"
+#include "image_bank.hpp"
+#include "game/core/graphics/graphics.hpp"
 
 namespace JoD {
 ImageBank::ImageBank() {

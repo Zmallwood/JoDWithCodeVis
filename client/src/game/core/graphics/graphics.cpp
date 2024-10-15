@@ -1,9 +1,9 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "Graphics.hpp"
-#include "GraphicsGL.hpp"
-#include "game/core/assets/images/ImageBank.hpp"
+#include "graphics.hpp"
+#include "graphics_gl.hpp"
+#include "game/core/assets/images/image_bank.hpp"
 
 namespace JoD {
 Graphics::Graphics() {

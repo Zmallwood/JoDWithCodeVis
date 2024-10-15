@@ -1,9 +1,9 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "TextRenderer.hpp"
-#include "Font.hpp"
-#include "game/core/Engine.hpp"
+#include "text_renderer.hpp"
+#include "font.hpp"
+#include "game/core/engine.hpp"
 
 namespace JoD {
 TextRenderer::TextRenderer() {

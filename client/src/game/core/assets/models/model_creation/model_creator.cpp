@@ -1,9 +1,9 @@
 /*
  * Copyright 2024 Andreas Åkerberg
  */
-#include "ModelCreator.hpp"
-#include "game/core/model_structure/Model.hpp"
-#include "ModelPartCreator.hpp"
+#include "model_creator.hpp"
+#include "game/core/model_structure/model.hpp"
+#include "model_part_creator.hpp"
 
 namespace JoD {
 std::shared_ptr<Model> ModelCreator::CreateModel(const aiScene *scene) {

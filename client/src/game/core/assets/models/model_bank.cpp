@@ -1,8 +1,8 @@
 /*
  * Copyright 2024 Andreas Åkerberg
  */
-#include "ModelBank.hpp"
-#include "model_creation/ModelCreator.hpp"
+#include "model_bank.hpp"
+#include "model_creation/model_creator.hpp"
 
 namespace JoD {
 const Model* ModelBank::GetModel(int modelNameHash) const {

@@ -2,7 +2,7 @@
  * Copyright 2024 Andreas Åkerberg.
  */
 #pragma once
-#include "theme_0/scenes/main_scene/MainScene.hpp"
+#include "theme_0/scenes/main_scene/main_scene.hpp"
 
 namespace JoD {
 class Tile;

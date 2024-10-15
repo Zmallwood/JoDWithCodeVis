@@ -14,6 +14,8 @@ public:
   
   bool LoginUser(std::string_view userName, int passwordHash);
   
+  void SendMessage(std::string_view message);
+  
 private:
   int m_clientSocket {0};
   float m_netUpdateSpeed = 3.0f;

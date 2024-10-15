@@ -1,27 +1,28 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "Engine.hpp"
-#include "graphics/Graphics.hpp"
-#include "input/keyboard/KeyboardInput.hpp"
-#include "input/mouse/MouseInput.hpp"
-#include "scenes_core/SceneEngine.hpp"
-#include "fps_counter/FPSCounter.hpp"
-#include "cursor/Cursor.hpp"
-#include "graphics/rendering/image_rendering/ImageRenderer.hpp"
-#include "graphics/rendering/text_rendering/TextRenderer.hpp"
-#include "graphics/rendering/ground_rendering/GroundRenderer.hpp"
-#include "configuration/GameProperties.hpp"
-#include "game/core/instructions/InstructionsManager.hpp"
-#include "game/core/net/ServerConnection.hpp"
-#include "game/core/assets/models/ModelBank.hpp"
+#include "engine.hpp"
+#include "common/mouse_utilities.hpp"
+#include "graphics/graphics.hpp"
+#include "input/keyboard/keyboard_input.hpp"
+#include "input/mouse/mouse_input.hpp"
+#include "scenes_core/scene_engine.hpp"
+#include "fps_counter/fps_counter.hpp"
+#include "cursor/cursor.hpp"
+#include "graphics/rendering/image_rendering/image_renderer.hpp"
+#include "graphics/rendering/text_rendering/text_renderer.hpp"
+#include "graphics/rendering/ground_rendering/ground_renderer.hpp"
+#include "configuration/game_properties.hpp"
+#include "game/core/instructions/instructions_manager.hpp"
+#include "game/core/net/server_connection.hpp"
+#include "game/core/assets/models/model_bank.hpp"
 
 namespace JoD {
 Engine::Engine() {
   SDL_Init(SDL_INIT_EVERYTHING);
   _<Graphics>();
   _<ModelBank>().LoadModels();
-//    _<ServerConnection>().EnsureConnected();
+  _<ServerConnection>().EnsureConnected();
   _<InstructionsManager>();
 }
 
@@ -49,7 +50,7 @@ void Engine::Run() {
       _<SceneEngine>().RenderCurrentScene();
       _<FPSCounter>().Render();
       _<Cursor>().Render();
-      //_<ServerConnection>().Update();
+      _<ServerConnection>().Update();
       _<InstructionsManager>().PerformInstructions();
       _<Graphics>().PresentCanvas();
     }
@@ -88,16 +89,38 @@ void Engine::PollEvents() {
       _<KeyboardInput>().RegisterKeyRelease(event.key.keysym.sym);
       break;
     case SDL_MOUSEBUTTONDOWN:
+      switch (event.button.button) {
+      case SDL_BUTTON_LEFT:
+        _<ServerConnection>().SendMessage("LeftMouseButtonPressed");
+        break;
+      case SDL_BUTTON_RIGHT:
+        _<ServerConnection>().SendMessage("RightMouseButtonPressed");
+        break;
+      }
       _<MouseInput>().RegisterButtonPressed(event.button.button);
       break;
     case SDL_MOUSEBUTTONUP:
+      switch (event.button.button) {
+      case SDL_BUTTON_LEFT:
+        _<ServerConnection>().SendMessage("LeftMouseButtonReleased");
+        break;
+      case SDL_BUTTON_RIGHT:
+        _<ServerConnection>().SendMessage("RightMouseButtonReleased");
+        break;
+      }
       _<MouseInput>().RegisterButtonReleased(event.button.button);
       break;
-    case SDL_MOUSEMOTION:
+    case SDL_MOUSEMOTION: {
+      auto mousePosition = GetMousePosition();
+      _<ServerConnection>().SendMessage(
+        "MouseMove\n" +
+        std::to_string(mousePosition.x) + "\n" +
+        std::to_string(mousePosition.y));
       _<MouseInput>().RegisterMouseMoved(
         {event.motion.xrel,
          event.motion.yrel});
       break;
+    }
     case SDL_TEXTINPUT:
       _<KeyboardInput>().AppendTextInput(event.text.text);
       break;

@@ -1,9 +1,9 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "MouseRotation.hpp"
-#include "theme_0/scenes/main_scene/modules/world_view_module/Camera.hpp"
-#include "game/core/input/mouse/MouseInput.hpp"
+#include "mouse_rotation.hpp"
+#include "theme_0/scenes/main_scene/modules/world_view_module/camera.hpp"
+#include "game/core/input/mouse/mouse_input.hpp"
 
 namespace JoD {
 void MouseRotation::Update() {

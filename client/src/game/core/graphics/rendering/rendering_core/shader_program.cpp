@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "ShaderProgram.hpp"
+#include "shader_program.hpp"
 
 namespace JoD {
 bool ShaderProgram::Create(const GLchar *vertexShaderSource,

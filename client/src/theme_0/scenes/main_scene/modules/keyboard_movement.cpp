@@ -1,9 +1,9 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "KeyboardMovement.hpp"
-#include "game/core/input/keyboard/KeyboardInput.hpp"
-#include "game/core/core_game_objects/Player.hpp"
+#include "keyboard_movement.hpp"
+#include "game/core/input/keyboard/keyboard_input.hpp"
+#include "game/core/core_game_objects/player.hpp"
 
 namespace JoD {
 void KeyboardMovement::Update() {

@@ -1,10 +1,10 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "GUIButton.hpp"
-#include "game/core/input/mouse/MouseInput.hpp"
-#include "game/core/input/mouse/MouseButton.hpp"
-#include "game/core/Engine.hpp"
+#include "gui_button.hpp"
+#include "game/core/input/mouse/mouse_input.hpp"
+#include "game/core/input/mouse/mouse_button.hpp"
+#include "game/core/engine.hpp"
 
 namespace JoD {
 GUIButton::GUIButton(std::string_view text, BoxF area,

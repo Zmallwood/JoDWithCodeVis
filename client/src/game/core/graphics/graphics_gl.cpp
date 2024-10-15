@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "GraphicsGL.hpp"
+#include "graphics_gl.hpp"
 
 namespace JoD {
 GraphicsGL::GraphicsGL() {

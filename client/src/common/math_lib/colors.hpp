@@ -2,7 +2,7 @@
  * Copyright 2024 Andreas Åkerberg
  */
 #pragma once
-#include "ColorF.hpp"
+#include "color_f.hpp"
 
 namespace JoD {
 namespace Colors {

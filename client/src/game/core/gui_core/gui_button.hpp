@@ -3,7 +3,7 @@
  */
 #pragma once
 
-#include "GUIComponent.hpp"
+#include "gui_component.hpp"
 
 namespace JoD {
 class GUIButton : public GUIComponent {

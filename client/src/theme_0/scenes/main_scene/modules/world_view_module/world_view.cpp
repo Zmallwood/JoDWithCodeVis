@@ -1,16 +1,16 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "WorldView.hpp"
-#include "game/core/graphics/rendering/ground_rendering/GroundRenderer.hpp"
-#include "sub_painters/GroundSurfacePainter.hpp"
-#include "Camera.hpp"
-#include "game/core/core_game_objects/Player.hpp"
-#include "game/core/world_structure/World.hpp"
-#include "game/core/world_structure/WorldArea.hpp"
-#include "game/core/world_structure/Tile.hpp"
-#include "WorldViewConfiguration.hpp"
-#include "game/core/graphics/rendering/CameraGL.hpp"
+#include "world_view.hpp"
+#include "game/core/graphics/rendering/ground_rendering/ground_renderer.hpp"
+#include "sub_painters/ground_surface_painter.hpp"
+#include "camera.hpp"
+#include "game/core/core_game_objects/player.hpp"
+#include "game/core/world_structure/world.hpp"
+#include "game/core/world_structure/world_area.hpp"
+#include "game/core/world_structure/tile.hpp"
+#include "world_view_configuration.hpp"
+#include "game/core/graphics/rendering/camera_gl.hpp"
 
 namespace JoD {
 void WorldView::Initialize() const {

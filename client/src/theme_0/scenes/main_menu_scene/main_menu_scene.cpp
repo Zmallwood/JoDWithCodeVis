@@ -1,10 +1,10 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "MainMenuScene.hpp"
-#include "game/core/gui_core/GUI.hpp"
-#include "game/core/gui_core/GUIButton.hpp"
-#include "game/core/scenes_core/SceneEngine.hpp"
+#include "main_menu_scene.hpp"
+#include "game/core/gui_core/gui.hpp"
+#include "game/core/gui_core/gui_button.hpp"
+#include "game/core/scenes_core/scene_engine.hpp"
 
 namespace JoD {
 MainMenuScene::MainMenuScene() {

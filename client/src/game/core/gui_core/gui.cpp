@@ -1,6 +1,6 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "GUI.hpp"
+#include "gui.hpp"
 
 namespace JoD {}

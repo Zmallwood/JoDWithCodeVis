@@ -1,8 +1,8 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "IntroScene.hpp"
-#include "game/core/scenes_core/SceneEngine.hpp"
+#include "intro_scene.hpp"
+#include "game/core/scenes_core/scene_engine.hpp"
 
 namespace JoD {
 IntroScene::IntroScene() {

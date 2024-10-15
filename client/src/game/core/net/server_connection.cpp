@@ -1,8 +1,8 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "ServerConnection.hpp"
-#include "game/core/instructions/InstructionsManager.hpp"
+#include "server_connection.hpp"
+#include "game/core/instructions/instructions_manager.hpp"
 
 namespace JoD {
 void ServerConnection::EnsureConnected() {
@@ -26,7 +26,6 @@ void ServerConnection::Update() {
     send(m_clientSocket, message.c_str(), message.length(), 0);
     char buffer[1024] = {0};
     recv(m_clientSocket, buffer, sizeof(buffer), 0);
-    std::cout << "Recieved: " << buffer << std::endl;
     auto s = std::string(buffer);
     auto delim = s.find("\n");
     auto s2 = s.substr(delim + 1);
@@ -48,10 +47,6 @@ void ServerConnection::Update() {
     auto delim4 = remaining4.find(",");
     auto h = std::stof(remaining4.substr(0, delim4));
     
-    std::cout << "Draw image with name: " << imageName << " x: " << x <<
-      " y: " << y << " w: " << w << " h: " << h
-              << std::endl;
-    
     _<InstructionsManager>().Clear();
     _<InstructionsManager>().AddImageDrawInstruction(
       Hash(imageName),
@@ -69,11 +64,17 @@ bool ServerConnection::LoginUser(std::string_view userName, int passwordHash) {
   std::string end = "<END>";
   auto start_position_to_erase = s.find(end);
   s.erase(start_position_to_erase, end.length());
-  std::cout << "Received: " << s<< std::endl;
   if (s == "LoginSuccessful")
     return true;
   else
     return false;
+}
+
+void ServerConnection::SendMessage(std::string_view message) {
+  auto terminatedMessage = std::string(message.data()) + "<END>";
+  send(
+    m_clientSocket, terminatedMessage.c_str(), terminatedMessage.length(),
+    0);
 }
 
 ServerConnection::~ServerConnection() {

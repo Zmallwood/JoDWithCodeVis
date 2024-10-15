@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "KeyboardInput.hpp"
+#include "keyboard_input.hpp"
 
 namespace JoD {
 void KeyboardInput::Reset() {

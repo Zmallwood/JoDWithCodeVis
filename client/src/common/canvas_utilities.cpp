@@ -1,8 +1,8 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "CanvasUtilities.hpp"
-#include "game/core/graphics/Graphics.hpp"
+#include "canvas_utilities.hpp"
+#include "game/core/graphics/graphics.hpp"
 
 namespace JoD {
 Size GetCanvasSize() {

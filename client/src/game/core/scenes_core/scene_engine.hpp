@@ -2,7 +2,7 @@
  * Copyright 2024 Andreas Åkerberg.
  */
 #pragma once
-#include "IScene.hpp"
+#include "i_scene.hpp"
 
 namespace JoD {
 class SceneEngine {

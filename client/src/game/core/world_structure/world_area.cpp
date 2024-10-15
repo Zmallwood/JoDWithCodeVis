@@ -1,8 +1,8 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "WorldArea.hpp"
-#include "Tile.hpp"
+#include "world_area.hpp"
+#include "tile.hpp"
 
 namespace JoD {
 WorldArea::WorldArea(Size size) {

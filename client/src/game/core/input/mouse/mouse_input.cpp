@@ -1,8 +1,8 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "MouseInput.hpp"
-#include "MouseButton.hpp"
+#include "mouse_input.hpp"
+#include "mouse_button.hpp"
 
 namespace JoD {
 MouseInput::MouseInput()

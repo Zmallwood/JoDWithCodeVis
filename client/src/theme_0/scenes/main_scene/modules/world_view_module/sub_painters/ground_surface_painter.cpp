@@ -1,10 +1,10 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "GroundSurfacePainter.hpp"
-#include "theme_0/scenes/main_scene/modules/world_view_module/WorldView.hpp"
-#include "game/core/world_structure/Tile.hpp"
-#include "game/core/graphics/rendering/ground_rendering/GroundRenderer.hpp"
+#include "ground_surface_painter.hpp"
+#include "theme_0/scenes/main_scene/modules/world_view_module/world_view.hpp"
+#include "game/core/world_structure/tile.hpp"
+#include "game/core/graphics/rendering/ground_rendering/ground_renderer.hpp"
 
 namespace JoD {
 void GroundSurfacePainter::Initialize() {

@@ -2,8 +2,8 @@
  * Copyright 2024 Andreas Åkerberg
  */
 #pragma once
-#include "GLBoxF.hpp"
-#include "Point2F.hpp"
+#include "gl_box_f.hpp"
+#include "point2_f.hpp"
 
 namespace JoD {
 class BoxF {

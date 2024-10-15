@@ -1,13 +1,13 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "SceneEngine.hpp"
-#include "game/core/Engine.hpp"
-#include "theme_0/scenes/intro_scene/IntroScene.hpp"
-#include "theme_0/scenes/main_menu_scene/MainMenuScene.hpp"
-#include "theme_0/scenes/login_scene/LoginScene.hpp"
-#include "theme_0/scenes/world_generation_scene/WorldGenerationScene.hpp"
-#include "theme_0/scenes/main_scene/MainScene.hpp"
+#include "scene_engine.hpp"
+#include "game/core/engine.hpp"
+#include "theme_0/scenes/intro_scene/intro_scene.hpp"
+#include "theme_0/scenes/main_menu_scene/main_menu_scene.hpp"
+#include "theme_0/scenes/login_scene/login_scene.hpp"
+#include "theme_0/scenes/world_generation_scene/world_generation_scene.hpp"
+#include "theme_0/scenes/main_scene/main_scene.hpp"
 
 namespace JoD {
 void SceneEngine::AddScene(std::string_view sceneName, IScene& scene) {

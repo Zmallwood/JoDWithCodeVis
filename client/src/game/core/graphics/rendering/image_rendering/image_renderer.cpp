@@ -1,11 +1,11 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "ImageRenderer.hpp"
-#include "game/core/graphics/rendering/rendering_core/ShaderProgram.hpp"
-#include "shader_images/ShaderImagesFragment.hpp"
-#include "shader_images/ShaderImagesVertex.hpp"
-#include "game/core/Engine.hpp"
+#include "image_renderer.hpp"
+#include "game/core/graphics/rendering/rendering_core/shader_program.hpp"
+#include "shader_images/shader_images_fragment.hpp"
+#include "shader_images/shader_images_vertex.hpp"
+#include "game/core/engine.hpp"
 
 namespace JoD {
 ImageRenderer::ImageRenderer() {

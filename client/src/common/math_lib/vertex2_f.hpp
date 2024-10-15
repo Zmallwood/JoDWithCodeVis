@@ -2,8 +2,8 @@
  * Copyright 2024 Andreas Åkerberg
  */
 #pragma once
-#include "ColorF.hpp"
-#include "Point2F.hpp"
+#include "color_f.hpp"
+#include "point2_f.hpp"
 
 namespace JoD {
 class Vertex2F {

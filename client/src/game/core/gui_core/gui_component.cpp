@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "GUIComponent.hpp"
+#include "gui_component.hpp"
 
 namespace JoD {
 void GUIComponent::Update() {

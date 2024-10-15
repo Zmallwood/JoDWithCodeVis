@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "Tile.hpp"
+#include "tile.hpp"
 
 namespace JoD {
 void Tile::SetGroundType(std::string_view groundTypeName) {

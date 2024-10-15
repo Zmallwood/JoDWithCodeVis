@@ -1,9 +1,9 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "Player.hpp"
+#include "player.hpp"
 #include \
-  "theme_0/scenes/main_scene/modules/world_view_module/WorldViewConfiguration.hpp"
+  "theme_0/scenes/main_scene/modules/world_view_module/world_view_configuration.hpp"
 
 namespace JoD {
 void Player::MoveNorth() {

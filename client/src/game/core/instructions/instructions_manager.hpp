@@ -2,7 +2,7 @@
  * Copyright 2024 Andreas Åkerberg.
  */
 #pragma once
-#include "ImageDrawInstruction.hpp"
+#include "image_draw_instruction.hpp"
 
 namespace JoD {
 class InstructionsManager {

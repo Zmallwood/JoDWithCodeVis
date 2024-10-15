@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg
  */
-#include "BoxF.hpp"
+#include "box_f.hpp"
 
 namespace JoD {
 GLBoxF BoxF::ToGLBoxF() const {

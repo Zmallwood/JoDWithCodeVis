@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "Trigonometry.hpp"
+#include "trigonometry.hpp"
 
 namespace JoD {
 float SinDegrees(float angleDegrees) {

@@ -1,8 +1,8 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "InstructionsManager.hpp"
-#include "game/core/graphics/rendering/image_rendering/ImageRenderer.hpp"
+#include "instructions_manager.hpp"
+#include "game/core/graphics/rendering/image_rendering/image_renderer.hpp"
 
 namespace JoD {
 InstructionsManager::InstructionsManager() {

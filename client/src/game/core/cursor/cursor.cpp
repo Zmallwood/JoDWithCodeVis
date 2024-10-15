@@ -1,8 +1,8 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "Cursor.hpp"
-#include "game/core/Engine.hpp"
+#include "cursor.hpp"
+#include "game/core/engine.hpp"
 
 namespace JoD {
 Cursor::Cursor() {

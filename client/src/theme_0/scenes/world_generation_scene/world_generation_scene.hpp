@@ -2,7 +2,7 @@
  * Copyright 2024 Andreas Åkerberg.
  */
 #pragma once
-#include "game/core/scenes_core/IScene.hpp"
+#include "game/core/scenes_core/i_scene.hpp"
 
 namespace JoD {
 class WorldGenerationScene : public IScene {

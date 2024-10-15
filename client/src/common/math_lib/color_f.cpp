@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg
  */
-#include "ColorF.hpp"
+#include "color_f.hpp"
 
 namespace JoD {
 SDL_Color ColorF::ToSDLColor() const {

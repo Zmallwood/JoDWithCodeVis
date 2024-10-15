@@ -1,8 +1,8 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "World.hpp"
-#include "WorldArea.hpp"
+#include "world.hpp"
+#include "world_area.hpp"
 
 namespace JoD {
 void World::EnsureCreated(Size worldAreaSize) {

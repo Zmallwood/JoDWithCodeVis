@@ -1,13 +1,13 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "WorldGenerator.hpp"
-#include "game/core/world_structure/World.hpp"
-#include "game/core/world_structure/WorldArea.hpp"
-#include "game/core/world_structure/Tile.hpp"
-#include "game/core/graphics/rendering/ground_rendering/GroundRenderer.hpp"
+#include "world_generator.hpp"
+#include "game/core/world_structure/world.hpp"
+#include "game/core/world_structure/world_area.hpp"
+#include "game/core/world_structure/tile.hpp"
+#include "game/core/graphics/rendering/ground_rendering/ground_renderer.hpp"
 #include \
-  "theme_0/scenes/main_scene/modules/world_view_module/WorldViewConfiguration.hpp"
+  "theme_0/scenes/main_scene/modules/world_view_module/world_view_configuration.hpp"
 
 namespace JoD {
 void WorldGenerator::GenerateWorld(Size worldAreaSize) const {

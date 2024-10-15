@@ -1,8 +1,8 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "IScene.hpp"
-#include "game/core/gui_core/GUI.hpp"
+#include "i_scene.hpp"
+#include "game/core/gui_core/gui.hpp"
 
 namespace JoD {
 IScene::IScene()

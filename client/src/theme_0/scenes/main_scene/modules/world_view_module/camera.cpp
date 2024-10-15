@@ -1,14 +1,14 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "Camera.hpp"
-#include "game/core/graphics/rendering/CameraGL.hpp"
-#include "game/core/input/mouse/MouseInput.hpp"
-#include "game/core/core_game_objects/Player.hpp"
-#include "game/core/world_structure/World.hpp"
-#include "game/core/world_structure/WorldArea.hpp"
-#include "game/core/world_structure/Tile.hpp"
-#include "WorldViewConfiguration.hpp"
+#include "camera.hpp"
+#include "game/core/graphics/rendering/camera_gl.hpp"
+#include "game/core/input/mouse/mouse_input.hpp"
+#include "game/core/core_game_objects/player.hpp"
+#include "game/core/world_structure/world.hpp"
+#include "game/core/world_structure/world_area.hpp"
+#include "game/core/world_structure/tile.hpp"
+#include "world_view_configuration.hpp"
 
 namespace JoD {
 Camera::Camera() {

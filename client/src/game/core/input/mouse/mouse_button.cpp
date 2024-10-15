@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "MouseButton.hpp"
+#include "mouse_button.hpp"
 
 namespace JoD {
 void MouseButton::Reset() {

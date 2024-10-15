@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg
  */
-#include "ModelPartKeyframeCreator.hpp"
+#include "model_part_keyframe_creator.hpp"
 
 namespace JoD {
 aiVectorKey ModelPartKeyframeCreator::GetPositionKeyframe(

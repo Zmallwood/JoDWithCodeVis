@@ -1,8 +1,8 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "Timer.hpp"
-#include "common/Aliases.hpp"
+#include "timer.hpp"
+#include "common/aliases.hpp"
 
 namespace JoD {
 Timer::Timer(float& tickSpeed)

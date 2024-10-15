@@ -1,11 +1,11 @@
 /*
  * Copyright 2024 Andreas Åkerberg
  */
-#include "ModelPartCreator.hpp"
-#include "game/core/model_structure/ModelPart.hpp"
-#include "game/core/model_structure/ModelPartKeyframe.hpp"
-#include "game/core/model_structure/ModelPartTimeline.hpp"
-#include "ModelPartKeyframeCreator.hpp"
+#include "model_part_creator.hpp"
+#include "game/core/model_structure/model_part.hpp"
+#include "game/core/model_structure/model_part_keyframe.hpp"
+#include "game/core/model_structure/model_part_timeline.hpp"
+#include "model_part_keyframe_creator.hpp"
 
 namespace JoD {
 std::shared_ptr<ModelPart> ModelPartCreator::CreateModelPartFromMesh(

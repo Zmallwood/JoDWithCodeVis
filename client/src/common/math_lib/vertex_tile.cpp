@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg
  */
-#include "VertexTile.hpp"
+#include "vertex_tile.hpp"
 
 namespace JoD {
 VertexTile::VertexTile() {

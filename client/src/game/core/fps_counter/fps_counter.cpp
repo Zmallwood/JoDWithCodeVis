@@ -1,8 +1,8 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "FPSCounter.hpp"
-#include "game/core/Engine.hpp"
+#include "fps_counter.hpp"
+#include "game/core/engine.hpp"
 
 namespace JoD {
 FPSCounter::FPSCounter() {

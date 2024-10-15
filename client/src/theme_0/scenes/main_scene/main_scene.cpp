@@ -1,11 +1,11 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "MainScene.hpp"
-#include "modules/world_view_module/WorldView.hpp"
-#include "game/core/scenes_core/SceneEngine.hpp"
-#include "modules/mouse_rotation_module/MouseRotation.hpp"
-#include "modules/KeyboardMovement.hpp"
+#include "main_scene.hpp"
+#include "modules/world_view_module/world_view.hpp"
+#include "game/core/scenes_core/scene_engine.hpp"
+#include "modules/mouse_rotation_module/mouse_rotation.hpp"
+#include "modules/keyboard_movement.hpp"
 
 namespace JoD {
 void MainScene::OnEnterDerived() {

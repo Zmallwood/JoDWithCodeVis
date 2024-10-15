@@ -1,7 +1,7 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "SDLDeleter.hpp"
+#include "sdl_deleter.hpp"
 
 namespace JoD {
 void SDLDeleter::operator()(SDL_Window *window) const {

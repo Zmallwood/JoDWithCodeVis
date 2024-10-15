@@ -1,9 +1,9 @@
 /*
  * Copyright 2024 Andreas Åkerberg.
  */
-#include "WorldGenerationScene.hpp"
-#include "modules/world_generation/WorldGenerator.hpp"
-#include "game/core/scenes_core/SceneEngine.hpp"
+#include "world_generation_scene.hpp"
+#include "modules/world_generation/world_generator.hpp"
+#include "game/core/scenes_core/scene_engine.hpp"
 
 namespace JoD {
 WorldGenerationScene::WorldGenerationScene() {}

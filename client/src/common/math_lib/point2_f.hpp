@@ -2,7 +2,7 @@
  * Copyright 2024 Andreas Åkerberg
  */
 #pragma once
-#include "Point2.hpp"
+#include "point2.hpp"
 
 namespace JoD {
 class Point2F {

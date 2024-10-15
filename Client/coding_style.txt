@@ -1,0 +1,2 @@
+Use PascalCase for names of folders and files, but snake_case in the actual source code.
+

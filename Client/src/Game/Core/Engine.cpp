@@ -20,7 +20,7 @@ namespace JoD {
 Engine::Engine() {
     SDL_Init(SDL_INIT_EVERYTHING);
     _<Graphics>();
-    _<ServerConnection>().EnsureConnected();
+//    _<ServerConnection>().EnsureConnected();
     _<InstructionsManager>();
 }
 
@@ -48,7 +48,7 @@ void Engine::Run() {
             _<SceneEngine>().RenderCurrentScene();
             _<FPSCounter>().Render();
             _<Cursor>().Render();
-            _<ServerConnection>().Update();
+            //_<ServerConnection>().Update();
             _<InstructionsManager>().PerformInstructions();
             _<Graphics>().PresentCanvas();
         }

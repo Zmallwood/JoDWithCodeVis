@@ -1,4 +1,4 @@
-#include "Game/Game.hpp"
+#include "game/Game.hpp"
 
 int main(int argc, char * argv[]) {
     JoD::Game game;

@@ -26,10 +26,8 @@ class ClientConnection (BaseModel):
                         break
 
                     message_data_processer = MessageDataProcesser()
-                    message_data_processer.process_data(self.conn, data)
+                    message_data_processer.process_data(self.conn, data, user_game_instance)
 
-                    self.conn.send(b"Tessst from scoket")
-                    
                     user_game_instance.process()
 
                 except ConnectionResetError:

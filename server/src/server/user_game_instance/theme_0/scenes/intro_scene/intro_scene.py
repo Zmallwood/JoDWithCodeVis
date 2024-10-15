@@ -8,7 +8,8 @@ if TYPE_CHECKING:
 class IntroScene(IScene):
     
     def update_derived(self, user_game_instance : UserGameInstance) -> None:
-        pass
+        if user_game_instance.mouse_input.left_button.is_pressed:
+            user_game_instance.engine.scene_engine.current_scene = "MainMenuScene"
 
     def render_derived(self, user_game_instance : UserGameInstance) -> None:
         user_game_instance.instructions_manager.instructions.append("DefaultSceneBackground,0.0f,0.0f,1.0f,1.0f")

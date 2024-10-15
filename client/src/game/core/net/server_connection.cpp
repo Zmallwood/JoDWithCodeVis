@@ -27,13 +27,14 @@ void ServerConnection::Update() {
     char buffer[1024] = {0};
     recv(m_clientSocket, buffer, sizeof(buffer), 0);
     auto s = std::string(buffer);
-    auto delim = s.find("\n");
-    auto s2 = s.substr(delim + 1);
+    auto label = std::string("ProvideFullUpdate\n");
+    auto delim = s.find(label);
+    auto s2 = s.substr(delim + label.length());
     auto end = s2.find("<END>");
     s2 = s2.substr(0,end);
     
     _<InstructionsManager>().Clear();
-    auto go_on {true};
+    auto go_on {s2.length() > 0};
     
     while (go_on) {
       auto delim0 = s2.find(",");
